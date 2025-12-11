@@ -1,0 +1,372 @@
+/* ndma-ui Badge Component */
+
+.ndma-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: var(--radius);
+  transition: all var(--transition-fast);
+}
+
+.ndma-badge:empty {
+  display: none;
+}
+
+/* Badge variants */
+.ndma-badge--primary {
+  color: white;
+  background-color: var(--ndma-blue);
+}
+
+.ndma-badge--secondary {
+  color: white;
+  background-color: var(--ndma-gray);
+}
+
+.ndma-badge--success {
+  color: white;
+  background-color: #28a745;
+}
+
+.ndma-badge--info {
+  color: white;
+  background-color: #17a2b8;
+}
+
+.ndma-badge--warning {
+  color: white;
+  background-color: var(--ndma-orange);
+}
+
+.ndma-badge--danger {
+  color: white;
+  background-color: #dc3545;
+}
+
+.ndma-badge--light {
+  color: #212529;
+  background-color: #f8f9fa;
+  border: 1px solid var(--border-color);
+}
+
+.ndma-badge--dark {
+  color: white;
+  background-color: #343a40;
+}
+
+/* Outline badges */
+.ndma-badge--outline {
+  background-color: transparent;
+  border: 1px solid;
+}
+
+.ndma-badge--outline.ndma-badge--primary {
+  color: var(--ndma-blue);
+  border-color: var(--ndma-blue);
+}
+
+.ndma-badge--outline.ndma-badge--secondary {
+  color: var(--ndma-gray);
+  border-color: var(--ndma-gray);
+}
+
+.ndma-badge--outline.ndma-badge--success {
+  color: #28a745;
+  border-color: #28a745;
+}
+
+.ndma-badge--outline.ndma-badge--info {
+  color: #17a2b8;
+  border-color: #17a2b8;
+}
+
+.ndma-badge--outline.ndma-badge--warning {
+  color: var(--ndma-orange);
+  border-color: var(--ndma-orange);
+}
+
+.ndma-badge--outline.ndma-badge--danger {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+.ndma-badge--outline.ndma-badge--dark {
+  color: #343a40;
+  border-color: #343a40;
+}
+
+/* Pill badges */
+.ndma-badge--pill {
+  border-radius: 50px;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+/* Badge sizes */
+.ndma-badge--sm {
+  padding: 0.125rem 0.375rem;
+  font-size: 0.6875rem;
+}
+
+.ndma-badge--lg {
+  padding: 0.375rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.ndma-badge--xl {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+/* Square badges */
+.ndma-badge--square {
+  border-radius: 0;
+}
+
+/* Rounded badges */
+.ndma-badge--rounded {
+  border-radius: var(--radius-lg);
+}
+
+/* Badge with icon */
+.ndma-badge--icon {
+  gap: 0.25rem;
+}
+
+.ndma-badge--icon .ndma-badge__icon {
+  font-size: 0.875em;
+}
+
+/* Positionable badges (for indicators) */
+.ndma-badge--top-right {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  transform: translate(50%, -50%);
+  z-index: 1;
+}
+
+.ndma-badge--top-left {
+  position: absolute;
+  top: -0.5rem;
+  left: -0.5rem;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.ndma-badge--bottom-right {
+  position: absolute;
+  bottom: -0.5rem;
+  right: -0.5rem;
+  transform: translate(50%, 50%);
+  z-index: 1;
+}
+
+.ndma-badge--bottom-left {
+  position: absolute;
+  bottom: -0.5rem;
+  left: -0.5rem;
+  transform: translate(-50%, 50%);
+  z-index: 1;
+}
+
+/* NDMA specific badges */
+.ndma-badge--mission {
+  background: linear-gradient(135deg, var(--ndma-orange) 0%, #d46800 100%);
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 4px rgba(230, 122, 0, 0.3);
+}
+
+.ndma-badge--mission:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(230, 122, 0, 0.4);
+}
+
+.ndma-badge--emergency {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: emergency-badge-pulse 2s infinite;
+}
+
+@keyframes emergency-badge-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(220, 53, 69, 0);
+  }
+}
+
+.ndma-badge--status {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: var(--font-weight-bold);
+}
+
+.ndma-badge--status.active {
+  background-color: #28a745;
+  color: white;
+  animation: status-active-pulse 2s infinite;
+}
+
+.ndma-badge--status.warning {
+  background-color: var(--ndma-orange);
+  color: white;
+}
+
+.ndma-badge--status.critical {
+  background-color: #dc3545;
+  color: white;
+  animation: status-critical-flash 1s infinite;
+}
+
+@keyframes status-active-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes status-critical-flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Priority badges */
+.ndma-badge--priority {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: var(--font-weight-bold);
+}
+
+.ndma-badge--priority.low {
+  background-color: rgba(40, 167, 69, 0.1);
+  color: #28a745;
+  border: 1px solid #28a745;
+}
+
+.ndma-badge--priority.medium {
+  background-color: rgba(230, 122, 0, 0.1);
+  color: var(--ndma-orange);
+  border: 1px solid var(--ndma-orange);
+}
+
+.ndma-badge--priority.high {
+  background-color: rgba(255, 193, 7, 0.1);
+  color: #ffc107;
+  border: 1px solid #ffc107;
+}
+
+.ndma-badge--priority.critical {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: #dc3545;
+  border: 1px solid #dc3545;
+  animation: priority-critical-pulse 1s infinite;
+}
+
+@keyframes priority-critical-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 5px rgba(220, 53, 69, 0);
+  }
+}
+
+/* Badge in navigation */
+.ndma-nav-badge {
+  position: relative;
+}
+
+.ndma-nav-badge .ndma-badge {
+  position: absolute;
+  top: 0;
+  right: -0.75rem;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  padding: 0 0.375rem;
+  font-size: 0.6875rem;
+  line-height: 1.25rem;
+}
+
+/* Badge counters */
+.ndma-badge-counter {
+  min-width: 2rem;
+  height: 2rem;
+  padding: 0 0.5rem;
+  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+}
+
+/* Badge groups */
+.ndma-badge-group {
+  display: inline-flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
+.ndma-badge-group .ndma-badge {
+  margin: 0;
+}
+
+/* Badge with dot indicator */
+.ndma-badge--dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  padding: 0;
+  border-radius: 50%;
+  min-width: auto;
+}
+
+.ndma-badge--dot.ndma-badge--sm {
+  width: 0.375rem;
+  height: 0.375rem;
+}
+
+.ndma-badge--dot.ndma-badge--lg {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+/* Interactive badges */
+.ndma-badge--interactive {
+  cursor: pointer;
+}
+
+.ndma-badge--interactive:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.ndma-badge--interactive:active {
+  transform: scale(0.95);
+}
+
+/* Responsive badges */
+@media (max-width: 768px) {
+  .ndma-badge {
+    font-size: 0.6875rem;
+    padding: 0.1875rem 0.375rem;
+  }
+  
+  .ndma-badge--lg {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+  
+  .ndma-badge--xl {
+    font-size: 0.875rem;
+    padding: 0.375rem 0.75rem;
+  }
+}

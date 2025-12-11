@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ja" class="ndma-theme-default">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NDMA-UI CSSフレームワーク デモ</title>
+    <link rel="stylesheet" href="../dist/ndma.css">
+    <style>
+        /* Demo specific styles */
+        .demo-section {
+            margin: var(--spacing-xl) 0;
+            padding: var(--spacing-lg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+        }
+        .demo-title {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-lg);
+            color: var(--ndma-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+        .demo-item {
+            padding: var(--spacing-md);
+            background-color: var(--bg-secondary);
+            border-radius: var(--radius);
+        }
+        .demo-item-title {
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+        }
+        /* Theme switcher fixed position */
+        .theme-switcher-fixed {
+            position: fixed;
+            top: var(--spacing-md);
+            right: var(--spacing-md);
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Switcher -->
+    <div class="theme-switcher-fixed">
+        <div class="ndma-theme-switcher">
+            <button class="ndma-theme-switcher__btn ndma-theme-switcher__btn--active" onclick="setTheme('default')">Default</button>
+            <button class="ndma-theme-switcher__btn" onclick="setTheme('dark')">Dark</button>
+            <button class="ndma-theme-switcher__btn" onclick="setTheme('ops')">Night Ops</button>
+        </div>
+    </div>
+
+    <!-- NDMA Header -->
+    <header class="ndma-header">
+        <div class="ndma-container">
+            <div class="ndma-header__content">
+                <a href="#" class="ndma-header__logo">
+                    <div class="ndma-header__logo-icon">NDMA</div>
+                    <span>国家防災管理機構</span>
+                </a>
+                <nav class="ndma-header__nav">
+                    <a href="#" class="ndma-header__nav-link">ダッシュボード</a>
+                    <a href="#" class="ndma-header__nav-link">災害情報</a>
+                    <a href="#" class="ndma-header__nav-link">ミッション</a>
+                    <a href="#" class="ndma-header__nav-link">設定</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="ndma-container">
+        <h1 class="demo-title">NDMA-UI CSSフレームワーク デモ</h1>
+        
+        <!-- Banner -->
+        <div class="ndma-banner ndma-banner--emergency ndma-banner--dismissible">
+            <div class="ndma-banner__content">
+                <div class="ndma-banner__icon">⚠️</div>
+                <div class="ndma-banner__text">
+                    <div class="ndma-banner__title">緊急警報</div>
+                    <div class="ndma-banner__message">大規模地震警報が発令されました。直ちに避難準備をしてください。</div>
+                </div>
+            </div>
+            <div class="ndma-banner__actions">
+                <button class="ndma-btn ndma-btn--primary">詳細確認</button>
+            </div>
+            <button class="ndma-banner__close" onclick="this.parentElement.style.display='none'">×</button>
+        </div>
+
+        <!-- Grid Layout -->
+        <section class="demo-section">
+            <h2 class="demo-title">グリッドレイアウト</h2>
+            <div class="ndma-grid ndma-grid-cols-4">
+                <div class="ndma-card">
+                    <div class="ndma-card__body">
+                        <p>列 1</p>
+                    </div>
+                </div>
+                <div class="ndma-card">
+                    <div class="ndma-card__body">
+                        <p>列 2</p>
+                    </div>
+                </div>
+                <div class="ndma-card">
+                    <div class="ndma-card__body">
+                        <p>列 3</p>
+                    </div>
+                </div>
+                <div class="ndma-card">
+                    <div class="ndma-card__body">
+                        <p>列 4</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Buttons -->
+        <section class="demo-section">
+            <h2 class="demo-title">ボタン</h2>
+            <div class="demo-grid">
+                <div class="demo-item">
+                    <div class="demo-item-title">基本ボタン</div>
+                    <button class="ndma-btn ndma-btn--primary">Primary</button>
+                    <button class="ndma-btn ndma-btn--secondary">Secondary</button>
+                    <button class="ndma-btn ndma-btn--danger">Danger</button>
+                </div>
+                <div class="demo-item">
+                    <div class="demo-item-title">NDMA専用ボタン</div>
+                    <button class="ndma-btn ndma-btn--mission">ミッション開始</button>
+                    <button class="ndma-btn ndma-btn--emergency">緊急停止</button>
+                </div>
+                <div class="demo-item">
+                    <div class="demo-item-title">Night Ops専用</div>
+                    <button class="ndma-btn ndma-btn--tactical">Tactical</button>
+                    <button class="ndma-btn ndma-btn--danger">Warning</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Status Tags -->
+        <section class="demo-section">
+            <h2 class="demo-title">ステータスタグ</h2>
+            <div class="demo-grid">
+                <div class="demo-item">
+                    <div class="demo-item-title">災害レベル</div>
+                    <div class="ndma-status-tag ndma-status-tag--level-1">レベル1 - 注意</div>
+                    <div class="ndma-status-tag ndma-status-tag--level-2">レベル2 - 警戒</div>
+                    <div class="ndma-status-tag ndma-status-tag--level-3">レベル3 - 警報</div>
+                    <div class="ndma-status-tag ndma-status-tag--level-4">レベル4 - 非常事態</div>
+                    <div class="ndma-status-tag ndma-status-tag--level-5">レベル5 - 災害発生</div>
+                </div>
+                <div class="demo-item">
+                    <div class="demo-item-title">ミッション優先度</div>
+                    <div class="ndma-mission-priority">低</div>
+                    <div class="ndma-mission-priority">中</div>
+                    <div class="ndma-mission-priority ndma-mission-priority--high">高</div>
+                    <div class="ndma-mission-priority ndma-mission-priority--critical">緊急</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Disaster Table -->
+        <section class="demo-section">
+            <h2 class="demo-title">災害状況テーブル</h2>
+            <div class="ndma-table-responsive">
+                <table class="ndma-table ndma-table--disaster">
+                    <thead>
+                        <tr>
+                            <th>地域</th>
+                            <th>災害種別</th>
+                            <th>レベル</th>
+                            <th>状況</th>
+                            <th>更新時刻</th>
+                            <th>アクション</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>東京都</td>
+                            <td>地震</td>
+                            <td><span class="ndma-status-tag ndma-status-tag--level-4">レベル4</span></td>
+                            <td><span class="status-cell"><span class="status-indicator status-indicator--danger"></span> 確認中</span></td>
+                            <td>14:30</td>
+                            <td>
+                                <div class="ndma-table-actions">
+                                    <button class="ndma-btn ndma-btn--sm ndma-btn--primary">詳細</button>
+                                    <button class="ndma-btn ndma-btn--sm ndma-btn--danger">対応</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>大阪府</td>
+                            <td>台風</td>
+                            <td><span class="ndma-status-tag ndma-status-tag--level-3">レベル3</span></td>
+                            <td><span class="status-cell"><span class="status-indicator status-indicator--warning"></span> 監視中</span></td>
+                            <td>14:15</td>
+                            <td>
+                                <div class="ndma-table-actions">
+                                    <button class="ndma-btn ndma-btn--sm ndma-btn--primary">詳細</button>
+                                    <button class="ndma-btn ndma-btn--sm ndma-btn--secondary">更新</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>福岡県</td>
+                            <td>豪雨</td>
+                            <td><span class="ndma-status-tag ndma-status-tag--level-2">レベル2</span></td>
+                            <td><span class="status-cell"><span class="status-indicator status-indicator--active"></span> 安定</span></td>
+                            <td>13:45</td>
+                            <td>
+                                <div class="ndma-table-actions">
+                                    <button class="ndma-btn ndma-btn--sm ndma-btn--primary">詳細</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Forms -->
+        <section class="demo-section">
+            <h2 class="demo-title">フォーム（ログイン）</h2>
+            <div class="demo-grid">
+                <div class="demo-item">
+                    <form class="ndma-form--mission">
+                        <div class="ndma-form-group">
+                            <label class="ndma-form-label required">ユーザーID</label>
+                            <input type="text" class="ndma-form-control" placeholder="NDMA-IDを入力">
+                        </div>
+                        <div class="ndma-form-group">
+                            <label class="ndma-form-label required">パスワード</label>
+                            <input type="password" class="ndma-form-control" placeholder="パスワードを入力">
+                        </div>
+                        <div class="ndma-form-group">
+                            <div class="ndma-form-check">
+                                <input class="ndma-form-check-input" type="checkbox" id="remember">
+                                <label class="ndma-form-check-label" for="remember">ログイン状態を保持</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="ndma-btn ndma-btn--primary ndma-btn--block">ログイン</button>
+                    </form>
+                </div>
+                <div class="demo-item">
+                    <div class="demo-item-title">SOPHEX認証パッド（Night Ops）</div>
+                    <div class="ndma-code-pad">
+                        <div class="ndma-code-pad__display">_ _ _ _</div>
+                        <div class="ndma-code-pad__grid">
+                            <button class="ndma-code-pad__btn">1</button>
+                            <button class="ndma-code-pad__btn">2</button>
+                            <button class="ndma-code-pad__btn">3</button>
+                            <button class="ndma-code-pad__btn">4</button>
+                            <button class="ndma-code-pad__btn">5</button>
+                            <button class="ndma-code-pad__btn">6</button>
+                            <button class="ndma-code-pad__btn">7</button>
+                            <button class="ndma-code-pad__btn">8</button>
+                            <button class="ndma-code-pad__btn">9</button>
+                            <button class="ndma-code-pad__btn">*</button>
+                            <button class="ndma-code-pad__btn">0</button>
+                            <button class="ndma-code-pad__btn">#</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alerts -->
+        <section class="demo-section">
+            <h2 class="demo-title">アラート</h2>
+            <div class="demo-grid">
+                <div class="demo-item">
+                    <div class="demo-item-title">基本アラート</div>
+                    <div class="ndma-alert ndma-alert--info ndma-alert--dismissible">
+                        <div class="ndma-alert__content">
+                            <div class="ndma-alert__title">情報</div>
+                            <div class="ndma-alert__message">システムアップデートが利用可能です。</div>
+                        </div>
+                        <button class="ndma-alert__close">×</button>
+                    </div>
+                    <div class="ndma-alert ndma-alert--warning ndma-alert--dismissible">
+                        <div class="ndma-alert__content">
+                            <div class="ndma-alert__title">警告</div>
+                            <div class="ndma-alert__message">サーバー負荷が高くなっています。</div>
+                        </div>
+                        <button class="ndma-alert__close">×</button>
+                    </div>
+                    <div class="ndma-alert ndma-alert--danger ndma-alert--dismissible">
+                        <div class="ndma-alert__content">
+                            <div class="ndma-alert__title">危険</div>
+                            <div class="ndma-alert__message">システム障害が発生しました。</div>
+                        </div>
+                        <button class="ndma-alert__close">×</button>
+                    </div>
+                </div>
+                <div class="demo-item">
+                    <div class="demo-item-title">NDMA専用アラート</div>
+                    <div class="ndma-alert ndma-alert--emergency">
+                        <div class="ndma-alert__content">
+                            <div class="ndma-alert__title">緊急事態宣言</div>
+                            <div class="ndma-alert__message">直ちに災害対策室に集合してください。</div>
+                        </div>
+                    </div>
+                    <div class="ndma-alert ndma-alert--mission">
+                        <div class="ndma-alert__content">
+                            <div class="ndma-alert__title">ミッション更新</div>
+                            <div class="ndma-alert__message">新たな救助ミッションが割り当てられました。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabs -->
+        <section class="demo-section">
+            <h2 class="demo-title">タブ</h2>
+            <div class="ndma-tabs ndma-tabs--mission">
+                <div class="ndma-tabs__list">
+                    <div class="ndma-tabs__item">
+                        <button class="ndma-tabs__link ndma-tabs__link--active" onclick="switchTab(event, 'overview')">概要</button>
+                    </div>
+                    <div class="ndma-tabs__item">
+                        <button class="ndma-tabs__link" onclick="switchTab(event, 'details')">詳細</button>
+                    </div>
+                    <div class="ndma-tabs__item">
+                        <button class="ndma-tabs__link" onclick="switchTab(event, 'response')">対応状況</button>
+                    </div>
+                    <div class="ndma-tabs__item">
+                        <button class="ndma-tabs__link" onclick="switchTab(event, 'resources')">リソース</button>
+                    </div>
+                </div>
+                <div class="ndma-tabs__content">
+                    <div class="ndma-tabs__panel ndma-tabs__panel--active" id="overview">
+                        <h3>災害概要</h3>
+                        <p>現在、関東地方を中心に震度6強の地震が観測されています。津波警報も発令されており、海岸地域の住民は直ちに高台へ避難してください。</p>
+                    </div>
+                    <div class="ndma-tabs__panel" id="details">
+                        <h3>詳細情報</h3>
+                        <p>震源地: 千葉県東方沖<br>
+                        マグニチュード: 7.8<br>
+                        深さ: 30km<br>
+                        最大震度: 6強</p>
+                    </div>
+                    <div class="ndma-tabs__panel" id="response">
+                        <h3>対応状況</h3>
+                        <p>・自衛隊出動準備中<br>
+                        ・消防・救助隊配備完了<br>
+                        ・医療機関待機指示<br>
+                        ・交通規制実施中</p>
+                    </div>
+                    <div class="ndma-tabs__panel" id="resources">
+                        <h3>リソース状況</h3>
+                        <p>・救助隊: 150隊配備済み<br>
+                        ・医療チーム: 50チーム待機中<br>
+                        ・ヘリコプター: 20機稼働中<br>
+                        ・緊急物資: 配備準備中</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Monitor Panel -->
+        <section class="demo-section">
+            <h2 class="demo-title">モニターパネル</h2>
+            <div class="ndma-monitor-panel">
+                <div class="ndma-monitor-panel__header">
+                    <h3 class="ndma-monitor-panel__title">災害監視システム</h3>
+                    <div class="ndma-monitor-panel__status">
+                        <span class="ndma-monitor-panel__status-dot"></span>
+                        <span>システム稼働中</span>
+                    </div>
+                </div>
+                <div class="ndma-monitor-panel__content">
+                    <div class="ndma-monitor-panel__item">
+                        <div class="ndma-monitor-panel__item-value">156</div>
+                        <div class="ndma-monitor-panel__item-label">被害報告</div>
+                    </div>
+                    <div class="ndma-monitor-panel__item">
+                        <div class="ndma-monitor-panel__item-value">2,847</div>
+                        <div class="ndma-monitor-panel__item-label">避難者数</div>
+                    </div>
+                    <div class="ndma-monitor-panel__item">
+                        <div class="ndma-monitor-panel__item-value">89</div>
+                        <div class="ndma-monitor-panel__item-label">稼働中隊数</div>
+                    </div>
+                    <div class="ndma-monitor-panel__item">
+                        <div class="ndma-monitor-panel__item-value">23</div>
+                        <div class="ndma-monitor-panel__item-label">医療機関</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOPHEX UI Demo (Night Ops Theme Only) -->
+        <section class="demo-section" id="sophex-demo" style="display: none;">
+            <h2 class="demo-title">SOPHEX UI デモ</h2>
+            <div class="demo-grid">
+                <div class="demo-item">
+                    <div class="demo-item-title">HUDパネル</div>
+                    <div class="ndma-card ndma-card-hud">
+                        <div class="ndma-card__header">
+                            <h4 class="ndma-card__title">TACTICAL DISPLAY</h4>
+                        </div>
+                        <div class="ndma-card__body">
+                            <div class="ndma-grid-hud" style="padding: 1rem;">
+                                <p>SYSTEM STATUS: OPERATIONAL</p>
+                                <p>MISSION: NIGHT SURVEILLANCE</p>
+                                <p>TIME: 23:47:12</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-item">
+                    <div class="demo-item-title">ライブフィード</div>
+                    <div class="ndma-live-feed" style="height: 200px; background: #000; display: flex; align-items: center; justify-content: center;">
+                        <span style="color: var(--ops-cyan); font-family: monospace;">CAMERA FEED #01</span>
+                    </div>
+                </div>
+                <div class="demo-item">
+                    <div class="demo-item-title">ミニマップ</div>
+                    <div class="ndma-minimap" style="width: 200px; height: 200px; margin: 0 auto; background: #000; position: relative;">
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: var(--ops-cyan); font-family: monospace; font-size: 0.75rem;">
+                            GRID 7-4
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Theme switcher
+        function setTheme(theme) {
+            document.documentElement.className = `ndma-theme-${theme}`;
+            
+            // Update active button
+            document.querySelectorAll('.ndma-theme-switcher__btn').forEach(btn => {
+                btn.classList.remove('ndma-theme-switcher__btn--active');
+            });
+            event.target.classList.add('ndma-theme-switcher__btn--active');
+            
+            // Show/hide SOPHEX demo
+            const sophexDemo = document.getElementById('sophex-demo');
+            if (theme === 'ops') {
+                sophexDemo.style.display = 'block';
+            } else {
+                sophexDemo.style.display = 'none';
+            }
+        }
+
+        // Tab switcher
+        function switchTab(event, tabId) {
+            // Hide all panels
+            document.querySelectorAll('.ndma-tabs__panel').forEach(panel => {
+                panel.classList.remove('ndma-tabs__panel--active');
+            });
+            
+            // Remove active from all links
+            document.querySelectorAll('.ndma-tabs__link').forEach(link => {
+                link.classList.remove('ndma-tabs__link--active');
+            });
+            
+            // Show selected panel
+            document.getElementById(tabId).classList.add('ndma-tabs__panel--active');
+            
+            // Add active to clicked link
+            event.target.classList.add('ndma-tabs__link--active');
+        }
+
+        // Code pad functionality
+        let codeInput = '';
+        const codeDisplay = document.querySelector('.ndma-code-pad__display');
+        
+        document.querySelectorAll('.ndma-code-pad__btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (codeInput.length < 4) {
+                    codeInput += this.textContent;
+                    updateCodeDisplay();
+                }
+            });
+        });
+
+        function updateCodeDisplay() {
+            let display = '';
+            for (let i = 0; i < 4; i++) {
+                display += i < codeInput.length ? codeInput[i] : '_';
+                if (i < 3) display += ' ';
+            }
+            codeDisplay.textContent = display;
+            
+            if (codeInput.length === 4) {
+                setTimeout(() => {
+                    codeInput = '';
+                    updateCodeDisplay();
+                }, 1500);
+            }
+        }
+    </script>
+</body>
+</html>

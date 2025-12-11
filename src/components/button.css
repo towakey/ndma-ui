@@ -1,0 +1,231 @@
+/* ndma-ui Button Component */
+
+.ndma-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  line-height: 1.5;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  user-select: none;
+  white-space: nowrap;
+  vertical-align: middle;
+  position: relative;
+  overflow: hidden;
+}
+
+.ndma-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.ndma-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(16, 43, 76, 0.25);
+}
+
+/* Button sizes */
+.ndma-btn--sm {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.ndma-btn--lg {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.125rem;
+}
+
+.ndma-btn--xl {
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+}
+
+/* Button variants */
+.ndma-btn--primary {
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+  border-color: var(--button-primary-bg);
+}
+
+.ndma-btn--primary:hover {
+  background-color: var(--button-primary-hover);
+  border-color: var(--button-primary-hover);
+  transform: translateY(-1px);
+}
+
+.ndma-btn--secondary {
+  background-color: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
+  border-color: var(--button-secondary-border);
+}
+
+.ndma-btn--secondary:hover {
+  background-color: var(--button-secondary-hover);
+  color: var(--button-secondary-hover-text);
+}
+
+.ndma-btn--danger {
+  background-color: var(--button-danger-bg);
+  color: var(--button-danger-text);
+  border-color: var(--button-danger-bg);
+}
+
+.ndma-btn--danger:hover {
+  background-color: var(--button-danger-hover);
+  border-color: var(--button-danger-hover);
+}
+
+.ndma-btn--outline {
+  background-color: transparent;
+  color: var(--button-primary-bg);
+  border-color: var(--button-primary-bg);
+}
+
+.ndma-btn--outline:hover {
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+}
+
+.ndma-btn--ghost {
+  background-color: transparent;
+  color: var(--button-primary-bg);
+  border-color: transparent;
+}
+
+.ndma-btn--ghost:hover {
+  background-color: rgba(16, 43, 76, 0.1);
+}
+
+/* Button with icon */
+.ndma-btn--icon {
+  padding: 0.5rem;
+  aspect-ratio: 1;
+}
+
+.ndma-btn--icon.ndma-btn--sm {
+  padding: 0.25rem;
+}
+
+.ndma-btn--icon.ndma-btn--lg {
+  padding: 0.75rem;
+}
+
+.ndma-btn--icon.ndma-btn--xl {
+  padding: 1rem;
+}
+
+/* Button group */
+.ndma-btn-group {
+  display: inline-flex;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.ndma-btn-group .ndma-btn {
+  border-radius: 0;
+  margin: 0;
+}
+
+.ndma-btn-group .ndma-btn:not(:last-child) {
+  border-right: none;
+}
+
+.ndma-btn-group .ndma-btn:first-child {
+  border-top-left-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
+}
+
+.ndma-btn-group .ndma-btn:last-child {
+  border-top-right-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+}
+
+.ndma-btn-group .ndma-btn:only-child {
+  border-radius: var(--radius);
+}
+
+/* Loading state */
+.ndma-btn--loading {
+  color: transparent;
+  pointer-events: none;
+}
+
+.ndma-btn--loading::after {
+  content: '';
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  top: 50%;
+  left: 50%;
+  margin: -0.5em 0 0 -0.5em;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: btn-spin 0.8s linear infinite;
+}
+
+@keyframes btn-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Block button */
+.ndma-btn--block {
+  display: flex;
+  width: 100%;
+}
+
+/* Pill shape */
+.ndma-btn--pill {
+  border-radius: 50px;
+}
+
+/* Square button */
+.ndma-btn--square {
+  border-radius: 0;
+}
+
+/* NDMA specific button styles */
+.ndma-btn--mission {
+  background: linear-gradient(135deg, var(--ndma-orange) 0%, #d46800 100%);
+  color: white;
+  border: none;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 4px rgba(230, 122, 0, 0.3);
+}
+
+.ndma-btn--mission:hover {
+  background: linear-gradient(135deg, #d46800 0%, #b85800 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(230, 122, 0, 0.4);
+}
+
+.ndma-btn--emergency {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  color: white;
+  border: none;
+  font-weight: var(--font-weight-bold);
+  animation: emergency-pulse 2s infinite;
+}
+
+.ndma-btn--emergency:hover {
+  background: linear-gradient(135deg, #c82333 0%, #a02622 100%);
+  animation: emergency-pulse 1s infinite;
+}
+
+@keyframes emergency-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7);
+  }
+  50% { 
+    box-shadow: 0 0 0 10px rgba(220, 53, 69, 0);
+  }
+}

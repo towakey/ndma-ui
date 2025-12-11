@@ -1,0 +1,660 @@
+/* ndma-ui Night Ops Theme (SOPHEX UI) */
+/* Night vision optimized theme with tactical HUD elements */
+
+.ndma-theme-ops {
+  /* Theme colors */
+  --ndma-blue: #0a1628;
+  --ndma-orange: #FF8A1C;
+  --ndma-gray: #4a5568;
+  --ndma-light: #1a202c;
+  
+  /* SOPHEX specific colors */
+  --ops-bg: #0A0A0A;
+  --ops-orange: #FF8A1C;
+  --ops-border: #E66000;
+  --ops-cyan: #00ffff;
+  --ops-red: #ff0040;
+  
+  /* Base colors */
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #0f0f0f;
+  --bg-tertiary: #1a1a1a;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --text-muted: #666666;
+  --border-color: #333333;
+  
+  /* Component specific colors */
+  --card-bg: rgba(15, 15, 15, 0.8);
+  --card-border: #444444;
+  --button-primary-bg: transparent;
+  --button-primary-text: var(--ops-orange);
+  --button-primary-border: var(--ops-orange);
+  --button-primary-hover: rgba(255, 138, 28, 0.1);
+  --button-secondary-bg: transparent;
+  --button-secondary-text: #888888;
+  --button-secondary-border: #444444;
+  --button-secondary-hover: rgba(136, 136, 136, 0.1);
+  --button-danger-bg: transparent;
+  --button-danger-text: var(--ops-red);
+  --button-danger-border: var(--ops-red);
+  --button-danger-hover: rgba(255, 0, 64, 0.1);
+  
+  --alert-info-bg: rgba(0, 255, 255, 0.1);
+  --alert-info-border: var(--ops-cyan);
+  --alert-info-text: var(--ops-cyan);
+  --alert-warning-bg: rgba(255, 138, 28, 0.1);
+  --alert-warning-border: var(--ops-orange);
+  --alert-warning-text: var(--ops-orange);
+  --alert-danger-bg: rgba(255, 0, 64, 0.1);
+  --alert-danger-border: var(--ops-red);
+  --alert-danger-text: var(--ops-red);
+  
+  --table-hover-bg: rgba(255, 138, 28, 0.05);
+  
+  /* Enhanced shadows with glow */
+  --shadow-sm: 0 0 5px rgba(255, 138, 28, 0.3);
+  --shadow: 0 0 20px rgba(255, 138, 28, 0.2);
+  --shadow-lg: 0 0 40px rgba(255, 138, 28, 0.15);
+}
+
+/* Night Ops base styles */
+.ndma-theme-ops {
+  background-color: var(--ops-bg);
+  color: var(--text-primary);
+  font-family: 'Courier New', monospace;
+}
+
+/* Scanning line animation overlay */
+.ndma-theme-ops::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 138, 28, 0.03) 2px,
+    rgba(255, 138, 28, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+  animation: scanlines 8s linear infinite;
+}
+
+@keyframes scanlines {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(10px); }
+}
+
+/* Moving scan line */
+.ndma-theme-ops::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--ops-orange),
+    transparent
+  );
+  box-shadow: 0 0 10px var(--ops-orange);
+  pointer-events: none;
+  z-index: 2;
+  animation: scanline-move 4s linear infinite;
+}
+
+@keyframes scanline-move {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100vh); }
+}
+
+/* Header styles */
+.ndma-theme-ops .ndma-header {
+  background: linear-gradient(135deg, rgba(10, 10, 10, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%);
+  color: var(--text-primary);
+  border-bottom: 2px solid var(--ops-orange);
+  box-shadow: 0 0 20px rgba(255, 138, 28, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.ndma-theme-ops .ndma-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 138, 28, 0.2),
+    transparent
+  );
+  animation: header-sweep 3s ease-in-out infinite;
+}
+
+@keyframes header-sweep {
+  0% { left: -100%; }
+  50%, 100% { left: 100%; }
+}
+
+/* Sidebar styles */
+.ndma-theme-ops .ndma-sidebar {
+  background: linear-gradient(180deg, rgba(10, 10, 10, 0.95) 0%, rgba(15, 15, 15, 0.95) 100%);
+  border-right: 2px solid var(--ops-orange);
+  box-shadow: 2px 0 20px rgba(255, 138, 28, 0.2);
+}
+
+/* Card styles with HUD frame */
+.ndma-theme-ops .ndma-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow);
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.ndma-theme-ops .ndma-card::before,
+.ndma-theme-ops .ndma-card::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--ops-orange);
+  z-index: 1;
+}
+
+.ndma-theme-ops .ndma-card::before {
+  top: -1px;
+  left: -1px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.ndma-theme-ops .ndma-card::after {
+  top: -1px;
+  right: -1px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.ndma-theme-ops .ndma-card-hud::before,
+.ndma-theme-ops .ndma-card-hud::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--ops-orange);
+  z-index: 1;
+}
+
+.ndma-theme-ops .ndma-card-hud::before {
+  bottom: -1px;
+  left: -1px;
+  border-right: none;
+  border-top: none;
+}
+
+.ndma-theme-ops .ndma-card-hud::after {
+  bottom: -1px;
+  right: -1px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Button styles with tactical glow */
+.ndma-theme-ops .ndma-btn {
+  background: transparent;
+  border: 2px solid;
+  padding: 0.5rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-fast);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: var(--font-weight-bold);
+}
+
+.ndma-theme-ops .ndma-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.ndma-theme-ops .ndma-btn:hover::before {
+  left: 100%;
+}
+
+.ndma-theme-ops .ndma-btn--primary {
+  color: var(--ops-orange);
+  border-color: var(--ops-orange);
+  box-shadow: 0 0 10px rgba(255, 138, 28, 0.5);
+  text-shadow: 0 0 5px rgba(255, 138, 28, 0.8);
+}
+
+.ndma-theme-ops .ndma-btn--primary:hover {
+  background: var(--button-primary-hover);
+  box-shadow: 0 0 20px rgba(255, 138, 28, 0.8),
+              inset 0 0 20px rgba(255, 138, 28, 0.1);
+  text-shadow: 0 0 10px rgba(255, 138, 28, 1);
+}
+
+.ndma-theme-ops .ndma-btn--secondary {
+  color: #888888;
+  border-color: #444444;
+  box-shadow: 0 0 5px rgba(136, 136, 136, 0.3);
+}
+
+.ndma-theme-ops .ndma-btn--secondary:hover {
+  color: var(--ops-orange);
+  border-color: var(--ops-orange);
+  box-shadow: 0 0 15px rgba(255, 138, 28, 0.6);
+}
+
+.ndma-theme-ops .ndma-btn--danger {
+  color: var(--ops-red);
+  border-color: var(--ops-red);
+  box-shadow: 0 0 10px rgba(255, 0, 64, 0.5);
+  text-shadow: 0 0 5px rgba(255, 0, 64, 0.8);
+}
+
+.ndma-theme-ops .ndma-btn--danger:hover {
+  background: var(--button-danger-hover);
+  box-shadow: 0 0 20px rgba(255, 0, 64, 0.8),
+              inset 0 0 20px rgba(255, 0, 64, 0.1);
+  animation: danger-pulse 1s infinite;
+}
+
+@keyframes danger-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Alert styles with tactical warning */
+.ndma-theme-ops .ndma-alert {
+  border: 2px solid;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.ndma-theme-ops .ndma-alert::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  animation: alert-flash 2s infinite;
+}
+
+@keyframes alert-flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.ndma-theme-ops .ndma-alert--info {
+  border-color: var(--ops-cyan);
+  color: var(--ops-cyan);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.ndma-theme-ops .ndma-alert--info::before {
+  background: var(--ops-cyan);
+}
+
+.ndma-theme-ops .ndma-alert--warning {
+  border-color: var(--ops-orange);
+  color: var(--ops-orange);
+  box-shadow: 0 0 15px rgba(255, 138, 28, 0.3);
+}
+
+.ndma-theme-ops .ndma-alert--warning::before {
+  background: var(--ops-orange);
+}
+
+.ndma-theme-ops .ndma-alert--danger {
+  border-color: var(--ops-red);
+  color: var(--ops-red);
+  box-shadow: 0 0 15px rgba(255, 0, 64, 0.3);
+  animation: danger-alert 1s infinite;
+}
+
+.ndma-theme-ops .ndma-alert--danger::before {
+  background: var(--ops-red);
+}
+
+@keyframes danger-alert {
+  0%, 100% { 
+    box-shadow: 0 0 15px rgba(255, 0, 64, 0.3);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 25px rgba(255, 0, 64, 0.6);
+    transform: scale(1.01);
+  }
+}
+
+/* Banner with warning flash */
+.ndma-theme-ops .ndma-banner {
+  background: linear-gradient(90deg, var(--ops-bg) 0%, rgba(255, 138, 28, 0.1) 50%, var(--ops-bg) 100%);
+  color: var(--ops-orange);
+  border: 2px solid var(--ops-orange);
+  border-left: 4px solid var(--ops-orange);
+  padding: var(--spacing-sm) var(--spacing-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.ndma-theme-ops .ndma-banner.warning {
+  animation: banner-flash 1s infinite;
+}
+
+@keyframes banner-flash {
+  0%, 100% { 
+    background: linear-gradient(90deg, var(--ops-bg) 0%, rgba(255, 0, 64, 0.1) 50%, var(--ops-bg) 100%);
+    border-color: var(--ops-red);
+    color: var(--ops-red);
+  }
+  50% { 
+    background: linear-gradient(90deg, var(--ops-bg) 0%, rgba(255, 138, 28, 0.2) 50%, var(--ops-bg) 100%);
+    border-color: var(--ops-orange);
+    color: var(--ops-orange);
+  }
+}
+
+/* Status tags with tactical styling */
+.ndma-theme-ops .ndma-status-tag {
+  padding: 0.25rem 0.75rem;
+  border-radius: 0;
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid;
+  background: transparent;
+  position: relative;
+}
+
+.ndma-theme-ops .ndma-status-tag::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: currentColor;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.ndma-theme-ops .ndma-status-tag--level-1 {
+  color: #00ff00;
+  border-color: #00ff00;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+.ndma-theme-ops .ndma-status-tag--level-2 {
+  color: #ffff00;
+  border-color: #ffff00;
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+}
+
+.ndma-theme-ops .ndma-status-tag--level-3 {
+  color: var(--ops-orange);
+  border-color: var(--ops-orange);
+  box-shadow: 0 0 10px rgba(255, 138, 28, 0.5);
+}
+
+.ndma-theme-ops .ndma-status-tag--level-4 {
+  color: #ff6600;
+  border-color: #ff6600;
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.6);
+  animation: level4-pulse 2s infinite;
+}
+
+.ndma-theme-ops .ndma-status-tag--level-5 {
+  color: var(--ops-red);
+  border-color: var(--ops-red);
+  box-shadow: 0 0 20px rgba(255, 0, 64, 0.8);
+  animation: level5-flash 0.5s infinite;
+}
+
+@keyframes level4-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes level5-flash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Table styles */
+.ndma-theme-ops .ndma-table {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow);
+}
+
+.ndma-theme-ops .ndma-table th {
+  background: rgba(26, 26, 26, 0.8);
+  border-color: var(--card-border);
+  color: var(--ops-orange);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: var(--font-weight-bold);
+  padding: 1rem;
+}
+
+.ndma-theme-ops .ndma-table td {
+  border-color: #333333;
+  color: var(--text-secondary);
+  padding: 0.75rem 1rem;
+}
+
+.ndma-theme-ops .ndma-table tr:hover td {
+  color: var(--ops-orange);
+  text-shadow: 0 0 5px rgba(255, 138, 28, 0.5);
+}
+
+/* Form controls */
+.ndma-theme-ops .ndma-form-control {
+  background: rgba(26, 26, 26, 0.8);
+  border: 2px solid #444444;
+  color: var(--text-primary);
+  padding: 0.75rem;
+  transition: all var(--transition-fast);
+}
+
+.ndma-theme-ops .ndma-form-control:focus {
+  border-color: var(--ops-orange);
+  box-shadow: 0 0 15px rgba(255, 138, 28, 0.5);
+  background: rgba(26, 26, 26, 0.95);
+}
+
+.ndma-theme-ops .ndma-form-control::placeholder {
+  color: var(--text-muted);
+}
+
+/* Tactical button special class */
+.ndma-theme-ops .ndma-btn--tactical {
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  padding: 0.75rem 2rem;
+  position: relative;
+}
+
+.ndma-theme-ops .ndma-btn--tactical::before,
+.ndma-theme-ops .ndma-btn--tactical::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 2px solid currentColor;
+}
+
+.ndma-theme-ops .ndma-btn--tactical::before {
+  top: 5px;
+  left: 5px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.ndma-theme-ops .ndma-btn--tactical::after {
+  bottom: 5px;
+  right: 5px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Grid HUD Panel */
+.ndma-theme-ops .ndma-grid-hud {
+  background: linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(26, 26, 26, 0.9) 100%);
+  border: 2px solid var(--ops-orange);
+  position: relative;
+  overflow: hidden;
+}
+
+.ndma-theme-ops .ndma-grid-hud::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(rgba(255, 138, 28, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 138, 28, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+/* Mini-map frame */
+.ndma-theme-ops .ndma-minimap {
+  border: 3px solid var(--ops-orange);
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(255, 138, 28, 0.5),
+              inset 0 0 30px rgba(255, 138, 28, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.ndma-theme-ops .ndma-minimap::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: rgba(255, 138, 28, 0.3);
+  transform: translate(-50%, -50%);
+}
+
+.ndma-theme-ops .ndma-minimap::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 138, 28, 0.3);
+  transform: translate(-50%, -50%);
+}
+
+/* Live feed window frame */
+.ndma-theme-ops .ndma-live-feed {
+  border: 2px solid var(--ops-orange);
+  border-radius: 0;
+  box-shadow: 0 0 20px rgba(255, 138, 28, 0.4);
+  position: relative;
+}
+
+.ndma-theme-ops .ndma-live-feed::before {
+  content: 'LIVE';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--ops-red);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-bold);
+  animation: live-blink 1s infinite;
+  z-index: 10;
+}
+
+@keyframes live-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Code entry pad */
+.ndma-theme-ops .ndma-code-pad {
+  background: rgba(10, 10, 10, 0.95);
+  border: 2px solid var(--ops-orange);
+  border-radius: 0;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.ndma-theme-ops .ndma-code-pad__display {
+  background: #000;
+  border: 1px solid var(--ops-orange);
+  color: var(--ops-cyan);
+  font-family: 'Courier New', monospace;
+  font-size: 2rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px currentColor;
+  letter-spacing: 0.5rem;
+}
+
+.ndma-theme-ops .ndma-code-pad__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.ndma-theme-ops .ndma-code-pad__btn {
+  aspect-ratio: 1;
+  background: rgba(26, 26, 26, 0.8);
+  border: 2px solid #444;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.ndma-theme-ops .ndma-code-pad__btn:hover {
+  border-color: var(--ops-orange);
+  color: var(--ops-orange);
+  box-shadow: 0 0 15px rgba(255, 138, 28, 0.5);
+}
+
+.ndma-theme-ops .ndma-code-pad__btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 25px rgba(255, 138, 28, 0.8);
+}

@@ -1,0 +1,342 @@
+/* ndma-ui - Complete CSS Framework */
+/* Version: 1.0.0 */
+/* National Disaster Management Agency UI Framework */
+
+/* Import base styles */
+@import url('./base.css');
+@import url('./layout.css');
+
+/* Import themes */
+@import url('./themes/default.css');
+@import url('./themes/dark.css');
+@import url('./themes/ops.css');
+
+/* Import components */
+@import url('./components/button.css');
+@import url('./components/card.css');
+@import url('./components/table.css');
+@import url('./components/form.css');
+@import url('./components/alert.css');
+@import url('./components/badge.css');
+@import url('./components/tabs.css');
+@import url('./components/modal.css');
+@import url('./components/banner.css');
+@import url('./components/status-tag.css');
+
+/* NDMA Layout Components */
+.ndma-header {
+  background-color: var(--ndma-blue);
+  color: white;
+  padding: var(--spacing-md) 0;
+  box-shadow: var(--shadow);
+}
+
+.ndma-header__content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ndma-header__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  color: white;
+  text-decoration: none;
+}
+
+.ndma-header__logo-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, white 0%, var(--ndma-light) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ndma-blue);
+  font-weight: var(--font-weight-bold);
+}
+
+.ndma-header__nav {
+  display: flex;
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+.ndma-header__nav-link {
+  color: white;
+  text-decoration: none;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius);
+  transition: background-color var(--transition-fast);
+}
+
+.ndma-header__nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Sidebar Navigation */
+.ndma-sidebar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ndma-sidebar-nav__item {
+  margin-bottom: var(--spacing-xs);
+}
+
+.ndma-sidebar-nav__link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: var(--radius);
+  transition: all var(--transition-fast);
+}
+
+.ndma-sidebar-nav__link:hover {
+  background-color: var(--bg-tertiary);
+  color: var(--ndma-blue);
+}
+
+.ndma-sidebar-nav__link.ndma-sidebar-nav__link--active {
+  background-color: var(--ndma-blue);
+  color: white;
+}
+
+.ndma-sidebar-nav__icon {
+  width: 20px;
+  text-align: center;
+}
+
+/* Mission Priority Badge */
+.ndma-mission-priority {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: 0.375rem 0.75rem;
+  background: linear-gradient(135deg, var(--ndma-orange) 0%, #d46800 100%);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 4px rgba(230, 122, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.ndma-mission-priority::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: mission-priority-sweep 3s ease-in-out infinite;
+}
+
+@keyframes mission-priority-sweep {
+  0% { left: -100%; }
+  50%, 100% { left: 100%; }
+}
+
+.ndma-mission-priority--high {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  animation: mission-priority-pulse 2s infinite;
+}
+
+@keyframes mission-priority-pulse {
+  0%, 100% {
+    box-shadow: 0 2px 4px rgba(220, 53, 69, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 8px rgba(220, 53, 69, 0.5);
+  }
+}
+
+.ndma-mission-priority--critical {
+  background: linear-gradient(135deg, #721c24 0%, #dc3545 100%);
+  animation: mission-priority-flash 1s infinite;
+}
+
+@keyframes mission-priority-flash {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Monitor Panel */
+.ndma-monitor-panel {
+  background: linear-gradient(135deg, var(--card-bg) 0%, var(--bg-secondary) 100%);
+  border: 2px solid var(--ndma-blue);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.ndma-monitor-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--ndma-blue) 0%, var(--ndma-orange) 50%, var(--ndma-blue) 100%);
+  animation: monitor-panel-scan 3s linear infinite;
+}
+
+@keyframes monitor-panel-scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.ndma-monitor-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.ndma-monitor-panel__title {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--ndma-blue);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.ndma-monitor-panel__status {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.ndma-monitor-panel__status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #28a745;
+  animation: monitor-status-pulse 2s infinite;
+}
+
+@keyframes monitor-status-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.ndma-monitor-panel__content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.ndma-monitor-panel__item {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: var(--spacing-md);
+  text-align: center;
+}
+
+.ndma-monitor-panel__item-value {
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--ndma-blue);
+  margin-bottom: var(--spacing-xs);
+}
+
+.ndma-monitor-panel__item-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Theme switcher */
+.ndma-theme-switcher {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius);
+}
+
+.ndma-theme-switcher__btn {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.ndma-theme-switcher__btn:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.ndma-theme-switcher__btn.ndma-theme-switcher__btn--active {
+  background-color: var(--ndma-blue);
+  color: white;
+  border-color: var(--ndma-blue);
+}
+
+/* Utility classes */
+.ndma-text-center { text-align: center; }
+.ndma-text-left { text-align: left; }
+.ndma-text-right { text-align: right; }
+
+.ndma-d-none { display: none; }
+.ndma-d-block { display: block; }
+.ndma-d-inline { display: inline; }
+.ndma-d-inline-block { display: inline-block; }
+.ndma-d-flex { display: flex; }
+.ndma-d-inline-flex { display: inline-flex; }
+.ndma-d-grid { display: grid; }
+
+.ndma-w-100 { width: 100%; }
+.ndma-h-100 { height: 100%; }
+
+.ndma-position-relative { position: relative; }
+.ndma-position-absolute { position: absolute; }
+.ndma-position-fixed { position: fixed; }
+.ndma-position-sticky { position: sticky; }
+
+/* Print styles */
+@media print {
+  .ndma-header,
+  .ndma-sidebar,
+  .ndma-footer,
+  .ndma-theme-switcher,
+  .ndma-btn,
+  .ndma-modal-overlay {
+    display: none !important;
+  }
+  
+  .ndma-card {
+    box-shadow: none !important;
+    border: 1px solid #000 !important;
+  }
+  
+  .ndma-banner {
+    background: white !important;
+    color: black !important;
+    border: 1px solid #000 !important;
+  }
+}
