@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ja" class="ndma-theme-default">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation - ndma-ui</title>
+  <meta name="description" content="ndma-uiのナビゲーションコンポーネントドキュメント">
+  <link rel="stylesheet" href="../assets/ndma.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+  <!-- Documentation Header -->
+  <header class="docs-header">
+    <div class="docs-header__content">
+      <h1 class="docs-title">Navigation</h1>
+      <p class="docs-lead">サイト内を移動するためのナビゲーションコンポーネント</p>
+    </div>
+  </header>
+
+  <!-- Theme Switcher -->
+  <div class="docs-theme-switcher">
+    <div class="ndma-theme-switcher">
+      <button class="ndma-theme-switcher__btn ndma-theme-switcher__btn--active" data-theme="default">Default</button>
+      <button class="ndma-theme-switcher__btn" data-theme="dark">Dark</button>
+      <button class="ndma-theme-switcher__btn" data-theme="ops">Night Ops</button>
+    </div>
+  </div>
+
+  <!-- Documentation Container -->
+  <div class="docs-container">
+    <!-- Sidebar Navigation -->
+    <aside class="docs-sidebar" id="docsSidebar">
+      <nav class="docs-nav">
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">はじめに</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../index.html" class="docs-nav__link">概要</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../getting-started.html" class="docs-nav__link">Getting Started</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">コンポーネント</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="button.html" class="docs-nav__link">Buttons</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="card.html" class="docs-nav__link">Cards</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="table.html" class="docs-nav__link">Tables</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="form.html" class="docs-nav__link">Forms</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="alert.html" class="docs-nav__link">Alerts</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="navigation.html" class="docs-nav__link docs-nav__link--active">Navigation</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="badge.html" class="docs-nav__link">Badges</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="modal.html" class="docs-nav__link">Modals</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="grid.html" class="docs-nav__link">Grid</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">テーマ</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../themes/default.html" class="docs-nav__link">Default（行政）</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../themes/dark.html" class="docs-nav__link">Dark（災害対策室）</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../themes/ops.html" class="docs-nav__link">Night Ops（SOPHEX）</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">サンプル</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../examples/dashboard.html" class="docs-nav__link">状況室ダッシュボード</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../examples/login.html" class="docs-nav__link">ログイン画面</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../examples/sophex.html" class="docs-nav__link">SOPHEX特務システム</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="docs-main">
+      <div class="docs-content">
+        <!-- Overview -->
+        <section class="docs-section">
+          <p>ナビゲーションコンポーネントは、ユーザーがサイト内を効率的に移動できるようにするためのUI要素です。ヘッダー、サイドバー、パンくずリストなど、様々な形式のナビゲーションを提供します。</p>
+        </section>
+
+        <!-- Header Navigation -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="header-navigation">ヘッダーナビゲーション</h2>
+          <p>ページ上部に配置される主要なナビゲーションです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">ヘッダーナビゲーション</span>
+            </div>
+            <div class="docs-demo__content">
+              <header class="ndma-header">
+                <div class="ndma-header__content">
+                  <a href="#" class="ndma-header__logo">
+                    <div class="ndma-header__logo-icon">NDMA</div>
+                    <span>災害管理システム</span>
+                  </a>
+                  <nav class="ndma-header__nav">
+                    <a href="#" class="ndma-header__nav-link ndma-header__nav-link--active">ダッシュボード</a>
+                    <a href="#" class="ndma-header__nav-link">状況報告</a>
+                    <a href="#" class="ndma-header__nav-link">情報共有</a>
+                    <a href="#" class="ndma-header__nav-link">設定</a>
+                  </nav>
+                </div>
+              </header>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;header class="ndma-header"&gt;
+  &lt;div class="ndma-header__content"&gt;
+    &lt;a href="#" class="ndma-header__logo"&gt;
+      &lt;div class="ndma-header__logo-icon"&gt;NDMA&lt;/div&gt;
+      &lt;span&gt;災害管理システム&lt;/span&gt;
+    &lt;/a&gt;
+    &lt;nav class="ndma-header__nav"&gt;
+      &lt;a href="#" class="ndma-header__nav-link ndma-header__nav-link--active"&gt;ダッシュボード&lt;/a&gt;
+      &lt;a href="#" class="ndma-header__nav-link"&gt;状況報告&lt;/a&gt;
+      &lt;a href="#" class="ndma-header__nav-link"&gt;情報共有&lt;/a&gt;
+      &lt;a href="#" class="ndma-header__nav-link"&gt;設定&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/header&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Sidebar Navigation -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="sidebar-navigation">サイドバーナビゲーション</h2>
+          <p>ページ左側に配置される二次的なナビゲーションです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">サイドバーナビゲーション</span>
+            </div>
+            <div class="docs-demo__content">
+              <nav class="ndma-sidebar-nav">
+                <div class="ndma-sidebar-nav__section">
+                  <h3 class="ndma-sidebar-nav__title">メインメニュー</h3>
+                  <ul class="ndma-sidebar-nav__list">
+                    <li class="ndma-sidebar-nav__item">
+                      <a href="#" class="ndma-sidebar-nav__link ndma-sidebar-nav__link--active">
+                        <span class="ndma-sidebar-nav__icon">🏠</span>
+                        <span>ダッシュボード</span>
+                      </a>
+                    </li>
+                    <li class="ndma-sidebar-nav__item">
+                      <a href="#" class="ndma-sidebar-nav__link">
+                        <span class="ndma-sidebar-nav__icon">📊</span>
+                        <span>統計情報</span>
+                      </a>
+                    </li>
+                    <li class="ndma-sidebar-nav__item">
+                      <a href="#" class="ndma-sidebar-nav__link">
+                        <span class="ndma-sidebar-nav__icon">📝</span>
+                        <span>報告書</span>
+                      </a>
+                    </li>
+                    <li class="ndma-sidebar-nav__item">
+                      <a href="#" class="ndma-sidebar-nav__link">
+                        <span class="ndma-sidebar-nav__icon">👥</span>
+                        <span>職員管理</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div class="ndma-sidebar-nav__section">
+                  <h3 class="ndma-sidebar-nav__title">システム</h3>
+                  <ul class="ndma-sidebar-nav__list">
+                    <li class="ndma-sidebar-nav__item">
+                      <a href="#" class="ndma-sidebar-nav__link">
+                        <span class="ndma-sidebar-nav__icon">⚙️</span>
+                        <span>設定</span>
+                      </a>
+                    </li>
+                    <li class="ndma-sidebar-nav__item">
+                      <a href="#" class="ndma-sidebar-nav__link">
+                        <span class="ndma-sidebar-nav__icon">🚪</span>
+                        <span>ログアウト</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;nav class="ndma-sidebar-nav"&gt;
+  &lt;div class="ndma-sidebar-nav__section"&gt;
+    &lt;h3 class="ndma-sidebar-nav__title"&gt;メインメニュー&lt;/h3&gt;
+    &lt;ul class="ndma-sidebar-nav__list"&gt;
+      &lt;li class="ndma-sidebar-nav__item"&gt;
+        &lt;a href="#" class="ndma-sidebar-nav__link ndma-sidebar-nav__link--active"&gt;
+          &lt;span class="ndma-sidebar-nav__icon"&gt;🏠&lt;/span&gt;
+          &lt;span&gt;ダッシュボード&lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class="ndma-sidebar-nav__item"&gt;
+        &lt;a href="#" class="ndma-sidebar-nav__link"&gt;
+          &lt;span class="ndma-sidebar-nav__icon"&gt;📊&lt;/span&gt;
+          &lt;span&gt;統計情報&lt;/span&gt;
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;!-- 他のメニュー項目 --&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Breadcrumb -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="breadcrumb">パンくずリスト</h2>
+          <p>現在のページ位置を階層的に示します。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">パンくずリスト</span>
+            </div>
+            <div class="docs-demo__content">
+              <nav class="ndma-breadcrumb">
+                <ol class="ndma-breadcrumb__list">
+                  <li class="ndma-breadcrumb__item">
+                    <a href="#" class="ndma-breadcrumb__link">ホーム</a>
+                  </li>
+                  <li class="ndma-breadcrumb__item">
+                    <a href="#" class="ndma-breadcrumb__link">防災情報</a>
+                  </li>
+                  <li class="ndma-breadcrumb__item">
+                    <a href="#" class="ndma-breadcrumb__link">地震情報</a>
+                  </li>
+                  <li class="ndma-breadcrumb__item ndma-breadcrumb__item--active">
+                    詳細レポート
+                  </li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;nav class="ndma-breadcrumb"&gt;
+  &lt;ol class="ndma-breadcrumb__list"&gt;
+    &lt;li class="ndma-breadcrumb__item"&gt;
+      &lt;a href="#" class="ndma-breadcrumb__link"&gt;ホーム&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="ndma-breadcrumb__item"&gt;
+      &lt;a href="#" class="ndma-breadcrumb__link"&gt;防災情報&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="ndma-breadcrumb__item"&gt;
+      &lt;a href="#" class="ndma-breadcrumb__link"&gt;地震情報&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li class="ndma-breadcrumb__item ndma-breadcrumb__item--active"&gt;
+      詳細レポート
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Tabs -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="tabs">タブ</h2>
+          <p>コンテンツを切り替えるためのタブナビゲーションです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">タブナビゲーション</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-tabs">
+                <div class="ndma-tabs__nav">
+                  <button class="ndma-tabs__tab ndma-tabs__tab--active">概要</button>
+                  <button class="ndma-tabs__tab">詳細</button>
+                  <button class="ndma-tabs__tab">履歴</button>
+                  <button class="ndma-tabs__tab">設定</button>
+                </div>
+                <div class="ndma-tabs__content">
+                  <div class="ndma-tabs__panel ndma-tabs__panel--active">
+                    <p>概要のコンテンツが表示されます。</p>
+                  </div>
+                  <div class="ndma-tabs__panel">
+                    <p>詳細のコンテンツが表示されます。</p>
+                  </div>
+                  <div class="ndma-tabs__panel">
+                    <p>履歴のコンテンツが表示されます。</p>
+                  </div>
+                  <div class="ndma-tabs__panel">
+                    <p>設定のコンテンツが表示されます。</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;div class="ndma-tabs"&gt;
+  &lt;div class="ndma-tabs__nav"&gt;
+    &lt;button class="ndma-tabs__tab ndma-tabs__tab--active"&gt;概要&lt;/button&gt;
+    &lt;button class="ndma-tabs__tab"&gt;詳細&lt;/button&gt;
+    &lt;button class="ndma-tabs__tab"&gt;履歴&lt;/button&gt;
+    &lt;button class="ndma-tabs__tab"&gt;設定&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="ndma-tabs__content"&gt;
+    &lt;div class="ndma-tabs__panel ndma-tabs__panel--active"&gt;
+      &lt;p&gt;概要のコンテンツが表示されます。&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="ndma-tabs__panel"&gt;
+      &lt;p&gt;詳細のコンテンツが表示されます。&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;!-- 他のパネル --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Pagination -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="pagination">ページネーション</h2>
+          <p>複数ページにまたがるコンテンツをナビゲートします。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">ページネーション</span>
+            </div>
+            <div class="docs-demo__content">
+              <nav class="ndma-pagination">
+                <a href="#" class="ndma-pagination__link ndma-pagination__link--prev">前へ</a>
+                <a href="#" class="ndma-pagination__link">1</a>
+                <a href="#" class="ndma-pagination__link ndma-pagination__link--active">2</a>
+                <a href="#" class="ndma-pagination__link">3</a>
+                <span class="ndma-pagination__ellipsis">...</span>
+                <a href="#" class="ndma-pagination__link">10</a>
+                <a href="#" class="ndma-pagination__link ndma-pagination__link--next">次へ</a>
+              </nav>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;nav class="ndma-pagination"&gt;
+  &lt;a href="#" class="ndma-pagination__link ndma-pagination__link--prev"&gt;前へ&lt;/a&gt;
+  &lt;a href="#" class="ndma-pagination__link"&gt;1&lt;/a&gt;
+  &lt;a href="#" class="ndma-pagination__link ndma-pagination__link--active"&gt;2&lt;/a&gt;
+  &lt;a href="#" class="ndma-pagination__link"&gt;3&lt;/a&gt;
+  &lt;span class="ndma-pagination__ellipsis"&gt;...&lt;/span&gt;
+  &lt;a href="#" class="ndma-pagination__link"&gt;10&lt;/a&gt;
+  &lt;a href="#" class="ndma-pagination__link ndma-pagination__link--next"&gt;次へ&lt;/a&gt;
+&lt;/nav&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Steps -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="steps">ステップ</h2>
+          <p>プロセスの進行状況を示します。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">ステップナビゲーション</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-steps">
+                <div class="ndma-steps__item ndma-steps__item--completed">
+                  <div class="ndma-steps__indicator">✓</div>
+                  <div class="ndma-steps__content">
+                    <div class="ndma-steps__title">情報入力</div>
+                  </div>
+                </div>
+                <div class="ndma-steps__item ndma-steps__item--active">
+                  <div class="ndma-steps__indicator">2</div>
+                  <div class="ndma-steps__content">
+                    <div class="ndma-steps__title">確認</div>
+                  </div>
+                </div>
+                <div class="ndma-steps__item">
+                  <div class="ndma-steps__indicator">3</div>
+                  <div class="ndma-steps__content">
+                    <div class="ndma-steps__title">送信</div>
+                  </div>
+                </div>
+                <div class="ndma-steps__item">
+                  <div class="ndma-steps__indicator">4</div>
+                  <div class="ndma-steps__content">
+                    <div class="ndma-steps__title">完了</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;div class="ndma-steps"&gt;
+  &lt;div class="ndma-steps__item ndma-steps__item--completed"&gt;
+    &lt;div class="ndma-steps__indicator"&gt;✓&lt;/div&gt;
+    &lt;div class="ndma-steps__content"&gt;
+      &lt;div class="ndma-steps__title"&gt;情報入力&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="ndma-steps__item ndma-steps__item--active"&gt;
+    &lt;div class="ndma-steps__indicator"&gt;2&lt;/div&gt;
+    &lt;div class="ndma-steps__content"&gt;
+      &lt;div class="ndma-steps__title"&gt;確認&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;!-- 他のステップ --&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Night Ops Theme Navigation -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="night-ops-navigation">Night Opsテーマのナビゲーション</h2>
+          <p>Night Opsテーマでは、HUD風の特殊ナビゲーションが表示されます。</p>
+          
+          <div class="docs-callout docs-callout--warning">
+            <strong>注意：</strong>これらのナビゲーションはNight Opsテーマでのみ正しく表示されます。
+          </div>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">Tactical Navigation</span>
+            </div>
+            <div class="docs-demo__content">
+              <nav class="ndma-tactical-nav">
+                <div class="ndma-tactical-nav__section">
+                  <h4 class="ndma-tactical-nav__title">MISSION CONTROL</h4>
+                  <ul class="ndma-tactical-nav__list">
+                    <li class="ndma-tactical-nav__item">
+                      <a href="#" class="ndma-tactical-nav__link ndma-tactical-nav__link--active">
+                        <span class="ndma-tactical-nav__code">[SYS]</span>
+                        SYSTEM STATUS
+                      </a>
+                    </li>
+                    <li class="ndma-tactical-nav__item">
+                      <a href="#" class="ndma-tactical-nav__link">
+                        <span class="ndma-tactical-nav__code">[OPS]</span>
+                        OPERATIONS
+                      </a>
+                    </li>
+                    <li class="ndma-tactical-nav__item">
+                      <a href="#" class="ndma-tactical-nav__link">
+                        <span class="ndma-tactical-nav__code">[COM]</span>
+                        COMMUNICATIONS
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;!-- Night Opsテーマ専用 --&gt;
+&lt;nav class="ndma-tactical-nav"&gt;
+  &lt;div class="ndma-tactical-nav__section"&gt;
+    &lt;h4 class="ndma-tactical-nav__title"&gt;MISSION CONTROL&lt;/h4&gt;
+    &lt;ul class="ndma-tactical-nav__list"&gt;
+      &lt;li class="ndma-tactical-nav__item"&gt;
+        &lt;a href="#" class="ndma-tactical-nav__link ndma-tactical-nav__link--active"&gt;
+          &lt;span class="ndma-tactical-nav__code"&gt;[SYS]&lt;/span&gt;
+          SYSTEM STATUS
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li class="ndma-tactical-nav__item"&gt;
+        &lt;a href="#" class="ndma-tactical-nav__link"&gt;
+          &lt;span class="ndma-tactical-nav__code"&gt;[OPS]&lt;/span&gt;
+          OPERATIONS
+        &lt;/a&gt;
+      &lt;/li&gt;
+      &lt;!-- 他の項目 --&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/nav&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Mission Priority -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="mission-priority">ミッションプライオリティ</h2>
+          <p>Night Opsテーマの優先度表示ナビゲーションです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">Mission Priority</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-mission-priority">
+                <div class="ndma-mission-priority__item ndma-mission-priority__item--critical">
+                  <span class="ndma-mission-priority__label">CRITICAL</span>
+                  <span class="ndma-mission-priority__count">3</span>
+                </div>
+                <div class="ndma-mission-priority__item ndma-mission-priority__item--high">
+                  <span class="ndma-mission-priority__label">HIGH</span>
+                  <span class="ndma-mission-priority__count">7</span>
+                </div>
+                <div class="ndma-mission-priority__item ndma-mission-priority__item--medium">
+                  <span class="ndma-mission-priority__label">MEDIUM</span>
+                  <span class="ndma-mission-priority__count">12</span>
+                </div>
+                <div class="ndma-mission-priority__item ndma-mission-priority__item--low">
+                  <span class="ndma-mission-priority__label">LOW</span>
+                  <span class="ndma-mission-priority__count">24</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;!-- Night Opsテーマ専用 --&gt;
+&lt;div class="ndma-mission-priority"&gt;
+  &lt;div class="ndma-mission-priority__item ndma-mission-priority__item--critical"&gt;
+    &lt;span class="ndma-mission-priority__label"&gt;CRITICAL&lt;/span&gt;
+    &lt;span class="ndma-mission-priority__count"&gt;3&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="ndma-mission-priority__item ndma-mission-priority__item--high"&gt;
+    &lt;span class="ndma-mission-priority__label"&gt;HIGH&lt;/span&gt;
+    &lt;span class="ndma-mission-priority__count"&gt;7&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="ndma-mission-priority__item ndma-mission-priority__item--medium"&gt;
+    &lt;span class="ndma-mission-priority__label"&gt;MEDIUM&lt;/span&gt;
+    &lt;span class="ndma-mission-priority__count"&gt;12&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="ndma-mission-priority__item ndma-mission-priority__item--low"&gt;
+    &lt;span class="ndma-mission-priority__label"&gt;LOW&lt;/span&gt;
+    &lt;span class="ndma-mission-priority__count"&gt;24&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Usage Guidelines -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="usage-guidelines">使用ガイドライン</h2>
+          
+          <h3>ナビゲーションの階層</h3>
+          <ul>
+            <li><strong>ヘッダー：</strong>主要なセクションへのリンク（5-7項目程度）</li>
+            <li><strong>サイドバー：</strong>サブメニューや機能一覧</li>
+            <li><strong>パンくず：</strong>現在位置の明示（3-5階層程度）</li>
+          </ul>
+          
+          <h3>アクティブ状態の明示</h3>
+          <p>現在のページやセクションを明確に示してください。視覚的な区別（色、太字など）を使用します。</p>
+          
+          <h3>レスポンシブ対応</h3>
+          <p>モバイルでは、サイドバーをドロワーメニューに変換するなど、適切な対応が必要です。</p>
+          
+          <h3>アクセシビリティ</h3>
+          <p>ナビゲーションには適切なARIA属性を使用してください。</p>
+          
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;nav role="navigation" aria-label="メインナビゲーション"&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#" aria-current="page"&gt;現在のページ&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;他のページ&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;</pre>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Mobile Menu Button -->
+  <button class="docs-mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+
+  <!-- Documentation JS -->
+  <script src="../assets/docs.js"></script>
+</body>
+</html>

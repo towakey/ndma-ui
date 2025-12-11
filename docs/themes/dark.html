@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="ja" class="ndma-theme-default">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Theme - ndma-ui</title>
+  <meta name="description" content="ndma-uiのDarkテーマドキュメント">
+  <link rel="stylesheet" href="../assets/ndma.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+  <!-- Documentation Header -->
+  <header class="docs-header">
+    <div class="docs-header__content">
+      <h1 class="docs-title">Dark Theme</h1>
+      <p class="docs-lead">災害対策室向けの集中できるダークデザイン</p>
+    </div>
+  </header>
+
+  <!-- Theme Switcher -->
+  <div class="docs-theme-switcher">
+    <div class="ndma-theme-switcher">
+      <button class="ndma-theme-switcher__btn" data-theme="default">Default</button>
+      <button class="ndma-theme-switcher__btn ndma-theme-switcher__btn--active" data-theme="dark">Dark</button>
+      <button class="ndma-theme-switcher__btn" data-theme="ops">Night Ops</button>
+    </div>
+  </div>
+
+  <!-- Documentation Container -->
+  <div class="docs-container">
+    <!-- Sidebar Navigation -->
+    <aside class="docs-sidebar" id="docsSidebar">
+      <nav class="docs-nav">
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">はじめに</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../index.html" class="docs-nav__link">概要</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../getting-started.html" class="docs-nav__link">Getting Started</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">コンポーネント</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../components/button.html" class="docs-nav__link">Buttons</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../components/card.html" class="docs-nav__link">Cards</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../components/table.html" class="docs-nav__link">Tables</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../components/form.html" class="docs-nav__link">Forms</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../components/alert.html" class="docs-nav__link">Alerts</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../components/navigation.html" class="docs-nav__link">Navigation</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../components/badge.html" class="docs-nav__link">Badges</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../components/modal.html" class="docs-nav__link">Modals</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../components/grid.html" class="docs-nav__link">Grid</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">テーマ</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="default.html" class="docs-nav__link">Default（行政）</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="dark.html" class="docs-nav__link docs-nav__link--active">Dark（災害対策室）</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="ops.html" class="docs-nav__link">Night Ops（SOPHEX）</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">サンプル</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../examples/dashboard.html" class="docs-nav__link">状況室ダッシュボード</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../examples/login.html" class="docs-nav__link">ログイン画面</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../examples/sophex.html" class="docs-nav__link">SOPHEX特務システム</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="docs-main">
+      <div class="docs-content">
+        <!-- Overview -->
+        <section class="docs-section">
+          <p>Darkテーマは、災害対策室や24時間対応のオペレーションセンター向けに設計されたダークモードです。目の疲労を軽減し、長時間の集中作業をサポートします。</p>
+        </section>
+
+        <!-- Color Palette -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="color-palette">カラーパレット</h2>
+          <p>Darkテーマの主要な色です。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">主要色</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="docs-color-grid">
+                <div class="docs-color-item">
+                  <div class="docs-color-swatch" style="background-color: #1a1f2e;"></div>
+                  <div class="docs-color-info">
+                    <strong>Background</strong><br>
+                    #1a1f2e
+                  </div>
+                </div>
+                <div class="docs-color-item">
+                  <div class="docs-color-swatch" style="background-color: #242938;"></div>
+                  <div class="docs-color-info">
+                    <strong>Surface</strong><br>
+                    #242938
+                  </div>
+                </div>
+                <div class="docs-color-item">
+                  <div class="docs-color-swatch" style="background-color: #3a4556;"></div>
+                  <div class="docs-color-info">
+                    <strong>Surface Elevated</strong><br>
+                    #3a4556
+                  </div>
+                </div>
+                <div class="docs-color-item">
+                  <div class="docs-color-swatch" style="background-color: #0099ff;"></div>
+                  <div class="docs-color-info">
+                    <strong>Primary</strong><br>
+                    #0099ff
+                  </div>
+                </div>
+                <div class="docs-color-item">
+                  <div class="docs-color-swatch" style="background-color: #00d4aa;"></div>
+                  <div class="docs-color-info">
+                    <strong>Success</strong><br>
+                    #00d4aa
+                  </div>
+                </div>
+                <div class="docs-color-item">
+                  <div class="docs-color-swatch" style="background-color: #ffaa00;"></div>
+                  <div class="docs-color-info">
+                    <strong>Warning</strong><br>
+                    #ffaa00
+                  </div>
+                </div>
+                <div class="docs-color-item">
+                  <div class="docs-color-swatch" style="background-color: #ff4757;"></div>
+                  <div class="docs-color-info">
+                    <strong>Danger</strong><br>
+                    #ff4757
+                  </div>
+                </div>
+                <div class="docs-color-item">
+                  <div class="docs-color-swatch" style="background-color: #8892a6;"></div>
+                  <div class="docs-color-info">
+                    <strong>Text Secondary</strong><br>
+                    #8892a6
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Typography -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="typography">タイポグラフィ</h2>
+          <p>Darkテーマの文字スタイルです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">見出し</span>
+            </div>
+            <div class="docs-demo__content">
+              <h1>見出し1 - メインタイトル</h1>
+              <h2>見出し2 - セクションタイトル</h2>
+              <h3>見出し3 - サブセクション</h3>
+              <h4>見出し4 - 小見出し</h4>
+              <h5>見出し5 - 微小見出し</h5>
+              <h6>見出し6 - 最小見出し</h6>
+            </div>
+          </div>
+
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">本文</span>
+            </div>
+            <div class="docs-demo__content">
+              <p class="docs-text-large">大きなテキスト - 重要な情報やリード文に使用します。</p>
+              <p>通常のテキスト - 本文の標準的なスタイルです。ダークモードでも読みやすさを重視した色調を設定しています。</p>
+              <p class="docs-text-small">小さなテキスト - 注釈や補足情報に使用します。</p>
+              <p class="docs-text-muted">ミュートテキスト - 補足的な情報や目立たせたくないテキストに使用します。</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Components Showcase -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="components-showcase">コンポーネント例</h2>
+          <p>Darkテーマでのコンポーネント表示例です。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">ボタン</span>
+            </div>
+            <div class="docs-demo__content">
+              <button class="ndma-btn ndma-btn--primary">Primary</button>
+              <button class="ndma-btn ndma-btn--secondary">Secondary</button>
+              <button class="ndma-btn ndma-btn--success">Success</button>
+              <button class="ndma-btn ndma-btn--warning">Warning</button>
+              <button class="ndma-btn ndma-btn--danger">Danger</button>
+            </div>
+          </div>
+
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">カード</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-card">
+                <div class="ndma-card__header">
+                  <h4>カードタイトル</h4>
+                </div>
+                <div class="ndma-card__body">
+                  <p>カードのコンテンツです。Darkテーマでは、目の疲労を軽減するダーク背景になります。</p>
+                </div>
+                <div class="ndma-card__footer">
+                  <button class="ndma-btn ndma-btn--primary">詳細</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">アラート</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-alert ndma-alert--info">
+                <strong>情報：</strong>システムが正常に動作しています。
+              </div>
+              <div class="ndma-alert ndma-alert--success">
+                <strong>成功：</strong>操作が正常に完了しました。
+              </div>
+              <div class="ndma-alert ndma-alert--warning">
+                <strong>警告：</strong>注意が必要です。
+              </div>
+              <div class="ndma-alert ndma-alert--danger">
+                <strong>エラー：</strong>問題が発生しました。
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">テーブル</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-table ndma-table--bordered">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>項目</th>
+                      <th>ステータス</th>
+                      <th>更新日</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>文書A</td>
+                      <td><span class="ndma-badge ndma-badge--success">承認済み</span></td>
+                      <td>2024-01-15</td>
+                    </tr>
+                    <tr>
+                      <td>文書B</td>
+                      <td><span class="ndma-badge ndma-badge--warning">審査中</span></td>
+                      <td>2024-01-14</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Special Features -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="special-features">特殊機能</h2>
+          <p>Darkテーマ固有の機能です。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">緊急アラート</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-alert ndma-alert--emergency">
+                <strong>緊急警報：</strong>大規模災害が発生しました。直ちに避難してください。
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">状況監視パネル</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-monitoring-panel">
+                <div class="ndma-monitoring-panel__header">
+                  <h4>リアルタイム監視</h4>
+                  <span class="ndma-status-indicator ndma-status-indicator--online">
+                    <span class="ndma-status-indicator__dot"></span>
+                    <span class="ndma-status-indicator__text">ONLINE</span>
+                  </span>
+                </div>
+                <div class="ndma-monitoring-panel__body">
+                  <div class="ndma-monitoring-item">
+                    <span class="ndma-monitoring-item__label">地震観測</span>
+                    <span class="ndma-monitoring-item__value ndma-monitoring-item__value--normal">正常</span>
+                  </div>
+                  <div class="ndma-monitoring-item">
+                    <span class="ndma-monitoring-item__label">気象警報</span>
+                    <span class="ndma-monitoring-item__value ndma-monitoring-item__value--warning">注意</span>
+                  </div>
+                  <div class="ndma-monitoring-item">
+                    <span class="ndma-monitoring-item__label">通信回線</span>
+                    <span class="ndma-monitoring-item__value ndma-monitoring-item__value--normal">正常</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Use Cases -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="use-cases">使用例</h2>
+          <p>Darkテーマが適している用途です。</p>
+          
+          <div class="ndma-row">
+            <div class="ndma-col-md-6 ndma-col-lg-4">
+              <div class="ndma-card">
+                <div class="ndma-card__header">
+                  <h4>災害対策室</h4>
+                </div>
+                <div class="ndma-card__body">
+                  <p>24時間体制の監視、状況把握、意思決定支援システムに適しています。</p>
+                </div>
+              </div>
+            </div>
+            <div class="ndma-col-md-6 ndma-col-lg-4">
+              <div class="ndma-card">
+                <div class="ndma-card__header">
+                  <h4>オペレーションセンター</h4>
+                </div>
+                <div class="ndma-card__body">
+                  <p>インフラ監視、セキュリティ管理、緊急対応コマンドセンターに適しています。</p>
+                </div>
+              </div>
+            </div>
+            <div class="ndma-col-md-6 ndma-col-lg-4">
+              <div class="ndma-card">
+                <div class="ndma-card__header">
+                  <h4>夜間勤務システム</h4>
+                </div>
+                <div class="ndma-card__body">
+                  <p>長時間の監視業務、夜間のデータ分析、レポート作成に適しています。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Guidelines -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="guidelines">デザインガイドライン</h2>
+          
+          <h3>輝度の調整</h3>
+          <p>Darkテーマは、輝度を抑えることで目の疲労を軽減します。特に夜間や暗室での使用に適しています。</p>
+          
+          <h3>コントラスト</h3>
+          <p>テキストと背景のコントラストを最適化し、可読性を確保しています。重要な情報は高いコントラストで強調されます。</p>
+          
+          <h3>色彩の抑制</h3>
+          <p>不必要な色彩を抑え、重要な情報（警告、エラーなど）にのみ強い色を使用します。これにより、情報の優先順位が明確になります。</p>
+          
+          <h3>自動切り替え</h3>
+          <p>システムの時間設定や環境光センサーに連動して、自動的にテーマを切り替える実装を推奨します。</p>
+          
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;!-- 時間ベースの自動テーマ切り替え例 --&gt;
+&lt;script&gt;
+function setThemeByTime() {
+  const hour = new Date().getHours();
+  const html = document.documentElement;
+  
+  if (hour >= 18 || hour < 6) {
+    html.classList.remove('ndma-theme-default');
+    html.classList.add('ndma-theme-dark');
+  } else {
+    html.classList.remove('ndma-theme-dark');
+    html.classList.add('ndma-theme-default');
+  }
+}
+
+setThemeByTime();
+setInterval(setThemeByTime, 60000); // 1分ごとに確認
+&lt;/script&gt;</pre>
+          </div>
+        </section>
+
+        <!-- How to Use -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="how-to-use">使用方法</h2>
+          <p>Darkテーマを適用するには、HTML要素にクラスを追加します。</p>
+          
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;!-- Darkテーマを適用 --&gt;
+&lt;html class="ndma-theme-dark"&gt;
+  &lt;head&gt;
+    &lt;link rel="stylesheet" href="ndma.css"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- コンテンツ --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+&lt;!-- JavaScriptで動的に切り替え --&gt;
+&lt;script&gt;
+// Darkテーマに切り替え
+document.documentElement.classList.remove('ndma-theme-default');
+document.documentElement.classList.add('ndma-theme-dark');
+
+// Defaultテーマに切り替え
+document.documentElement.classList.remove('ndma-theme-dark');
+document.documentElement.classList.add('ndma-theme-default');
+&lt;/script&gt;</pre>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Mobile Menu Button -->
+  <button class="docs-mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+
+  <!-- Documentation JS -->
+  <script src="../assets/docs.js"></script>
+</body>
+</html>

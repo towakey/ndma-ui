@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ja" class="ndma-theme-dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>状況室ダッシュボード - ndma-ui</title>
+  <meta name="description" content="災害対策室向けの状況監視ダッシュボード">
+  <link rel="stylesheet" href="../assets/ndma.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+  <style>
+    /* ダッシュボード専用のスタイル */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .dashboard-stat {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .dashboard-stat__icon {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      font-size: 1.5rem;
+    }
+    
+    .dashboard-stat__content {
+      flex: 1;
+    }
+    
+    .dashboard-stat__value {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 0.25rem;
+    }
+    
+    .dashboard-stat__label {
+      color: #8892a6;
+      font-size: 0.875rem;
+    }
+    
+    .dashboard-chart {
+      height: 300px;
+      background: #242938;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .dashboard-chart::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, transparent 0%, rgba(0, 153, 255, 0.1) 100%);
+    }
+    
+    .dashboard-timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+    
+    .dashboard-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0.5rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #3a4556;
+    }
+    
+    .dashboard-timeline__item {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+    
+    .dashboard-timeline__item::before {
+      content: '';
+      position: absolute;
+      left: -1.75rem;
+      top: 0.25rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #0099ff;
+    }
+    
+    .dashboard-timeline__time {
+      color: #8892a6;
+      font-size: 0.875rem;
+      margin-bottom: 0.25rem;
+    }
+    
+    .dashboard-alert-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .dashboard-alert-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem;
+      background: #242938;
+      border-radius: 6px;
+      border-left: 3px solid;
+    }
+    
+    .dashboard-alert-item--info {
+      border-left-color: #0099ff;
+    }
+    
+    .dashboard-alert-item--warning {
+      border-left-color: #ffaa00;
+    }
+    
+    .dashboard-alert-item--danger {
+      border-left-color: #ff4757;
+    }
+    
+    @media (max-width: 768px) {
+      .dashboard-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="ndma-header">
+    <div class="ndma-header__content">
+      <div class="ndma-header__left">
+        <a href="#" class="ndma-header__logo">
+          <div class="ndma-header__logo-icon">NDMA</div>
+          <span>災害管理システム</span>
+        </a>
+      </div>
+      <div class="ndma-header__center">
+        <h1 class="ndma-header__title">状況室ダッシュボード</h1>
+      </div>
+      <div class="ndma-header__right">
+        <div class="ndma-header__actions">
+          <button class="ndma-btn ndma-btn--secondary ndma-btn--sm">
+            <span class="ndma-icon">⚙</span>
+            設定
+          </button>
+          <button class="ndma-btn ndma-btn--primary ndma-btn--sm">
+            <span class="ndma-icon">↻</span>
+            更新
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="ndma-container" style="padding-top: 2rem;">
+    <!-- 統計カード -->
+    <div class="dashboard-grid">
+      <div class="ndma-card">
+        <div class="ndma-card__body">
+          <div class="dashboard-stat">
+            <div class="dashboard-stat__icon" style="background: rgba(0, 153, 255, 0.2); color: #0099ff;">
+              🚨
+            </div>
+            <div class="dashboard-stat__content">
+              <div class="dashboard-stat__value">12</div>
+              <div class="dashboard-stat__label">アクティブな警報</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="ndma-card">
+        <div class="ndma-card__body">
+          <div class="dashboard-stat">
+            <div class="dashboard-stat__icon" style="background: rgba(0, 212, 170, 0.2); color: #00d4aa;">
+              ✅
+            </div>
+            <div class="dashboard-stat__content">
+              <div class="dashboard-stat__value">89</div>
+              <div class="dashboard-stat__label">対応済み案件</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="ndma-card">
+        <div class="ndma-card__body">
+          <div class="dashboard-stat">
+            <div class="dashboard-stat__icon" style="background: rgba(255, 170, 0, 0.2); color: #ffaa00;">
+              👥
+            </div>
+            <div class="dashboard-stat__content">
+              <div class="dashboard-stat__value">156</div>
+              <div class="dashboard-stat__label">活動要員</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="ndma-card">
+        <div class="ndma-card__body">
+          <div class="dashboard-stat">
+            <div class="dashboard-stat__icon" style="background: rgba(255, 71, 87, 0.2); color: #ff4757;">
+              📍
+            </div>
+            <div class="dashboard-stat__content">
+              <div class="dashboard-stat__value">7</div>
+              <div class="dashboard-stat__label">影響地域</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- メインコンテンツ -->
+    <div class="ndma-row">
+      <!-- 左側コンテンツ -->
+      <div class="ndma-col-lg-8">
+        <!-- リアルタイム監視 -->
+        <div class="ndma-card" style="margin-bottom: 1.5rem;">
+          <div class="ndma-card__header">
+            <h4>リアルタイム監視</h4>
+            <div class="ndma-status-indicator ndma-status-indicator--online">
+              <span class="ndma-status-indicator__dot"></span>
+              <span class="ndma-status-indicator__text">LIVE</span>
+            </div>
+          </div>
+          <div class="ndma-card__body">
+            <div class="dashboard-chart">
+              <div style="text-align: center; color: #8892a6;">
+                <div style="font-size: 3rem; margin-bottom: 1rem;">📊</div>
+                <p>リアルタイムデータ表示エリア</p>
+                <p style="font-size: 0.875rem; margin-top: 0.5rem;">最終更新: 14:32:15</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 最新情報 -->
+        <div class="ndma-card">
+          <div class="ndma-card__header">
+            <h4>最新情報</h4>
+            <button class="ndma-btn ndma-btn--sm ndma-btn--secondary">すべて表示</button>
+          </div>
+          <div class="ndma-card__body">
+            <div class="dashboard-timeline">
+              <div class="dashboard-timeline__item">
+                <div class="dashboard-timeline__time">14:30</div>
+                <div class="ndma-alert ndma-alert--danger">
+                  <strong>緊急：</strong>東京都心部で震度5強を観測
+                </div>
+              </div>
+              <div class="dashboard-timeline__item">
+                <div class="dashboard-timeline__time">14:25</div>
+                <div class="ndma-alert ndma-alert--warning">
+                  <strong>注意：</strong>台風14号が接近中、最大瞬間風速50m/s
+                </div>
+              </div>
+              <div class="dashboard-timeline__item">
+                <div class="dashboard-timeline__time">14:20</div>
+                <div class="ndma-alert ndma-alert--info">
+                  <strong>情報：</strong>河川水位が通常範囲内
+                </div>
+              </div>
+              <div class="dashboard-timeline__item">
+                <div class="dashboard-timeline__time">14:15</div>
+                <div class="ndma-alert ndma-alert--success">
+                  <strong>完了：</strong>避難所の設営が完了
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右側コンテンツ -->
+      <div class="ndma-col-lg-4">
+        <!-- 緊急連絡先 -->
+        <div class="ndma-card" style="margin-bottom: 1.5rem;">
+          <div class="ndma-card__header">
+            <h4>緊急連絡先</h4>
+          </div>
+          <div class="ndma-card__body">
+            <div class="ndma-list ndma-list--spaced">
+              <div class="ndma-list__item">
+                <div class="ndma-list__item-content">
+                  <div class="ndma-list__item-title">災害対策本部</div>
+                  <div class="ndma-list__item-subtitle">内線: 1234</div>
+                </div>
+                <button class="ndma-btn ndma-btn--sm ndma-btn--primary">呼出</button>
+              </div>
+              <div class="ndma-list__item">
+                <div class="ndma-list__item-content">
+                  <div class="ndma-list__item-title">医療チーム</div>
+                  <div class="ndma-list__item-subtitle">内線: 5678</div>
+                </div>
+                <button class="ndma-btn ndma-btn--sm ndma-btn--primary">呼出</button>
+              </div>
+              <div class="ndma-list__item">
+                <div class="ndma-list__item-content">
+                  <div class="ndma-list__item-title">消防隊</div>
+                  <div class="ndma-list__item-subtitle">内線: 9999</div>
+                </div>
+                <button class="ndma-btn ndma-btn--sm ndma-btn--primary">呼出</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- アラート一覧 -->
+        <div class="ndma-card">
+          <div class="ndma-card__header">
+            <h4>アラート一覧</h4>
+            <span class="ndma-badge ndma-badge--danger">新着 3</span>
+          </div>
+          <div class="ndma-card__body">
+            <div class="dashboard-alert-list">
+              <div class="dashboard-alert-item dashboard-alert-item--danger">
+                <span class="ndma-icon" style="color: #ff4757;">⚠</span>
+                <div style="flex: 1;">
+                  <div style="font-weight: bold;">震度5強</div>
+                  <div style="font-size: 0.875rem; color: #8892a6;">東京都心部</div>
+                </div>
+                <span style="font-size: 0.875rem; color: #8892a6;">2分前</span>
+              </div>
+              <div class="dashboard-alert-item dashboard-alert-item--warning">
+                <span class="ndma-icon" style="color: #ffaa00;">⚡</span>
+                <div style="flex: 1;">
+                  <div style="font-weight: bold;">停電報告</div>
+                  <div style="font-size: 0.875rem; color: #8892a6;">横浜市北部</div>
+                </div>
+                <span style="font-size: 0.875rem; color: #8892a6;">5分前</span>
+              </div>
+              <div class="dashboard-alert-item dashboard-alert-item--info">
+                <span class="ndma-icon" style="color: #0099ff;">ℹ</span>
+                <div style="flex: 1;">
+                  <div style="font-weight: bold;">道路規制</div>
+                  <div style="font-size: 0.875rem; color: #8892a6;">国道1号線</div>
+                </div>
+                <span style="font-size: 0.875rem; color: #8892a6;">10分前</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- リソース状況 -->
+    <div class="ndma-card" style="margin-top: 1.5rem;">
+      <div class="ndma-card__header">
+        <h4>リソース状況</h4>
+        <div class="ndma-card__header-actions">
+          <button class="ndma-btn ndma-btn--sm ndma-btn--secondary">エクスポート</button>
+        </div>
+      </div>
+      <div class="ndma-card__body">
+        <div class="ndma-table ndma-table--bordered">
+          <table>
+            <thead>
+              <tr>
+                <th>リソース</th>
+                <th>総数</th>
+                <th>使用中</th>
+                <th>予約</th>
+                <th>利用可能</th>
+                <th>状況</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>救急車</td>
+                <td>50</td>
+                <td>32</td>
+                <td>5</td>
+                <td>13</td>
+                <td><span class="ndma-badge ndma-badge--warning">64%</span></td>
+              </tr>
+              <tr>
+                <td>消防車</td>
+                <td>40</td>
+                <td>18</td>
+                <td>3</td>
+                <td>19</td>
+                <td><span class="ndma-badge ndma-badge--success">45%</span></td>
+              </tr>
+              <tr>
+                <td>ヘリコプター</td>
+                <td>10</td>
+                <td>7</td>
+                <td>2</td>
+                <td>1</td>
+                <td><span class="ndma-badge ndma-badge--danger">70%</span></td>
+              </tr>
+              <tr>
+                <td>避難所</td>
+                <td>25</td>
+                <td>15</td>
+                <td>3</td>
+                <td>7</td>
+                <td><span class="ndma-badge ndma-badge--warning">60%</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Documentation JS -->
+  <script src="../assets/docs.js"></script>
+  <script>
+    // ダッシュボードの自動更新シミュレーション
+    setInterval(() => {
+      const timeElements = document.querySelectorAll('.dashboard-timeline__time');
+      const now = new Date();
+      timeElements.forEach(el => {
+        const minutes = Math.floor(Math.random() * 60);
+        el.textContent = `${now.getHours().toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+      });
+    }, 30000); // 30秒ごとに更新
+  </script>
+</body>
+</html>

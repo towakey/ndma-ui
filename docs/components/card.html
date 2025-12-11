@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="ja" class="ndma-theme-default">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cards - ndma-ui</title>
+  <meta name="description" content="ndma-uiのカードコンポーネントドキュメント">
+  <link rel="stylesheet" href="../assets/ndma.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+  <!-- Documentation Header -->
+  <header class="docs-header">
+    <div class="docs-header__content">
+      <h1 class="docs-title">Cards</h1>
+      <p class="docs-lead">情報をまとめて表示するためのカードコンポーネント</p>
+    </div>
+  </header>
+
+  <!-- Theme Switcher -->
+  <div class="docs-theme-switcher">
+    <div class="ndma-theme-switcher">
+      <button class="ndma-theme-switcher__btn ndma-theme-switcher__btn--active" data-theme="default">Default</button>
+      <button class="ndma-theme-switcher__btn" data-theme="dark">Dark</button>
+      <button class="ndma-theme-switcher__btn" data-theme="ops">Night Ops</button>
+    </div>
+  </div>
+
+  <!-- Documentation Container -->
+  <div class="docs-container">
+    <!-- Sidebar Navigation -->
+    <aside class="docs-sidebar" id="docsSidebar">
+      <nav class="docs-nav">
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">はじめに</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../index.html" class="docs-nav__link">概要</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../getting-started.html" class="docs-nav__link">Getting Started</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">コンポーネント</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="button.html" class="docs-nav__link">Buttons</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="card.html" class="docs-nav__link docs-nav__link--active">Cards</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="table.html" class="docs-nav__link">Tables</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="form.html" class="docs-nav__link">Forms</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="alert.html" class="docs-nav__link">Alerts</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="navigation.html" class="docs-nav__link">Navigation</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="badge.html" class="docs-nav__link">Badges</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="modal.html" class="docs-nav__link">Modals</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="grid.html" class="docs-nav__link">Grid</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">テーマ</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../themes/default.html" class="docs-nav__link">Default（行政）</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../themes/dark.html" class="docs-nav__link">Dark（災害対策室）</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../themes/ops.html" class="docs-nav__link">Night Ops（SOPHEX）</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">サンプル</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../examples/dashboard.html" class="docs-nav__link">状況室ダッシュボード</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../examples/login.html" class="docs-nav__link">ログイン画面</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../examples/sophex.html" class="docs-nav__link">SOPHEX特務システム</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="docs-main">
+      <div class="docs-content">
+        <!-- Overview -->
+        <section class="docs-section">
+          <p>カードは関連する情報をまとめて表示するための柔軟なコンポーネントです。ダッシュボード、情報パネル、コンテンツ表示など様々な用途で使用できます。</p>
+        </section>
+
+        <!-- Basic Card -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="basic-card">基本的なカード</h2>
+          <p>最もシンプルなカードの構造です。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">基本カード</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-card">
+                <h3>カードタイトル</h3>
+                <p>これはカードの基本的な例です。タイトルとコンテンツを含みます。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;div class="ndma-card"&gt;
+  &lt;h3&gt;カードタイトル&lt;/h3&gt;
+  &lt;p&gt;これはカードの基本的な例です。タイトルとコンテンツを含みます。&lt;/p&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Card with Header -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="card-header">ヘッダー付きカード</h2>
+          <p>専用のヘッダーセクションを持つカードです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">ヘッダー付きカード</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-card">
+                <div class="ndma-card__header">
+                  <h3 class="ndma-card__title">災害情報</h3>
+                  <span class="ndma-status-tag ndma-status-tag--level-3">警戒</span>
+                </div>
+                <div class="ndma-card__body">
+                  <p>現在、3件の気象警報が発令されています。</p>
+                  <p>最新更新：2024年1月15日 14:30</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;div class="ndma-card"&gt;
+  &lt;div class="ndma-card__header"&gt;
+    &lt;h3 class="ndma-card__title"&gt;災害情報&lt;/h3&gt;
+    &lt;span class="ndma-status-tag ndma-status-tag--level-3"&gt;警戒&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="ndma-card__body"&gt;
+    &lt;p&gt;現在、3件の気象警報が発令されています。&lt;/p&gt;
+    &lt;p&gt;最新更新：2024年1月15日 14:30&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Card with Footer -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="card-footer">フッター付きカード</h2>
+          <p>アクションボタンなどを配置するフッターを持つカードです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">フッター付きカード</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-card">
+                <div class="ndma-card__header">
+                  <h3 class="ndma-card__title">システム通知</h3>
+                </div>
+                <div class="ndma-card__body">
+                  <p>新しいアップデートが利用可能です。バージョン1.2.0には重要なセキュリティ修正が含まれています。</p>
+                </div>
+                <div class="ndma-card__footer">
+                  <button class="ndma-btn ndma-btn--primary">今すぐ更新</button>
+                  <button class="ndma-btn ndma-btn--secondary">後で</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;div class="ndma-card"&gt;
+  &lt;div class="ndma-card__header"&gt;
+    &lt;h3 class="ndma-card__title"&gt;システム通知&lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;div class="ndma-card__body"&gt;
+    &lt;p&gt;新しいアップデートが利用可能です。バージョン1.2.0には重要なセキュリティ修正が含まれています。&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="ndma-card__footer"&gt;
+    &lt;button class="ndma-btn ndma-btn--primary"&gt;今すぐ更新&lt;/button&gt;
+    &lt;button class="ndma-btn ndma-btn--secondary"&gt;後で&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Card Variants -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="card-variants">カードのバリエーション</h2>
+          <p>異なるスタイルのカードです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">カードバリエーション</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-card ndma-card--bordered">
+                <h3>ボーダーカード</h3>
+                <p>強調されたボーダーを持つカードです。</p>
+              </div>
+              <div class="ndma-card ndma-card--shadow" style="margin-top: 1rem;">
+                <h3>シャドウカード</h3>
+                <p>強い影を持つカードです。</p>
+              </div>
+              <div class="ndma-card ndma-card--hover" style="margin-top: 1rem;">
+                <h3>ホバーカード</h3>
+                <p>ホバー時にインタラクションがあるカードです。</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;div class="ndma-card ndma-card--bordered"&gt;
+  &lt;h3&gt;ボーダーカード&lt;/h3&gt;
+  &lt;p&gt;強調されたボーダーを持つカードです。&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="ndma-card ndma-card--shadow"&gt;
+  &lt;h3&gt;シャドウカード&lt;/h3&gt;
+  &lt;p&gt;強い影を持つカードです。&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="ndma-card ndma-card--hover"&gt;
+  &lt;h3&gt;ホバーカード&lt;/h3&gt;
+  &lt;p&gt;ホバー時にインタラクションがあるカードです。&lt;/p&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Status Cards -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="status-cards">ステータスカード</h2>
+          <p>状況や状態を表示するためのカードです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">ステータスカード</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-card ndma-card--status ndma-card--status-success">
+                <div class="ndma-card__status-icon">✓</div>
+                <h3>システム正常</h3>
+                <p>すべてのシステムが正常に動作しています</p>
+              </div>
+              <div class="ndma-card ndma-card--status ndma-card--status-warning" style="margin-top: 1rem;">
+                <div class="ndma-card__status-icon">!</div>
+                <h3>注意が必要</h3>
+                <p>一部のシステムで遅延が確認されています</p>
+              </div>
+              <div class="ndma-card ndma-card--status ndma-card--status-danger" style="margin-top: 1rem;">
+                <div class="ndma-card__status-icon">×</div>
+                <h3>緊急事態</h3>
+                <p>重大な問題が発生しています</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;div class="ndma-card ndma-card--status ndma-card--status-success"&gt;
+  &lt;div class="ndma-card__status-icon"&gt;✓&lt;/div&gt;
+  &lt;h3&gt;システム正常&lt;/h3&gt;
+  &lt;p&gt;すべてのシステムが正常に動作しています&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="ndma-card ndma-card--status ndma-card--status-warning"&gt;
+  &lt;div class="ndma-card__status-icon"&gt;!&lt;/div&gt;
+  &lt;h3&gt;注意が必要&lt;/h3&gt;
+  &lt;p&gt;一部のシステムで遅延が確認されています&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="ndma-card ndma-card--status ndma-card--status-danger"&gt;
+  &lt;div class="ndma-card__status-icon"&gt;×&lt;/div&gt;
+  &lt;h3&gt;緊急事態&lt;/h3&gt;
+  &lt;p&gt;重大な問題が発生しています&lt;/p&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Card Grid -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="card-grid">カードグリッド</h2>
+          <p>複数のカードをグリッドレイアウトで配置します。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">カードグリッド</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-grid ndma-grid--3">
+                <div class="ndma-card">
+                  <h4>地震情報</h4>
+                  <p>過去24時間：12回</p>
+                  <span class="ndma-status-tag ndma-status-tag--level-2">注意</span>
+                </div>
+                <div class="ndma-card">
+                  <h4>気象警報</h4>
+                  <p>現在発令中：3件</p>
+                  <span class="ndma-status-tag ndma-status-tag--level-3">警戒</span>
+                </div>
+                <div class="ndma-card">
+                  <h4>避難情報</h4>
+                  <p>避難指示：2市町村</p>
+                  <span class="ndma-status-tag ndma-status-tag--level-4">高</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;div class="ndma-grid ndma-grid--3"&gt;
+  &lt;div class="ndma-card"&gt;
+    &lt;h4&gt;地震情報&lt;/h4&gt;
+    &lt;p&gt;過去24時間：12回&lt;/p&gt;
+    &lt;span class="ndma-status-tag ndma-status-tag--level-2"&gt;注意&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="ndma-card"&gt;
+    &lt;h4&gt;気象警報&lt;/h4&gt;
+    &lt;p&gt;現在発令中：3件&lt;/p&gt;
+    &lt;span class="ndma-status-tag ndma-status-tag--level-3"&gt;警戒&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="ndma-card"&gt;
+    &lt;h4&gt;避難情報&lt;/h4&gt;
+    &lt;p&gt;避難指示：2市町村&lt;/p&gt;
+    &lt;span class="ndma-status-tag ndma-status-tag--level-4"&gt;高&lt;/span&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Night Ops Theme Special Cards -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="night-ops-cards">Night Opsテーマ専用カード</h2>
+          <p>Night Opsテーマでは、HUD風の特殊カードが利用可能です。</p>
+          
+          <div class="docs-callout docs-callout--warning">
+            <strong>注意：</strong>これらのカードはNight Opsテーマでのみ正しく表示されます。
+          </div>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">HUDカード</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-card ndma-card-hud">
+                <div class="ndma-card__header">
+                  <h3 class="ndma-card__title">TACTICAL PANEL</h3>
+                  <div class="ndma-monitor-panel__status">
+                    <span class="ndma-monitor-panel__status-dot"></span>
+                    <span>ACTIVE</span>
+                  </div>
+                </div>
+                <div class="ndma-card__body">
+                  <p>System Status: OPERATIONAL</p>
+                  <p>Threat Level: ORANGE</p>
+                  <p>Response Time: 00:12:34</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;!-- Night Opsテーマ専用 --&gt;
+&lt;div class="ndma-card ndma-card-hud"&gt;
+  &lt;div class="ndma-card__header"&gt;
+    &lt;h3 class="ndma-card__title"&gt;TACTICAL PANEL&lt;/h3&gt;
+    &lt;div class="ndma-monitor-panel__status"&gt;
+      &lt;span class="ndma-monitor-panel__status-dot"&gt;&lt;/span&gt;
+      &lt;span&gt;ACTIVE&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="ndma-card__body"&gt;
+    &lt;p&gt;System Status: OPERATIONAL&lt;/p&gt;
+    &lt;p&gt;Threat Level: ORANGE&lt;/p&gt;
+    &lt;p&gt;Response Time: 00:12:34&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Live Feed Card -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="live-feed-card">ライブフィードカード</h2>
+          <p>リアルタイム情報を表示するための特殊カードです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">ライブフィード</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-live-feed">
+                <div class="ndma-card__header">
+                  <h3 class="ndma-card__title">LIVE FEED</h3>
+                </div>
+                <div class="ndma-card__body">
+                  <p>14:32 - 地震感知：震度3 東京都</p>
+                  <p>14:30 - 津波注意報解除：宮城県</p>
+                  <p>14:28 - 大雨特別警報：和歌山県</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;!-- Night Opsテーマ専用 --&gt;
+&lt;div class="ndma-live-feed"&gt;
+  &lt;div class="ndma-card__header"&gt;
+    &lt;h3 class="ndma-card__title"&gt;LIVE FEED&lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;div class="ndma-card__body"&gt;
+    &lt;p&gt;14:32 - 地震感知：震度3 東京都&lt;/p&gt;
+    &lt;p&gt;14:30 - 津波注意報解除：宮城県&lt;/p&gt;
+    &lt;p&gt;14:28 - 大雨特別警報：和歌山県&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Usage Guidelines -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="usage-guidelines">使用ガイドライン</h2>
+          
+          <h3>情報のグループ化</h3>
+          <p>関連する情報を1つのカードにまとめることで、ユーザーは情報の関係性を理解しやすくなります。</p>
+          
+          <h3>一貫性の維持</h3>
+          <p>同じページやセクション内では、カードの構造を一貫性させてください。</p>
+          
+          <h3>過剰な使用を避ける</h3>
+          <p>すべてのコンテンツをカードにする必要はありません。本当にグループ化が必要な場合に使用してください。</p>
+          
+          <h3>アクセシビリティ</h3>
+          <p>カードがクリック可能な場合、<code>tabindex="0"</code>と適切なARIA属性を追加してください。</p>
+          
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;div class="ndma-card" role="button" tabindex="0" aria-label="詳細を表示"&gt;
+  &lt;h3&gt;カードタイトル&lt;/h3&gt;
+  &lt;p&gt;カードの説明&lt;/p&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Mobile Menu Button -->
+  <button class="docs-mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+
+  <!-- Documentation JS -->
+  <script src="../assets/docs.js"></script>
+</body>
+</html>

@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="ja" class="ndma-theme-ops">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SOPHEX特務システム - ndma-ui</title>
+  <meta name="description" content="SOPHEX特務システムのコントロールパネル">
+  <link rel="stylesheet" href="../assets/ndma.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+  <style>
+    /* SOPHEX専用スタイル */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    @keyframes scan {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100%); }
+    }
+    
+    @keyframes glitch {
+      0%, 100% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(-2px, -2px); }
+      60% { transform: translate(2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+    }
+    
+    .sophex-container {
+      min-height: 100vh;
+      background: #0a0e1a;
+      font-family: 'Courier New', monospace;
+      position: relative;
+      overflow-x: hidden;
+    }
+    
+    .sophex-container::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(0, 255, 136, 0.03) 2px,
+          rgba(0, 255, 136, 0.03) 4px
+        );
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    .sophex-header {
+      background: linear-gradient(135deg, #141929 0%, #1e2438 100%);
+      border-bottom: 2px solid #00ff88;
+      padding: 1rem;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .sophex-header__content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+    
+    .sophex-logo {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .sophex-logo__icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #00ff88 0%, #00ccff 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.25rem;
+      color: #0a0e1a;
+      border-radius: 8px;
+      animation: pulse 2s infinite;
+    }
+    
+    .sophex-logo__text {
+      color: #00ff88;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+    }
+    
+    .sophex-status {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    .sophex-status__item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #00ccff;
+      font-size: 0.875rem;
+    }
+    
+    .sophex-status__indicator {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #00ff88;
+      box-shadow: 0 0 10px #00ff88;
+      animation: pulse 2s infinite;
+    }
+    
+    .sophex-main {
+      display: grid;
+      grid-template-columns: 250px 1fr 350px;
+      gap: 1rem;
+      padding: 1rem;
+      max-width: 1600px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 10;
+    }
+    
+    .sophex-sidebar {
+      background: rgba(20, 25, 41, 0.8);
+      border: 1px solid #1e2438;
+      border-radius: 8px;
+      padding: 1rem;
+      height: calc(100vh - 120px);
+      overflow-y: auto;
+    }
+    
+    .sophex-nav {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .sophex-nav__item {
+      margin-bottom: 0.5rem;
+    }
+    
+    .sophex-nav__link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem;
+      color: #8892a6;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.3s;
+      font-size: 0.875rem;
+    }
+    
+    .sophex-nav__link:hover {
+      background: rgba(0, 255, 136, 0.1);
+      color: #00ff88;
+    }
+    
+    .sophex-nav__link--active {
+      background: rgba(0, 255, 136, 0.2);
+      color: #00ff88;
+      border-left: 3px solid #00ff88;
+    }
+    
+    .sophex-nav__code {
+      color: #00ccff;
+      font-weight: bold;
+    }
+    
+    .sophex-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .sophex-panel {
+      background: rgba(20, 25, 41, 0.8);
+      border: 1px solid #1e2438;
+      border-radius: 8px;
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .sophex-panel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00ff88, transparent);
+      animation: scan 3s linear infinite;
+    }
+    
+    .sophex-panel__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid #1e2438;
+    }
+    
+    .sophex-panel__title {
+      color: #00ff88;
+      font-size: 1.125rem;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .sophex-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+    
+    .sophex-metric {
+      background: rgba(30, 36, 56, 0.5);
+      border: 1px solid #1e2438;
+      border-radius: 4px;
+      padding: 1rem;
+      text-align: center;
+    }
+    
+    .sophex-metric__value {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #00ccff;
+      margin-bottom: 0.25rem;
+    }
+    
+    .sophex-metric__label {
+      font-size: 0.75rem;
+      color: #667799;
+      text-transform: uppercase;
+    }
+    
+    .sophex-tactical-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    
+    .sophex-tactical-item {
+      background: rgba(30, 36, 56, 0.5);
+      border: 1px solid #1e2438;
+      border-radius: 4px;
+      padding: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .sophex-tactical-item::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #00ff88;
+    }
+    
+    .sophex-tactical-item--danger::after {
+      background: #ff0066;
+    }
+    
+    .sophex-tactical-item--warning::after {
+      background: #ffaa00;
+    }
+    
+    .sophex-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .sophex-terminal {
+      background: #0a0e1a;
+      border: 1px solid #1e2438;
+      border-radius: 8px;
+      padding: 1rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.875rem;
+      height: 300px;
+      overflow-y: auto;
+    }
+    
+    .sophex-terminal__line {
+      margin-bottom: 0.5rem;
+      color: #00ff88;
+    }
+    
+    .sophex-terminal__line--error {
+      color: #ff0066;
+    }
+    
+    .sophex-terminal__line--warning {
+      color: #ffaa00;
+    }
+    
+    .sophex-terminal__prompt {
+      color: #00ccff;
+    }
+    
+    .sophex-controls {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+    
+    .sophex-btn {
+      padding: 0.75rem;
+      background: rgba(30, 36, 56, 0.5);
+      border: 1px solid #1e2438;
+      border-radius: 4px;
+      color: #00ff88;
+      font-family: 'Courier New', monospace;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .sophex-btn:hover {
+      background: rgba(0, 255, 136, 0.1);
+      border-color: #00ff88;
+      transform: translateY(-2px);
+    }
+    
+    .sophex-btn--danger {
+      color: #ff0066;
+    }
+    
+    .sophex-btn--danger:hover {
+      background: rgba(255, 0, 102, 0.1);
+      border-color: #ff0066;
+    }
+    
+    @media (max-width: 1200px) {
+      .sophex-main {
+        grid-template-columns: 200px 1fr 300px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .sophex-main {
+        grid-template-columns: 1fr;
+      }
+      
+      .sophex-sidebar {
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sophex-container">
+    <!-- ヘッダー -->
+    <header class="sophex-header">
+      <div class="sophex-header__content">
+        <div class="sophex-logo">
+          <div class="sophex-logo__icon">SOPHEX</div>
+          <div class="sophex-logo__text">[SYSTEM] ONLINE</div>
+        </div>
+        <div class="sophex-status">
+          <div class="sophex-status__item">
+            <span class="sophex-status__indicator"></span>
+            <span>MISSION ACTIVE</span>
+          </div>
+          <div class="sophex-status__item">
+            <span class="sophex-status__indicator" style="background: #00ccff;"></span>
+            <span>12 UNITS DEPLOYED</span>
+          </div>
+          <div class="sophex-status__item">
+            <span style="color: #8892a6;">14:32:15 JST</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <div class="sophex-main">
+      <!-- サイドバー -->
+      <aside class="sophex-sidebar">
+        <nav>
+          <ul class="sophex-nav">
+            <li class="sophex-nav__item">
+              <a href="#" class="sophex-nav__link sophex-nav__link--active">
+                <span class="sophex-nav__code">[SYS]</span>
+                SYSTEM CONTROL
+              </a>
+            </li>
+            <li class="sophex-nav__item">
+              <a href="#" class="sophex-nav__link">
+                <span class="sophex-nav__code">[OPS]</span>
+                OPERATIONS
+              </a>
+            </li>
+            <li class="sophex-nav__item">
+              <a href="#" class="sophex-nav__link">
+                <span class="sophex-nav__code">[COM]</span>
+                COMMUNICATIONS
+              </a>
+            </li>
+            <li class="sophex-nav__item">
+              <a href="#" class="sophex-nav__link">
+                <span class="sophex-nav__code">[MAP]</span>
+                TACTICAL MAP
+              </a>
+            </li>
+            <li class="sophex-nav__item">
+              <a href="#" class="sophex-nav__link">
+                <span class="sophex-nav__code">[INT]</span>
+                INTELLIGENCE
+              </a>
+            </li>
+            <li class="sophex-nav__item">
+              <a href="#" class="sophex-nav__link">
+                <span class="sophex-nav__code">[RES]</span>
+                RESOURCES
+              </a>
+            </li>
+            <li class="sophex-nav__item">
+              <a href="#" class="sophex-nav__link">
+                <span class="sophex-nav__code">[LOG]</span>
+                MISSION LOG
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- 中央コンテンツ -->
+      <main class="sophex-content">
+        <!-- メトリクス -->
+        <div class="sophex-panel">
+          <div class="sophex-panel__header">
+            <h2 class="sophex-panel__title">
+              <span>[METRICS]</span>
+              SYSTEM STATUS
+            </h2>
+            <span class="ndma-status-indicator ndma-status-indicator--online">
+              <span class="ndma-status-indicator__dot"></span>
+            </span>
+          </div>
+          <div class="sophex-grid">
+            <div class="sophex-metric">
+              <div class="sophex-metric__value">98.7%</div>
+              <div class="sophex-metric__label">System Integrity</div>
+            </div>
+            <div class="sophex-metric">
+              <div class="sophex-metric__value">12</div>
+              <div class="sophex-metric__label">Active Units</div>
+            </div>
+            <div class="sophex-metric">
+              <div class="sophex-metric__value">3</div>
+              <div class="sophex-metric__label">Critical Alerts</div>
+            </div>
+            <div class="sophex-metric">
+              <div class="sophex-metric__value">00:42:15</div>
+              <div class="sophex-metric__label">Mission Time</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- タクティカルディスプレイ -->
+        <div class="sophex-panel">
+          <div class="sophex-panel__header">
+            <h2 class="sophex-panel__title">
+              <span>[TACTICAL]</span>
+              UNIT DEPLOYMENT
+            </h2>
+          </div>
+          <div class="sophex-tactical-grid">
+            <div class="sophex-tactical-item">
+              <div style="color: #00ff88; font-weight: bold; margin-bottom: 0.5rem;">ALPHA-01</div>
+              <div style="font-size: 0.875rem; color: #8892a6;">Status: ACTIVE</div>
+              <div style="font-size: 0.875rem; color: #8892a6;">Location: Sector 7</div>
+            </div>
+            <div class="sophex-tactical-item">
+              <div style="color: #00ff88; font-weight: bold; margin-bottom: 0.5rem;">BRAVO-02</div>
+              <div style="font-size: 0.875rem; color: #8892a6;">Status: ACTIVE</div>
+              <div style="font-size: 0.875rem; color: #8892a6;">Location: Sector 3</div>
+            </div>
+            <div class="sophex-tactical-item sophex-tactical-item--warning">
+              <div style="color: #ffaa00; font-weight: bold; margin-bottom: 0.5rem;">CHARLIE-03</div>
+              <div style="font-size: 0.875rem; color: #8892a6;">Status: STANDBY</div>
+              <div style="font-size: 0.875rem; color: #8892a6;">Location: Base</div>
+            </div>
+            <div class="sophex-tactical-item">
+              <div style="color: #00ff88; font-weight: bold; margin-bottom: 0.5rem;">DELTA-04</div>
+              <div style="font-size: 0.875rem; color: #8892a6;">Status: ACTIVE</div>
+              <div style="font-size: 0.875rem; color: #8892a6;">Location: Sector 9</div>
+            </div>
+            <div class="sophex-tactical-item sophex-tactical-item--danger">
+              <div style="color: #ff0066; font-weight: bold; margin-bottom: 0.5rem;">ECHO-05</div>
+              <div style="font-size: 0.875rem; color: #8892a6;">Status: OFFLINE</div>
+              <div style="font-size: 0.875rem; color: #8892a6;">Location: Unknown</div>
+            </div>
+            <div class="sophex-tactical-item">
+              <div style="color: #00ff88; font-weight: bold; margin-bottom: 0.5rem;">FOXTROT-06</div>
+              <div style="font-size: 0.875rem; color: #8892a6;">Status: ACTIVE</div>
+              <div style="font-size: 0.875rem; color: #8892a6;">Location: Sector 2</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ミッションコントロール -->
+        <div class="sophex-panel">
+          <div class="sophex-panel__header">
+            <h2 class="sophex-panel__title">
+              <span>[CONTROL]</span>
+              MISSION COMMANDS
+            </h2>
+          </div>
+          <div class="sophex-controls">
+            <button class="sophex-btn">[DEPLOY] UNIT</button>
+            <button class="sophex-btn">[RECALL] TEAM</button>
+            <button class="sophex-btn">[SCAN] AREA</button>
+            <button class="sophex-btn">[ANALYZE] DATA</button>
+            <button class="sophex-btn">[LOCKDOWN] ZONE</button>
+            <button class="sophex-btn sophex-btn--danger">[ABORT] MISSION</button>
+          </div>
+        </div>
+      </main>
+
+      <!-- 右側コンテンツ -->
+      <aside class="sophex-right">
+        <!-- ターミナル -->
+        <div class="sophex-panel">
+          <div class="sophex-panel__header">
+            <h2 class="sophex-panel__title">
+              <span>[TERM]</span>
+              SYSTEM TERMINAL
+            </h2>
+          </div>
+          <div class="sophex-terminal" id="terminal">
+            <div class="sophex-terminal__line">&gt; Initializing SOPHEX v2.4.1...</div>
+            <div class="sophex-terminal__line">&gt; Loading tactical systems...</div>
+            <div class="sophex-terminal__line">&gt; Establishing secure connections...</div>
+            <div class="sophex-terminal__line sophex-terminal__success">&gt; All systems operational</div>
+            <div class="sophex-terminal__line">&gt; Receiving real-time data...</div>
+            <div class="sophex-terminal__line sophex-terminal__warning">&gt; Warning: Unit ECHO-05 offline</div>
+            <div class="sophex-terminal__line">&gt; Deploying recovery protocol...</div>
+            <div class="sophex-terminal__line">
+              <span class="sophex-terminal__prompt">&gt;_</span>
+              <span style="animation: pulse 1s infinite;">▊</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 緊急アラート -->
+        <div class="sophex-panel">
+          <div class="sophex-panel__header">
+            <h2 class="sophex-panel__title">
+              <span>[ALERT]</span>
+              CRITICAL MESSAGES
+            </h2>
+            <span class="ndma-badge ndma-badge--danger">3</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <div class="ndma-alert ndma-alert--danger" style="background: rgba(255, 0, 102, 0.1); border-color: #ff0066;">
+              <strong>[CRITICAL]:</strong> Unit ECHO-05 offline for 5 min
+            </div>
+            <div class="ndma-alert ndma-alert--warning" style="background: rgba(255, 170, 0, 0.1); border-color: #ffaa00;">
+              <strong>[WARNING]:</strong> High radiation in Sector 7
+            </div>
+            <div class="ndma-alert ndma-alert--info" style="background: rgba(0, 204, 255, 0.1); border-color: #00ccff;">
+              <strong>[INFO]:</strong> Extraction ETA: 15 minutes
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Documentation JS -->
+  <script src="../assets/docs.js"></script>
+  <script>
+    // ターミナルの自動更新
+    const terminal = document.getElementById('terminal');
+    const messages = [
+      '&gt; Scanning perimeter...',
+      '&gt; Analyzing environmental data...',
+      '&gt; Updating tactical map...',
+      '&gt; Monitoring communication channels...',
+      '&gt; System diagnostics: PASSED',
+      '&gt; Synchronizing with central command...',
+      '&gt; Weather conditions: NOMINAL',
+      '&gt; Enemy movement detected in Sector 4',
+      '&gt; Deploying countermeasures...',
+      '&gt; Mission objective: IN PROGRESS'
+    ];
+    
+    let messageIndex = 0;
+    setInterval(() => {
+      const lines = terminal.querySelectorAll('.sophex-terminal__line');
+      const lastLine = lines[lines.length - 1];
+      
+      if (lastLine) {
+        lastLine.innerHTML = '&gt; ' + messages[messageIndex];
+        messageIndex = (messageIndex + 1) % messages.length;
+        
+        // 新しいプロンプト行を追加
+        const newLine = document.createElement('div');
+        newLine.className = 'sophex-terminal__line';
+        newLine.innerHTML = '<span class="sophex-terminal__prompt">&gt;_</span><span style="animation: pulse 1s infinite;">▊</span>';
+        terminal.appendChild(newLine);
+        
+        // 最大10行まで保持
+        while (terminal.children.length > 10) {
+          terminal.removeChild(terminal.firstChild);
+        }
+        
+        // 最下部までスクロール
+        terminal.scrollTop = terminal.scrollHeight;
+      }
+    }, 3000);
+    
+    // ナビゲーションクリック処理
+    document.querySelectorAll('.sophex-nav__link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelectorAll('.sophex-nav__link').forEach(l => l.classList.remove('sophex-nav__link--active'));
+        this.classList.add('sophex-nav__link--active');
+      });
+    });
+    
+    // コントロールボタン処理
+    document.querySelectorAll('.sophex-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const command = this.textContent;
+        const line = document.createElement('div');
+        line.className = 'sophex-terminal__line';
+        line.innerHTML = `<span class="sophex-terminal__prompt">&gt;</span> Executing: ${command}`;
+        terminal.appendChild(line);
+        terminal.scrollTop = terminal.scrollHeight;
+        
+        // エフェクト
+        this.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+          this.style.transform = '';
+        }, 100);
+      });
+    });
+  </script>
+</body>
+</html>

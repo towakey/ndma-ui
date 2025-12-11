@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ja" class="ndma-theme-default">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ログイン - ndma-ui</title>
+  <meta name="description" content="ndma-uiのログイン画面サンプル">
+  <link rel="stylesheet" href="../assets/ndma.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+  <style>
+    /* ログインページ専用スタイル */
+    .login-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+      padding: 2rem;
+    }
+    
+    .login-container {
+      width: 100%;
+      max-width: 400px;
+    }
+    
+    .login-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    
+    .login-header {
+      background: #0066cc;
+      padding: 2rem;
+      text-align: center;
+      color: white;
+    }
+    
+    .login-header__logo {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    
+    .login-header__title {
+      font-size: 1.25rem;
+      opacity: 0.9;
+    }
+    
+    .login-body {
+      padding: 2rem;
+    }
+    
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .login-footer {
+      padding: 1.5rem 2rem;
+      background: #f8f9fa;
+      border-top: 1px solid #dee2e6;
+    }
+    
+    .login-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .login-help {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    
+    .login-help__link {
+      color: #0066cc;
+      text-decoration: none;
+      font-size: 0.875rem;
+    }
+    
+    .login-help__link:hover {
+      text-decoration: underline;
+    }
+    
+    /* テーマ切り替え用スタイル */
+    .ndma-theme-dark .login-page {
+      background: linear-gradient(135deg, #1a1f2e 0%, #0f1419 100%);
+    }
+    
+    .ndma-theme-dark .login-card {
+      background: #242938;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+    
+    .ndma-theme-dark .login-header {
+      background: #0099ff;
+    }
+    
+    .ndma-theme-dark .login-footer {
+      background: #1a1f2e;
+      border-top-color: #3a4556;
+    }
+    
+    .ndma-theme-dark .login-help__link {
+      color: #0099ff;
+    }
+    
+    .ndma-theme-ops .login-page {
+      background: linear-gradient(135deg, #0a0e1a 0%, #141929 100%);
+    }
+    
+    .ndma-theme-ops .login-card {
+      background: #141929;
+      box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
+      border: 1px solid #1e2438;
+    }
+    
+    .ndma-theme-ops .login-header {
+      background: linear-gradient(135deg, #00ff88 0%, #00ccff 100%);
+      color: #0a0e1a;
+    }
+    
+    .ndma-theme-ops .login-footer {
+      background: #0a0e1a;
+      border-top-color: #1e2438;
+    }
+    
+    .ndma-theme-ops .login-help__link {
+      color: #00ff88;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-page">
+    <div class="login-container">
+      <div class="login-card">
+        <!-- ヘッダー -->
+        <div class="login-header">
+          <div class="login-header__logo">NDMA</div>
+          <div class="login-header__title">災害管理システム</div>
+        </div>
+        
+        <!-- フォーム -->
+        <div class="login-body">
+          <form class="login-form" id="loginForm">
+            <!-- ユーザーID -->
+            <div class="ndma-form-group">
+              <label class="ndma-form-label" for="userId">ユーザーID</label>
+              <div class="ndma-input-group">
+                <span class="ndma-input-group__addon">👤</span>
+                <input 
+                  type="text" 
+                  id="userId" 
+                  class="ndma-form-control" 
+                  placeholder="例: yamada.taro"
+                  required
+                >
+              </div>
+            </div>
+            
+            <!-- パスワード -->
+            <div class="ndma-form-group">
+              <label class="ndma-form-label" for="password">パスワード</label>
+              <div class="ndma-input-group">
+                <span class="ndma-input-group__addon">🔒</span>
+                <input 
+                  type="password" 
+                  id="password" 
+                  class="ndma-form-control" 
+                  placeholder="パスワードを入力"
+                  required
+                >
+              </div>
+            </div>
+            
+            <!-- オプション -->
+            <div class="login-options">
+              <label class="ndma-checkbox">
+                <input type="checkbox" class="ndma-checkbox__input">
+                <span class="ndma-checkbox__checkmark"></span>
+                <span class="ndma-checkbox__label">次回から自動的にログイン</span>
+              </label>
+              <a href="#" class="login-help__link">パスワードを忘れた場合</a>
+            </div>
+            
+            <!-- ログインボタン -->
+            <button type="submit" class="ndma-btn ndma-btn--primary ndma-btn--block ndma-btn--lg">
+              ログイン
+            </button>
+          </form>
+        </div>
+        
+        <!-- フッター -->
+        <div class="login-footer">
+          <div class="login-help">
+            <a href="#" class="login-help__link">ヘルプデスク</a>
+            <span style="margin: 0 0.5rem; color: #8892a6;">|</span>
+            <a href="#" class="login-help__link">システム管理者へ連絡</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- テーマ切り替ャー -->
+      <div style="margin-top: 2rem; text-align: center;">
+        <div class="ndma-theme-switcher">
+          <button class="ndma-theme-switcher__btn ndma-theme-switcher__btn--active" data-theme="default">Default</button>
+          <button class="ndma-theme-switcher__btn" data-theme="dark">Dark</button>
+          <button class="ndma-theme-switcher__btn" data-theme="ops">Night Ops</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Documentation JS -->
+  <script src="../assets/docs.js"></script>
+  <script>
+    // ログインフォーム処理
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const userId = document.getElementById('userId').value;
+      const password = document.getElementById('password').value;
+      
+      // 簡単なバリデーション
+      if (!userId || !password) {
+        alert('ユーザーIDとパスワードを入力してください。');
+        return;
+      }
+      
+      // ログイン処理のシミュレーション
+      const submitBtn = this.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="ndma-spinner ndma-spinner--sm"></span> 認証中...';
+      
+      setTimeout(() => {
+        // ダッシュボードへリダイレクト（実際は認証APIを呼び出す）
+        alert('ログインに成功しました。\n（実際はダッシュボードへリダイレクトします）');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'ログイン';
+      }, 1500);
+    });
+    
+    // テーマ切り替え
+    const themeButtons = document.querySelectorAll('.ndma-theme-switcher__btn');
+    themeButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const theme = this.dataset.theme;
+        document.documentElement.classList.remove('ndma-theme-default', 'ndma-theme-dark', 'ndma-theme-ops');
+        document.documentElement.classList.add('ndma-theme-' + theme);
+        
+        themeButtons.forEach(b => b.classList.remove('ndma-theme-switcher__btn--active'));
+        this.classList.add('ndma-theme-switcher__btn--active');
+      });
+    });
+  </script>
+</body>
+</html>

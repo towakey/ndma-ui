@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ja" class="ndma-theme-default">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buttons - ndma-ui</title>
+  <meta name="description" content="ndma-uiのボタンコンポーネントドキュメント">
+  <link rel="stylesheet" href="../assets/ndma.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+  <!-- Documentation Header -->
+  <header class="docs-header">
+    <div class="docs-header__content">
+      <h1 class="docs-title">Buttons</h1>
+      <p class="docs-lead">操作をトリガーするためのボタンコンポーネント</p>
+    </div>
+  </header>
+
+  <!-- Theme Switcher -->
+  <div class="docs-theme-switcher">
+    <div class="ndma-theme-switcher">
+      <button class="ndma-theme-switcher__btn ndma-theme-switcher__btn--active" data-theme="default">Default</button>
+      <button class="ndma-theme-switcher__btn" data-theme="dark">Dark</button>
+      <button class="ndma-theme-switcher__btn" data-theme="ops">Night Ops</button>
+    </div>
+  </div>
+
+  <!-- Documentation Container -->
+  <div class="docs-container">
+    <!-- Sidebar Navigation -->
+    <aside class="docs-sidebar" id="docsSidebar">
+      <nav class="docs-nav">
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">はじめに</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../index.html" class="docs-nav__link">概要</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../getting-started.html" class="docs-nav__link">Getting Started</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">コンポーネント</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="button.html" class="docs-nav__link docs-nav__link--active">Buttons</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="card.html" class="docs-nav__link">Cards</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="table.html" class="docs-nav__link">Tables</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="form.html" class="docs-nav__link">Forms</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="alert.html" class="docs-nav__link">Alerts</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="navigation.html" class="docs-nav__link">Navigation</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="badge.html" class="docs-nav__link">Badges</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="modal.html" class="docs-nav__link">Modals</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="grid.html" class="docs-nav__link">Grid</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">テーマ</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../themes/default.html" class="docs-nav__link">Default（行政）</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../themes/dark.html" class="docs-nav__link">Dark（災害対策室）</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../themes/ops.html" class="docs-nav__link">Night Ops（SOPHEX）</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">サンプル</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../examples/dashboard.html" class="docs-nav__link">状況室ダッシュボード</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../examples/login.html" class="docs-nav__link">ログイン画面</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../examples/sophex.html" class="docs-nav__link">SOPHEX特務システム</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="docs-main">
+      <div class="docs-content">
+        <!-- Overview -->
+        <section class="docs-section">
+          <p>ボタンはユーザーの操作をトリガーするための最も基本的なコンポーネントです。ndma-uiでは、行政システムの用途に合わせた複数のスタイルを提供しています。</p>
+        </section>
+
+        <!-- Basic Buttons -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="basic-buttons">基本的なボタン</h2>
+          <p>3つの基本スタイルが利用可能です。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">基本ボタン</span>
+            </div>
+            <div class="docs-demo__content">
+              <button class="ndma-btn ndma-btn--primary">Primary</button>
+              <button class="ndma-btn ndma-btn--secondary">Secondary</button>
+              <button class="ndma-btn ndma-btn--danger">Danger</button>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;button class="ndma-btn ndma-btn--primary"&gt;Primary&lt;/button&gt;
+&lt;button class="ndma-btn ndma-btn--secondary"&gt;Secondary&lt;/button&gt;
+&lt;button class="ndma-btn ndma-btn--danger"&gt;Danger&lt;/button&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Button Sizes -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="button-sizes">ボタンのサイズ</h2>
+          <p>3つのサイズが利用可能です。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">サイズバリエーション</span>
+            </div>
+            <div class="docs-demo__content">
+              <button class="ndma-btn ndma-btn--primary ndma-btn--sm">Small</button>
+              <button class="ndma-btn ndma-btn--primary">Default</button>
+              <button class="ndma-btn ndma-btn--primary ndma-btn--lg">Large</button>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;button class="ndma-btn ndma-btn--primary ndma-btn--sm"&gt;Small&lt;/button&gt;
+&lt;button class="ndma-btn ndma-btn--primary"&gt;Default&lt;/button&gt;
+&lt;button class="ndma-btn ndma-btn--primary ndma-btn--lg"&gt;Large&lt;/button&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Button States -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="button-states">ボタンの状態</h2>
+          <p>有効/無効、ローディングなどの状態を表現できます。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">状態バリエーション</span>
+            </div>
+            <div class="docs-demo__content">
+              <button class="ndma-btn ndma-btn--primary">有効</button>
+              <button class="ndma-btn ndma-btn--primary" disabled>無効</button>
+              <button class="ndma-btn ndma-btn--primary ndma-btn--loading">
+                <span class="ndma-spinner"></span>
+                ローディング中...
+              </button>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;button class="ndma-btn ndma-btn--primary"&gt;有効&lt;/button&gt;
+&lt;button class="ndma-btn ndma-btn--primary" disabled&gt;無効&lt;/button&gt;
+&lt;button class="ndma-btn ndma-btn--primary ndma-btn--loading"&gt;
+  &lt;span class="ndma-spinner"&gt;&lt;/span&gt;
+  ローディング中...
+&lt;/button&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Outline Buttons -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="outline-buttons">アウトラインボタン</h2>
+          <p>背景が透明なアウトラインスタイルです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">アウトラインボタン</span>
+            </div>
+            <div class="docs-demo__content">
+              <button class="ndma-btn ndma-btn--outline">Outline</button>
+              <button class="ndma-btn ndma-btn--outline ndma-btn--primary">Primary Outline</button>
+              <button class="ndma-btn ndma-btn--outline ndma-btn--danger">Danger Outline</button>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;button class="ndma-btn ndma-btn--outline"&gt;Outline&lt;/button&gt;
+&lt;button class="ndma-btn ndma-btn--outline ndma-btn--primary"&gt;Primary Outline&lt;/button&gt;
+&lt;button class="ndma-btn ndma-btn--outline ndma-btn--danger"&gt;Danger Outline&lt;/button&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Button Groups -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="button-groups">ボタングループ</h2>
+          <p>関連するボタンをグループ化できます。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">ボタングループ</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-btn-group">
+                <button class="ndma-btn ndma-btn--primary">左</button>
+                <button class="ndma-btn ndma-btn--primary">中央</button>
+                <button class="ndma-btn ndma-btn--primary">右</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;div class="ndma-btn-group"&gt;
+  &lt;button class="ndma-btn ndma-btn--primary"&gt;左&lt;/button&gt;
+  &lt;button class="ndma-btn ndma-btn--primary"&gt;中央&lt;/button&gt;
+  &lt;button class="ndma-btn ndma-btn--primary"&gt;右&lt;/button&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Icon Buttons -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="icon-buttons">アイコンボタン</h2>
+          <p>アイコンとテキストを組み合わせたボタンです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">アイコンボタン</span>
+            </div>
+            <div class="docs-demo__content">
+              <button class="ndma-btn ndma-btn--primary">
+                <span class="ndma-icon">📄</span>
+                新規作成
+              </button>
+              <button class="ndma-btn ndma-btn--secondary">
+                <span class="ndma-icon">✏️</span>
+                編集
+              </button>
+              <button class="ndma-btn ndma-btn--danger">
+                <span class="ndma-icon">🗑️</span>
+                削除
+              </button>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;button class="ndma-btn ndma-btn--primary"&gt;
+  &lt;span class="ndma-icon"&gt;📄&lt;/span&gt;
+  新規作成
+&lt;/button&gt;
+&lt;button class="ndma-btn ndma-btn--secondary"&gt;
+  &lt;span class="ndma-icon"&gt;✏️&lt;/span&gt;
+  編集
+&lt;/button&gt;
+&lt;button class="ndma-btn ndma-btn--danger"&gt;
+  &lt;span class="ndma-icon"&gt;🗑️&lt;/span&gt;
+  削除
+&lt;/button&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Full Width Buttons -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="full-width-buttons">フル幅ボタン</h2>
+          <p>親要素の幅いっぱいに広がるボタンです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">フル幅ボタン</span>
+            </div>
+            <div class="docs-demo__content">
+              <button class="ndma-btn ndma-btn--primary ndma-w-100">フル幅ボタン</button>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;button class="ndma-btn ndma-btn--primary ndma-w-100"&gt;フル幅ボタン&lt;/button&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Night Ops Theme Special Buttons -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="night-ops-buttons">Night Opsテーマ専用ボタン</h2>
+          <p>Night Opsテーマでは、特殊な戦術的ボタンが利用可能です。</p>
+          
+          <div class="docs-callout docs-callout--warning">
+            <strong>注意：</strong>これらのボタンはNight Opsテーマでのみ正しく表示されます。
+          </div>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">Tactical Button</span>
+            </div>
+            <div class="docs-demo__content">
+              <button class="ndma-btn ndma-btn--tactical">TACTICAL</button>
+              <button class="ndma-btn ndma-btn--tactical ndma-btn--danger">EMERGENCY</button>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;!-- Night Opsテーマ専用 --&gt;
+&lt;button class="ndma-btn ndma-btn--tactical"&gt;TACTICAL&lt;/button&gt;
+&lt;button class="ndma-btn ndma-btn--tactical ndma-btn--danger"&gt;EMERGENCY&lt;/button&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Usage Guidelines -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="usage-guidelines">使用ガイドライン</h2>
+          
+          <h3>主要な操作にはPrimaryを</h3>
+          <p>ページやセクションで最も重要な操作には<code>ndma-btn--primary</code>を使用してください。</p>
+          
+          <h3>危険な操作にはDangerを</h3>
+          <p>削除やリセットなど、元に戻せない操作には<code>ndma-btn--danger</code>を使用してください。</p>
+          
+          <h3>二次的な操作にはSecondaryを</h3>
+          <p>キャンセルや戻るなどの二次的な操作には<code>ndma-btn--secondary</code>を使用してください。</p>
+          
+          <h3>アクセシビリティ</h3>
+          <p>ボタンには常に意味のあるテキストを含めてください。アイコンのみの場合は<code>aria-label</code>を追加してください。</p>
+          
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;button class="ndma-btn ndma-btn--primary" aria-label="新規作成"&gt;
+  &lt;span class="ndma-icon"&gt;➕&lt;/span&gt;
+&lt;/button&gt;</pre>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Mobile Menu Button -->
+  <button class="docs-mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+
+  <!-- Documentation JS -->
+  <script src="../assets/docs.js"></script>
+</body>
+</html>

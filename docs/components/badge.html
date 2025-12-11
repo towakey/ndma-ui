@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ja" class="ndma-theme-default">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Badges - ndma-ui</title>
+  <meta name="description" content="ndma-uiのバッジコンポーネントドキュメント">
+  <link rel="stylesheet" href="../assets/ndma.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+  <!-- Documentation Header -->
+  <header class="docs-header">
+    <div class="docs-header__content">
+      <h1 class="docs-title">Badges</h1>
+      <p class="docs-lead">状態やカテゴリを示すための小さなラベルコンポーネント</p>
+    </div>
+  </header>
+
+  <!-- Theme Switcher -->
+  <div class="docs-theme-switcher">
+    <div class="ndma-theme-switcher">
+      <button class="ndma-theme-switcher__btn ndma-theme-switcher__btn--active" data-theme="default">Default</button>
+      <button class="ndma-theme-switcher__btn" data-theme="dark">Dark</button>
+      <button class="ndma-theme-switcher__btn" data-theme="ops">Night Ops</button>
+    </div>
+  </div>
+
+  <!-- Documentation Container -->
+  <div class="docs-container">
+    <!-- Sidebar Navigation -->
+    <aside class="docs-sidebar" id="docsSidebar">
+      <nav class="docs-nav">
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">はじめに</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../index.html" class="docs-nav__link">概要</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../getting-started.html" class="docs-nav__link">Getting Started</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">コンポーネント</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="button.html" class="docs-nav__link">Buttons</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="card.html" class="docs-nav__link">Cards</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="table.html" class="docs-nav__link">Tables</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="form.html" class="docs-nav__link">Forms</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="alert.html" class="docs-nav__link">Alerts</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="navigation.html" class="docs-nav__link">Navigation</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="badge.html" class="docs-nav__link docs-nav__link--active">Badges</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="modal.html" class="docs-nav__link">Modals</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="grid.html" class="docs-nav__link">Grid</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">テーマ</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../themes/default.html" class="docs-nav__link">Default（行政）</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../themes/dark.html" class="docs-nav__link">Dark（災害対策室）</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../themes/ops.html" class="docs-nav__link">Night Ops（SOPHEX）</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">サンプル</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../examples/dashboard.html" class="docs-nav__link">状況室ダッシュボード</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../examples/login.html" class="docs-nav__link">ログイン画面</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../examples/sophex.html" class="docs-nav__link">SOPHEX特務システム</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="docs-main">
+      <div class="docs-content">
+        <!-- Overview -->
+        <section class="docs-section">
+          <p>バッジは状態、カテゴリ、カウントなどの情報を小さなラベルで表示するためのコンポーネントです。災害レベル、緊急度、ステータスなどを視覚的に伝えます。</p>
+        </section>
+
+        <!-- Basic Badges -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="basic-badges">基本的なバッジ</h2>
+          <p>基本的なバッジのスタイルです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">基本バッジ</span>
+            </div>
+            <div class="docs-demo__content">
+              <span class="ndma-badge">Default</span>
+              <span class="ndma-badge ndma-badge--primary">Primary</span>
+              <span class="ndma-badge ndma-badge--secondary">Secondary</span>
+              <span class="ndma-badge ndma-badge--success">Success</span>
+              <span class="ndma-badge ndma-badge--warning">Warning</span>
+              <span class="ndma-badge ndma-badge--danger">Danger</span>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;span class="ndma-badge"&gt;Default&lt;/span&gt;
+&lt;span class="ndma-badge ndma-badge--primary"&gt;Primary&lt;/span&gt;
+&lt;span class="ndma-badge ndma-badge--secondary"&gt;Secondary&lt;/span&gt;
+&lt;span class="ndma-badge ndma-badge--success"&gt;Success&lt;/span&gt;
+&lt;span class="ndma-badge ndma-badge--warning"&gt;Warning&lt;/span&gt;
+&lt;span class="ndma-badge ndma-badge--danger"&gt;Danger&lt;/span&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Status Tags -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="status-tags">ステータスタグ</h2>
+          <p>災害状況や重要度を示す特別なタグです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">ステータスタグ</span>
+            </div>
+            <div class="docs-demo__content">
+              <span class="ndma-status-tag ndma-status-tag--level-1">情報</span>
+              <span class="ndma-status-tag ndma-status-tag--level-2">注意</span>
+              <span class="ndma-status-tag ndma-status-tag--level-3">警戒</span>
+              <span class="ndma-status-tag ndma-status-tag--level-4">危険</span>
+              <span class="ndma-status-tag ndma-status-tag--level-5">緊急</span>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;span class="ndma-status-tag ndma-status-tag--level-1"&gt;情報&lt;/span&gt;
+&lt;span class="ndma-status-tag ndma-status-tag--level-2"&gt;注意&lt;/span&gt;
+&lt;span class="ndma-status-tag ndma-status-tag--level-3"&gt;警戒&lt;/span&gt;
+&lt;span class="ndma-status-tag ndma-status-tag--level-4"&gt;危険&lt;/span&gt;
+&lt;span class="ndma-status-tag ndma-status-tag--level-5"&gt;緊急&lt;/span&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Alert Levels -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="alert-levels">警報レベル</h2>
+          <p>災害警報のレベルを示すバッジです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">警報レベルバッジ</span>
+            </div>
+            <div class="docs-demo__content">
+              <span class="ndma-alert-level ndma-alert-level--blue">警報レベル1</span>
+              <span class="ndma-alert-level ndma-alert-level--yellow">警報レベル2</span>
+              <span class="ndma-alert-level ndma-alert-level--orange">警報レベル3</span>
+              <span class="ndma-alert-level ndma-alert-level--red">警報レベル4</span>
+              <span class="ndma-alert-level ndma-alert-level--purple">警報レベル5</span>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;span class="ndma-alert-level ndma-alert-level--blue"&gt;警報レベル1&lt;/span&gt;
+&lt;span class="ndma-alert-level ndma-alert-level--yellow"&gt;警報レベル2&lt;/span&gt;
+&lt;span class="ndma-alert-level ndma-alert-level--orange"&gt;警報レベル3&lt;/span&gt;
+&lt;span class="ndma-alert-level ndma-alert-level--red"&gt;警報レベル4&lt;/span&gt;
+&lt;span class="ndma-alert-level ndma-alert-level--purple"&gt;警報レベル5&lt;/span&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Count Badges -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="count-badges">カウントバッジ</h2>
+          <p>通知数や未読数などを示すバッジです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">カウントバッジ</span>
+            </div>
+            <div class="docs-demo__content">
+              <button class="ndma-btn ndma-btn--primary">
+                メッセージ
+                <span class="ndma-badge ndma-badge--count">5</span>
+              </button>
+              <button class="ndma-btn ndma-btn--secondary" style="margin-left: 1rem;">
+                通知
+                <span class="ndma-badge ndma-badge--count">12</span>
+              </button>
+              <button class="ndma-btn ndma-btn--default" style="margin-left: 1rem;">
+                タスク
+                <span class="ndma-badge ndma-badge--count ndma-badge--count--large">99+</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;button class="ndma-btn ndma-btn--primary"&gt;
+  メッセージ
+  &lt;span class="ndma-badge ndma-badge--count"&gt;5&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;button class="ndma-btn ndma-btn--secondary"&gt;
+  通知
+  &lt;span class="ndma-badge ndma-badge--count"&gt;12&lt;/span&gt;
+&lt;/button&gt;
+
+&lt;button class="ndma-btn ndma-btn--default"&gt;
+  タスク
+  &lt;span class="ndma-badge ndma-badge--count ndma-badge--count--large"&gt;99+&lt;/span&gt;
+&lt;/button&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Pill Badges -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="pill-badges">ピルバッジ</h2>
+          <p>角が丸いバッジです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">ピルバッジ</span>
+            </div>
+            <div class="docs-demo__content">
+              <span class="ndma-badge ndma-badge--pill">未対応</span>
+              <span class="ndma-badge ndma-badge--pill ndma-badge--primary">処理中</span>
+              <span class="ndma-badge ndma-badge--pill ndma-badge--success">完了</span>
+              <span class="ndma-badge ndma-badge--pill ndma-badge--danger">緊急</span>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;span class="ndma-badge ndma-badge--pill"&gt;未対応&lt;/span&gt;
+&lt;span class="ndma-badge ndma-badge--pill ndma-badge--primary"&gt;処理中&lt;/span&gt;
+&lt;span class="ndma-badge ndma-badge--pill ndma-badge--success"&gt;完了&lt;/span&gt;
+&lt;span class="ndma-badge ndma-badge--pill ndma-badge--danger"&gt;緊急&lt;/span&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Icon Badges -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="icon-badges">アイコン付きバッジ</h2>
+          <p>アイコンを含んだバッジです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">アイコン付きバッジ</span>
+            </div>
+            <div class="docs-demo__content">
+              <span class="ndma-badge ndma-badge--icon">
+                <span class="ndma-badge__icon">📧</span>
+                メール
+              </span>
+              <span class="ndma-badge ndma-badge--icon ndma-badge--warning" style="margin-left: 1rem;">
+                <span class="ndma-badge__icon">⚠️</span>
+                警告
+              </span>
+              <span class="ndma-badge ndma-badge--icon ndma-badge--danger" style="margin-left: 1rem;">
+                <span class="ndma-badge__icon">🚨</span>
+                緊急
+              </span>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;span class="ndma-badge ndma-badge--icon"&gt;
+  &lt;span class="ndma-badge__icon"&gt;📧&lt;/span&gt;
+  メール
+&lt;/span&gt;
+
+&lt;span class="ndma-badge ndma-badge--icon ndma-badge--warning"&gt;
+  &lt;span class="ndma-badge__icon"&gt;⚠️&lt;/span&gt;
+  警告
+&lt;/span&gt;
+
+&lt;span class="ndma-badge ndma-badge--icon ndma-badge--danger"&gt;
+  &lt;span class="ndma-badge__icon"&gt;🚨&lt;/span&gt;
+  緊急
+&lt;/span&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Disaster Type Badges -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="disaster-type-badges">災害種別バッジ</h2>
+          <p>災害の種類を示すバッジです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">災害種別バッジ</span>
+            </div>
+            <div class="docs-demo__content">
+              <span class="ndma-disaster-type ndma-disaster-type--earthquake">
+                <span class="ndma-disaster-type__icon">🌋</span>
+                地震
+              </span>
+              <span class="ndma-disaster-type ndma-disaster-type--tsunami" style="margin-left: 1rem;">
+                <span class="ndma-disaster-type__icon">🌊</span>
+                津波
+              </span>
+              <span class="ndma-disaster-type ndma-disaster-type--typhoon" style="margin-left: 1rem;">
+                <span class="ndma-disaster-type__icon">🌀</span>
+                台風
+              </span>
+              <span class="ndma-disaster-type ndma-disaster-type--flood" style="margin-left: 1rem;">
+                <span class="ndma-disaster-type__icon">💧</span>
+                洪水
+              </span>
+              <span class="ndma-disaster-type ndma-disaster-type--landslide" style="margin-left: 1rem;">
+                <span class="ndma-disaster-type__icon">⛰️</span>
+                土砂災害
+              </span>
+              <span class="ndma-disaster-type ndma-disaster-type--volcano" style="margin-left: 1rem;">
+                <span class="ndma-disaster-type__icon">🌋</span>
+                噴火
+              </span>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;span class="ndma-disaster-type ndma-disaster-type--earthquake"&gt;
+  &lt;span class="ndma-disaster-type__icon"&gt;🌋&lt;/span&gt;
+  地震
+&lt;/span&gt;
+
+&lt;span class="ndma-disaster-type ndma-disaster-type--tsunami"&gt;
+  &lt;span class="ndma-disaster-type__icon"&gt;🌊&lt;/span&gt;
+  津波
+&lt;/span&gt;
+
+&lt;span class="ndma-disaster-type ndma-disaster-type--typhoon"&gt;
+  &lt;span class="ndma-disaster-type__icon"&gt;🌀&lt;/span&gt;
+  台風
+&lt;/span&gt;
+
+&lt;span class="ndma-disaster-type ndma-disaster-type--flood"&gt;
+  &lt;span class="ndma-disaster-type__icon"&gt;💧&lt;/span&gt;
+  洪水
+&lt;/span&gt;
+
+&lt;span class="ndma-disaster-type ndma-disaster-type--landslide"&gt;
+  &lt;span class="ndma-disaster-type__icon"&gt;⛰️&lt;/span&gt;
+  土砂災害
+&lt;/span&gt;
+
+&lt;span class="ndma-disaster-type ndma-disaster-type--volcano"&gt;
+  &lt;span class="ndma-disaster-type__icon"&gt;🌋&lt;/span&gt;
+  噴火
+&lt;/span&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Night Ops Theme Badges -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="night-ops-badges">Night Opsテーマのバッジ</h2>
+          <p>Night Opsテーマでは、HUD風の特殊バッジが表示されます。</p>
+          
+          <div class="docs-callout docs-callout--warning">
+            <strong>注意：</strong>これらのバッジはNight Opsテーマでのみ正しく表示されます。
+          </div>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">Tactical Badges</span>
+            </div>
+            <div class="docs-demo__content">
+              <span class="ndma-badge ndma-badge--success">ACTIVE</span>
+              <span class="ndma-badge ndma-badge--warning">STANDBY</span>
+              <span class="ndma-badge ndma-badge--danger">CRITICAL</span>
+              <span class="ndma-badge ndma-badge--primary">MISSION</span>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;!-- Night Opsテーマ --&gt;
+&lt;span class="ndma-badge ndma-badge--success"&gt;ACTIVE&lt;/span&gt;
+&lt;span class="ndma-badge ndma-badge--warning"&gt;STANDBY&lt;/span&gt;
+&lt;span class="ndma-badge ndma-badge--danger"&gt;CRITICAL&lt;/span&gt;
+&lt;span class="ndma-badge ndma-badge--primary"&gt;MISSION&lt;/span&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Status Indicators -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="status-indicators">ステータスインジケーター</h2>
+          <p>Night Opsテーマのステータス表示です。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">Status Indicators</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-status-indicator ndma-status-indicator--online">
+                <span class="ndma-status-indicator__dot"></span>
+                <span class="ndma-status-indicator__text">ONLINE</span>
+              </div>
+              <div class="ndma-status-indicator ndma-status-indicator--offline" style="margin-left: 2rem;">
+                <span class="ndma-status-indicator__dot"></span>
+                <span class="ndma-status-indicator__text">OFFLINE</span>
+              </div>
+              <div class="ndma-status-indicator ndma-status-indicator--warning" style="margin-left: 2rem;">
+                <span class="ndma-status-indicator__dot"></span>
+                <span class="ndma-status-indicator__text">WARNING</span>
+              </div>
+              <div class="ndma-status-indicator ndma-status-indicator--error" style="margin-left: 2rem;">
+                <span class="ndma-status-indicator__dot"></span>
+                <span class="ndma-status-indicator__text">ERROR</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;!-- Night Opsテーマ専用 --&gt;
+&lt;div class="ndma-status-indicator ndma-status-indicator--online"&gt;
+  &lt;span class="ndma-status-indicator__dot"&gt;&lt;/span&gt;
+  &lt;span class="ndma-status-indicator__text"&gt;ONLINE&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="ndma-status-indicator ndma-status-indicator--offline"&gt;
+  &lt;span class="ndma-status-indicator__dot"&gt;&lt;/span&gt;
+  &lt;span class="ndma-status-indicator__text"&gt;OFFLINE&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="ndma-status-indicator ndma-status-indicator--warning"&gt;
+  &lt;span class="ndma-status-indicator__dot"&gt;&lt;/span&gt;
+  &lt;span class="ndma-status-indicator__text"&gt;WARNING&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class="ndma-status-indicator ndma-status-indicator--error"&gt;
+  &lt;span class="ndma-status-indicator__dot"&gt;&lt;/span&gt;
+  &lt;span class="ndma-status-indicator__text"&gt;ERROR&lt;/span&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Priority Badges -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="priority-badges">優先度バッジ</h2>
+          <p>タスクや案件の優先度を示します。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">優先度バッジ</span>
+            </div>
+            <div class="docs-demo__content">
+              <span class="ndma-priority-badge ndma-priority-badge--low">低</span>
+              <span class="ndma-priority-badge ndma-priority-badge--medium">中</span>
+              <span class="ndma-priority-badge ndma-priority-badge--high">高</span>
+              <span class="ndma-priority-badge ndma-priority-badge--critical">最優先</span>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;span class="ndma-priority-badge ndma-priority-badge--low"&gt;低&lt;/span&gt;
+&lt;span class="ndma-priority-badge ndma-priority-badge--medium"&gt;中&lt;/span&gt;
+&lt;span class="ndma-priority-badge ndma-priority-badge--high"&gt;高&lt;/span&gt;
+&lt;span class="ndma-priority-badge ndma-priority-badge--critical"&gt;最優先&lt;/span&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Usage Guidelines -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="usage-guidelines">使用ガイドライン</h2>
+          
+          <h3>適切なバッジの選択</h3>
+          <ul>
+            <li><strong>基本バッジ：</strong>一般的な分類やラベル</li>
+            <li><strong>ステータスタグ：</strong>災害レベルや緊急度</li>
+            <li><strong>警報レベル：</strong>公式警報のレベル表示</li>
+            <li><strong>カウントバッジ：</strong>通知数や未読数</li>
+            <li><strong>災害種別：</strong>災害の種類を明確に示す</li>
+          </ul>
+          
+          <h3>色の意味</h3>
+          <ul>
+            <li><strong>青（Primary）：</strong>主要情報、公式</li>
+            <li><strong>緑（Success）：</strong>正常、完了、安全</li>
+            <li><strong>黄（Warning）：</strong>注意、警告</li>
+            <li><strong>赤（Danger）：</strong>危険、緊急、エラー</li>
+          </ul>
+          
+          <h3>アクセシビリティ</h3>
+          <p>色だけでなく、テキストでも状態がわかるようにしてください。スクリーンリーダー用に適切なARIA属性を追加します。</p>
+          
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;span class="ndma-badge ndma-badge--danger" role="status" aria-label="緊急"&gt;
+  緊急
+&lt;/span&gt;</pre>
+          </div>
+          
+          <h3>過度な使用を避ける</h3>
+          <p>多くのバッジを一度に表示すると、情報が煩雑になります。重要なものに限定して使用してください。</p>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Mobile Menu Button -->
+  <button class="docs-mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+
+  <!-- Documentation JS -->
+  <script src="../assets/docs.js"></script>
+</body>
+</html>

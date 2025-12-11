@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ja" class="ndma-theme-default">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Night Ops Theme - ndma-ui</title>
+  <meta name="description" content="ndma-uiのNight Opsテーマドキュメント">
+  <link rel="stylesheet" href="../assets/ndma.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+  <!-- Documentation Header -->
+  <header class="docs-header">
+    <div class="docs-header__content">
+      <h1 class="docs-title">Night Ops Theme</h1>
+      <p class="docs-lead">SOPHEX特務システム向けのHUD風デザイン</p>
+    </div>
+  </header>
+
+  <!-- Theme Switcher -->
+  <div class="docs-theme-switcher">
+    <div class="ndma-theme-switcher">
+      <button class="ndma-theme-switcher__btn" data-theme="default">Default</button>
+      <button class="ndma-theme-switcher__btn" data-theme="dark">Dark</button>
+      <button class="ndma-theme-switcher__btn ndma-theme-switcher__btn--active" data-theme="ops">Night Ops</button>
+    </div>
+  </div>
+
+  <!-- Documentation Container -->
+  <div class="docs-container">
+    <!-- Sidebar Navigation -->
+    <aside class="docs-sidebar" id="docsSidebar">
+      <nav class="docs-nav">
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">はじめに</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../index.html" class="docs-nav__link">概要</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../getting-started.html" class="docs-nav__link">Getting Started</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">コンポーネント</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../components/button.html" class="docs-nav__link">Buttons</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../components/card.html" class="docs-nav__link">Cards</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../components/table.html" class="docs-nav__link">Tables</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../components/form.html" class="docs-nav__link">Forms</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../components/alert.html" class="docs-nav__link">Alerts</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../components/navigation.html" class="docs-nav__link">Navigation</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../components/badge.html" class="docs-nav__link">Badges</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../components/modal.html" class="docs-nav__link">Modals</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../components/grid.html" class="docs-nav__link">Grid</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">テーマ</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="default.html" class="docs-nav__link">Default（行政）</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="dark.html" class="docs-nav__link">Dark（災害対策室）</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="ops.html" class="docs-nav__link docs-nav__link--active">Night Ops（SOPHEX）</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">サンプル</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../examples/dashboard.html" class="docs-nav__link">状況室ダッシュボード</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../examples/login.html" class="docs-nav__link">ログイン画面</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../examples/sophex.html" class="docs-nav__link">SOPHEX特務システム</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="docs-main">
+      <div class="docs-content">
+        <!-- Overview -->
+        <section class="docs-section">
+          <p>Night Opsテーマは、SOPHEX（Special Operations Hazard EXecutive）特務システム向けに設計されたHUD（ヘッドアップディスプレイ）風デザインです。サイバーパンクな美学と実用性を融合させ、特殊部隊や緊急対応チームのニーズに応えます。</p>
+        </section>
+
+        <!-- Color Palette -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="color-palette">カラーパレット</h2>
+          <p>Night Opsテーマの主要な色です。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">主要色</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="docs-color-grid">
+                <div class="docs-color-item">
+                  <div class="docs-color-swatch" style="background-color: #0a0e1a;"></div>
+                  <div class="docs-color-info">
+                    <strong>Background</strong><br>
+                    #0a0e1a
+                  </div>
+                </div>
+                <div class="docs-color-item">
+                  <div class="docs-color-swatch" style="background-color: #141929;"></div>
+                  <div class="docs-color-info">
+                    <strong>Surface</strong><br>
+                    #141929
+                  </div>
+                </div>
+                <div class="docs-color-item">
+                  <div class="docs-color-swatch" style="background-color: #1e2438;"></div>
+                  <div class="docs-color-info">
+                    <strong>Surface Raised</strong><br>
+                    #1e2438
+                  </div>
+                </div>
+                <div class="docs-color-item">
+                  <div class="docs-color-swatch" style="background-color: #00ff88;"></div>
+                  <div class="docs-color-info">
+                    <strong>Primary (Neon)</strong><br>
+                    #00ff88
+                  </div>
+                </div>
+                <div class="docs-color-item">
+                  <div class="docs-color-swatch" style="background-color: #00ccff;"></div>
+                  <div class="docs-color-info">
+                    <strong>Secondary (Cyan)</strong><br>
+                    #00ccff
+                  </div>
+                </div>
+                <div class="docs-color-item">
+                  <div class="docs-color-swatch" style="background-color: #ff0066;"></div>
+                  <div class="docs-color-info">
+                    <strong>Danger (Magenta)</strong><br>
+                    #ff0066
+                  </div>
+                </div>
+                <div class="docs-color-item">
+                  <div class="docs-color-swatch" style="background-color: #ffaa00;"></div>
+                  <div class="docs-color-info">
+                    <strong>Warning (Amber)</strong><br>
+                    #ffaa00
+                  </div>
+                </div>
+                <div class="docs-color-item">
+                  <div class="docs-color-swatch" style="background-color: #667799;"></div>
+                  <div class="docs-color-info">
+                    <strong>Text Dimmed</strong><br>
+                    #667799
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Typography -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="typography">タイポグラフィ</h2>
+          <p>Night Opsテーマの文字スタイルです。等幅フォントを多用し、技術的な雰囲気を演出します。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">見出し</span>
+            </div>
+            <div class="docs-demo__content">
+              <h1>[SYSTEM] MAIN TITLE</h1>
+              <h2>[SECTION] SUBTITLE</h2>
+              <h3>[SUB] HEADING</h3>
+              <h4>[MINOR] SMALL HEADING</h4>
+            </div>
+          </div>
+
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">テキストスタイル</span>
+            </div>
+            <div class="docs-demo__content">
+              <p class="docs-text-large">[LARGE] 重要なシステムメッセージ</p>
+              <p>[NORMAL] Standard system text with monospace font</p>
+              <p class="docs-text-small">[SMALL] System log entries and debug info</p>
+              <p class="docs-text-muted">[DIMMED] Secondary information and metadata</p>
+              <p class="ndma-code-text">&gt;_ COMMAND LINE INTERFACE READY</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Components Showcase -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="components-showcase">コンポーネント例</h2>
+          <p>Night Opsテーマでのコンポーネント表示例です。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">Tactical Buttons</span>
+            </div>
+            <div class="docs-demo__content">
+              <button class="ndma-btn ndma-btn--primary">[EXEC] RUN</button>
+              <button class="ndma-btn ndma-btn--secondary">[SCAN] ANALYZE</button>
+              <button class="ndma-btn ndma-btn--success">[OK] CONFIRM</button>
+              <button class="ndma-btn ndma-btn--warning">[WARN] ALERT</button>
+              <button class="ndma-btn ndma-btn--danger">[STOP] ABORT</button>
+            </div>
+          </div>
+
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">Tactical Cards</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-card ndma-card--ops">
+                <div class="ndma-card__header">
+                  <h4>[MODULE] SYSTEM STATUS</h4>
+                  <span class="ndma-status-indicator ndma-status-indicator--online">
+                    <span class="ndma-status-indicator__dot"></span>
+                  </span>
+                </div>
+                <div class="ndma-card__body">
+                  <p>All systems operational. Ready for mission deployment.</p>
+                </div>
+                <div class="ndma-card__footer">
+                  <button class="ndma-btn ndma-btn--primary">[VIEW] DETAILS</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">System Alerts</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-alert ndma-alert--info">
+                <strong>[INFO]:</strong> System diagnostics completed successfully
+              </div>
+              <div class="ndma-alert ndma-alert--success">
+                <strong>[SUCCESS]:</strong> Mission objectives achieved
+              </div>
+              <div class="ndma-alert ndma-alert--warning">
+                <strong>[WARNING]:</strong> Unusual activity detected in Sector 7
+              </div>
+              <div class="ndma-alert ndma-alert--danger">
+                <strong>[CRITICAL]:</strong> System breach detected. Immediate action required
+              </div>
+              <div class="ndma-alert ndma-alert--emergency">
+                <strong>[EMERGENCY]:</strong> CODE RED - All units respond immediately
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">Data Table</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-table ndma-table--bordered ndma-table--ops">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>[ID] UNIT</th>
+                      <th>[STATUS] STATE</th>
+                      <th>[TIME] LAST UPDATE</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>ALPHA-01</td>
+                      <td><span class="ndma-badge ndma-badge--success">ACTIVE</span></td>
+                      <td>14:32:15</td>
+                    </tr>
+                    <tr>
+                      <td>BRAVO-02</td>
+                      <td><span class="ndma-badge ndma-badge--warning">STANDBY</span></td>
+                      <td>14:31:48</td>
+                    </tr>
+                    <tr>
+                      <td>CHARLIE-03</td>
+                      <td><span class="ndma-badge ndma-badge--danger">OFFLINE</span></td>
+                      <td>14:29:22</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Special Features -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="special-features">特殊機能</h2>
+          <p>Night Opsテーマ固有の機能です。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">Tactical Navigation</span>
+            </div>
+            <div class="docs-demo__content">
+              <nav class="ndma-tactical-nav">
+                <div class="ndma-tactical-nav__section">
+                  <h4 class="ndma-tactical-nav__title">MISSION CONTROL</h4>
+                  <ul class="ndma-tactical-nav__list">
+                    <li class="ndma-tactical-nav__item">
+                      <a href="#" class="ndma-tactical-nav__link ndma-tactical-nav__link--active">
+                        <span class="ndma-tactical-nav__code">[SYS]</span>
+                        SYSTEM STATUS
+                      </a>
+                    </li>
+                    <li class="ndma-tactical-nav__item">
+                      <a href="#" class="ndma-tactical-nav__link">
+                        <span class="ndma-tactical-nav__code">[OPS]</span>
+                        OPERATIONS
+                      </a>
+                    </li>
+                    <li class="ndma-tactical-nav__item">
+                      <a href="#" class="ndma-tactical-nav__link">
+                        <span class="ndma-tactical-nav__code">[COM]</span>
+                        COMMUNICATIONS
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">Mission Priority</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-mission-priority">
+                <div class="ndma-mission-priority__item ndma-mission-priority__item--critical">
+                  <span class="ndma-mission-priority__label">CRITICAL</span>
+                  <span class="ndma-mission-priority__count">3</span>
+                </div>
+                <div class="ndma-mission-priority__item ndma-mission-priority__item--high">
+                  <span class="ndma-mission-priority__label">HIGH</span>
+                  <span class="ndma-mission-priority__count">7</span>
+                </div>
+                <div class="ndma-mission-priority__item ndma-mission-priority__item--medium">
+                  <span class="ndma-mission-priority__label">MEDIUM</span>
+                  <span class="ndma-mission-priority__count">12</span>
+                </div>
+                <div class="ndma-mission-priority__item ndma-mission-priority__item--low">
+                  <span class="ndma-mission-priority__label">LOW</span>
+                  <span class="ndma-mission-priority__count">24</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">HUD Terminal</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-terminal">
+                <div class="ndma-terminal__header">
+                  <span class="ndma-terminal__title">SYSTEM TERMINAL v2.4.1</span>
+                </div>
+                <div class="ndma-terminal__body">
+                  <div class="ndma-terminal__output">
+                    <p>&gt; Initializing tactical systems...</p>
+                    <p>&gt; Loading mission parameters...</p>
+                    <p>&gt; Establishing secure connections...</p>
+                    <p class="ndma-terminal__success">&gt; All systems ready</p>
+                  </div>
+                  <div class="ndma-terminal__input-line">
+                    <span class="ndma-terminal__prompt">&gt;_</span>
+                    <input type="text" class="ndma-terminal__input" placeholder="Enter command...">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Use Cases -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="use-cases">使用例</h2>
+          <p>Night Opsテーマが適している用途です。</p>
+          
+          <div class="ndma-row">
+            <div class="ndma-col-md-6 ndma-col-lg-4">
+              <div class="ndma-card ndma-card--ops">
+                <div class="ndma-card__header">
+                  <h4>[SOPHEX] 特務システム</h4>
+                </div>
+                <div class="ndma-card__body">
+                  <p>特殊災害対応チームの統合指揮システム、高難度ミッションの管理に適しています。</p>
+                </div>
+              </div>
+            </div>
+            <div class="ndma-col-md-6 ndma-col-lg-4">
+              <div class="ndma-card ndma-card--ops">
+                <div class="ndma-card__header">
+                  <h4>[CYBER] セキュリティセンター</h4>
+                </div>
+                <div class="ndma-card__body">
+                  <p>サイバー攻撃監視、インシデント対応、フォレンジック分析に適しています。</p>
+                </div>
+              </div>
+            </div>
+            <div class="ndma-col-md-6 ndma-col-lg-4">
+              <div class="ndma-card ndma-card--ops">
+                <div class="ndma-card__header">
+                  <h4>[TACTICAL] 作戦司令室</h4>
+                </div>
+                <div class="ndma-card__body">
+                  <p>実戦状況のリアルタイム表示、戦術的決定支援、部隊管理に適しています。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Guidelines -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="guidelines">デザインガイドライン</h2>
+          
+          <h3>HUD美学</h3>
+          <p>ミニマルな情報表示とネオンカラーのアクセントを組み合わせ、未来感のあるHUDスタイルを実現します。</p>
+          
+          <h3>情報階層</h3>
+          <p>重要度に応じて情報の輝度やサイズを変化させ、直感的な情報理解を支援します。</p>
+          
+          <h3>テクニカルフォント</h3>
+          <p>等幅フォントを多用し、技術的な正確性とコンピュータシステムらしい雰囲気を演出します。</p>
+          
+          <h3>アニメーション効果</h3>
+          <p>グリッチエフェクト、スキャンライン、データストリームなどのサブアニメーションで、生きたシステムのような印象を与えます。</p>
+          
+          <h3>アクセシビリティ</h3>
+          <p>視覚効果が強いテーマですが、コントラスト比を確保し、色覚多様性にも配慮した設計になっています。</p>
+        </section>
+
+        <!-- How to Use -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="how-to-use">使用方法</h2>
+          <p>Night Opsテーマを適用するには、HTML要素にクラスを追加します。</p>
+          
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;!-- Night Opsテーマを適用 --&gt;
+&lt;html class="ndma-theme-ops"&gt;
+  &lt;head&gt;
+    &lt;link rel="stylesheet" href="ndma.css"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- コンテンツ --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+
+&lt;!-- JavaScriptで動的に切り替え --&gt;
+&lt;script&gt;
+// Night Opsテーマに切り替え
+document.documentElement.classList.remove('ndma-theme-default', 'ndma-theme-dark');
+document.documentElement.classList.add('ndma-theme-ops');
+
+// テーマ切り替え関数
+function switchTheme(theme) {
+  const html = document.documentElement;
+  html.classList.remove('ndma-theme-default', 'ndma-theme-dark', 'ndma-theme-ops');
+  html.classList.add('ndma-theme-' + theme);
+}
+&lt;/script&gt;</pre>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Mobile Menu Button -->
+  <button class="docs-mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+
+  <!-- Documentation JS -->
+  <script src="../assets/docs.js"></script>
+</body>
+</html>

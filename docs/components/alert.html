@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ja" class="ndma-theme-default">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alerts - ndma-ui</title>
+  <meta name="description" content="ndma-uiのアラートコンポーネントドキュメント">
+  <link rel="stylesheet" href="../assets/ndma.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+  <!-- Documentation Header -->
+  <header class="docs-header">
+    <div class="docs-header__content">
+      <h1 class="docs-title">Alerts</h1>
+      <p class="docs-lead">重要な情報を伝えるためのアラートコンポーネント</p>
+    </div>
+  </header>
+
+  <!-- Theme Switcher -->
+  <div class="docs-theme-switcher">
+    <div class="ndma-theme-switcher">
+      <button class="ndma-theme-switcher__btn ndma-theme-switcher__btn--active" data-theme="default">Default</button>
+      <button class="ndma-theme-switcher__btn" data-theme="dark">Dark</button>
+      <button class="ndma-theme-switcher__btn" data-theme="ops">Night Ops</button>
+    </div>
+  </div>
+
+  <!-- Documentation Container -->
+  <div class="docs-container">
+    <!-- Sidebar Navigation -->
+    <aside class="docs-sidebar" id="docsSidebar">
+      <nav class="docs-nav">
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">はじめに</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../index.html" class="docs-nav__link">概要</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../getting-started.html" class="docs-nav__link">Getting Started</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">コンポーネント</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="button.html" class="docs-nav__link">Buttons</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="card.html" class="docs-nav__link">Cards</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="table.html" class="docs-nav__link">Tables</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="form.html" class="docs-nav__link">Forms</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="alert.html" class="docs-nav__link docs-nav__link--active">Alerts</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="navigation.html" class="docs-nav__link">Navigation</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="badge.html" class="docs-nav__link">Badges</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="modal.html" class="docs-nav__link">Modals</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="grid.html" class="docs-nav__link">Grid</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">テーマ</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../themes/default.html" class="docs-nav__link">Default（行政）</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../themes/dark.html" class="docs-nav__link">Dark（災害対策室）</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../themes/ops.html" class="docs-nav__link">Night Ops（SOPHEX）</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">サンプル</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../examples/dashboard.html" class="docs-nav__link">状況室ダッシュボード</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../examples/login.html" class="docs-nav__link">ログイン画面</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../examples/sophex.html" class="docs-nav__link">SOPHEX特務システム</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="docs-main">
+      <div class="docs-content">
+        <!-- Overview -->
+        <section class="docs-section">
+          <p>アラートは重要な情報、警告、エラーをユーザーに伝えるためのコンポーネントです。災害情報システムにおいて、状況の緊急度に応じて適切な視覚的フィードバックを提供します。</p>
+        </section>
+
+        <!-- Basic Alerts -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="basic-alerts">基本的なアラート</h2>
+          <p>4つの基本タイプが利用可能です。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">基本アラート</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-alert ndma-alert--info">
+                <strong>情報：</strong>システムが正常に動作しています。
+              </div>
+              <div class="ndma-alert ndma-alert--success" style="margin-top: 1rem;">
+                <strong>成功：</strong>データが正常に保存されました。
+              </div>
+              <div class="ndma-alert ndma-alert--warning" style="margin-top: 1rem;">
+                <strong>警告：</strong>メンテナンス時間が近づいています。
+              </div>
+              <div class="ndma-alert ndma-alert--danger" style="margin-top: 1rem;">
+                <strong>危険：</strong>システムに重大なエラーが発生しています。
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;div class="ndma-alert ndma-alert--info"&gt;
+  &lt;strong&gt;情報：&lt;/strong&gt;システムが正常に動作しています。
+&lt;/div&gt;
+
+&lt;div class="ndma-alert ndma-alert--success"&gt;
+  &lt;strong&gt;成功：&lt;/strong&gt;データが正常に保存されました。
+&lt;/div&gt;
+
+&lt;div class="ndma-alert ndma-alert--warning"&gt;
+  &lt;strong&gt;警告：&lt;/strong&gt;メンテナンス時間が近づいています。
+&lt;/div&gt;
+
+&lt;div class="ndma-alert ndma-alert--danger"&gt;
+  &lt;strong&gt;危険：&lt;/strong&gt;システムに重大なエラーが発生しています。
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Alert with Icons -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="alert-icons">アイコン付きアラート</h2>
+          <p>アイコンを追加して視覚的な分かりやすさを向上できます。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">アイコン付きアラート</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-alert ndma-alert--info">
+                <span class="ndma-alert__icon">ℹ️</span>
+                <div class="ndma-alert__content">
+                  <strong>情報：</strong>新しいアップデートが利用可能です。
+                </div>
+              </div>
+              <div class="ndma-alert ndma-alert--warning" style="margin-top: 1rem;">
+                <span class="ndma-alert__icon">⚠️</span>
+                <div class="ndma-alert__content">
+                  <strong>警告：</strong>24時間以内にパスワードを更新してください。
+                </div>
+              </div>
+              <div class="ndma-alert ndma-alert--danger" style="margin-top: 1rem;">
+                <span class="ndma-alert__icon">🚨</span>
+                <div class="ndma-alert__content">
+                  <strong>緊急：</strong>即時対応が必要です。
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;div class="ndma-alert ndma-alert--info"&gt;
+  &lt;span class="ndma-alert__icon"&gt;ℹ️&lt;/span&gt;
+  &lt;div class="ndma-alert__content"&gt;
+    &lt;strong&gt;情報：&lt;/strong&gt;新しいアップデートが利用可能です。
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="ndma-alert ndma-alert--warning"&gt;
+  &lt;span class="ndma-alert__icon"&gt;⚠️&lt;/span&gt;
+  &lt;div class="ndma-alert__content"&gt;
+    &lt;strong&gt;警告：&lt;/strong&gt;24時間以内にパスワードを更新してください。
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="ndma-alert ndma-alert--danger"&gt;
+  &lt;span class="ndma-alert__icon"&gt;🚨&lt;/span&gt;
+  &lt;div class="ndma-alert__content"&gt;
+    &lt;strong&gt;緊急：&lt;/strong&gt;即時対応が必要です。
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Dismissible Alerts -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="dismissible-alerts">閉じ可能なアラート</h2>
+          <p>ユーザーが閉じることができるアラートです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">閉じ可能なアラート</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-alert ndma-alert--info ndma-alert--dismissible">
+                <strong>情報：</strong>このアラートは閉じることができます。
+                <button class="ndma-alert__close" onclick="this.parentElement.style.display='none'">×</button>
+              </div>
+              <div class="ndma-alert ndma-alert--warning ndma-alert--dismissible" style="margin-top: 1rem;">
+                <strong>警告：</strong>重要な情報です。確認してください。
+                <button class="ndma-alert__close" onclick="this.parentElement.style.display='none'">×</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;div class="ndma-alert ndma-alert--info ndma-alert--dismissible"&gt;
+  &lt;strong&gt;情報：&lt;/strong&gt;このアラートは閉じることができます。
+  &lt;button class="ndma-alert__close" onclick="this.parentElement.style.display='none'"&gt;×&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div class="ndma-alert ndma-alert--warning ndma-alert--dismissible"&gt;
+  &lt;strong&gt;警告：&lt;/strong&gt;重要な情報です。確認してください。
+  &lt;button class="ndma-alert__close" onclick="this.parentElement.style.display='none'"&gt;×&lt;/button&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Alert with Actions -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="alert-actions">アクションボタン付きアラート</h2>
+          <p>アラート内にアクションボタンを配置できます。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">アクション付きアラート</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-alert ndma-alert--warning">
+                <div class="ndma-alert__content">
+                  <strong>確認が必要：</strong>セッションがまもなく切れます。
+                </div>
+                <div class="ndma-alert__actions">
+                  <button class="ndma-btn ndma-btn--primary ndma-btn--sm">延長</button>
+                  <button class="ndma-btn ndma-btn--secondary ndma-btn--sm">後で</button>
+                </div>
+              </div>
+              <div class="ndma-alert ndma-alert--danger" style="margin-top: 1rem;">
+                <div class="ndma-alert__content">
+                  <strong>接続切断：</strong>サーバーとの接続が失われました。
+                </div>
+                <div class="ndma-alert__actions">
+                  <button class="ndma-btn ndma-btn--primary ndma-btn--sm">再接続</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;div class="ndma-alert ndma-alert--warning"&gt;
+  &lt;div class="ndma-alert__content"&gt;
+    &lt;strong&gt;確認が必要：&lt;/strong&gt;セッションがまもなく切れます。
+  &lt;/div&gt;
+  &lt;div class="ndma-alert__actions"&gt;
+    &lt;button class="ndma-btn ndma-btn--primary ndma-btn--sm"&gt;延長&lt;/button&gt;
+    &lt;button class="ndma-btn ndma-btn--secondary ndma-btn--sm"&gt;後で&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="ndma-alert ndma-alert--danger"&gt;
+  &lt;div class="ndma-alert__content"&gt;
+    &lt;strong&gt;接続切断：&lt;/strong&gt;サーバーとの接続が失われました。
+  &lt;/div&gt;
+  &lt;div class="ndma-alert__actions"&gt;
+    &lt;button class="ndma-btn ndma-btn--primary ndma-btn--sm"&gt;再接続&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Emergency Alerts -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="emergency-alerts">緊急アラート</h2>
+          <p>災害情報や緊急事態を伝えるための特別なアラートです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">緊急アラート</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-alert ndma-alert--emergency">
+                <div class="ndma-alert__header">
+                  <span class="ndma-alert__icon">🚨</span>
+                  <strong class="ndma-alert__title">緊急地震速報</strong>
+                </div>
+                <div class="ndma-alert__content">
+                  <p>強い地震が発生しました。すぐに安全な場所に避難してください。</p>
+                  <p>震源地：千葉県沖 / マグニチュード：7.2 / 最大震度：6強</p>
+                </div>
+                <div class="ndma-alert__actions">
+                  <button class="ndma-btn ndma-btn--danger">詳細を確認</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;div class="ndma-alert ndma-alert--emergency"&gt;
+  &lt;div class="ndma-alert__header"&gt;
+    &lt;span class="ndma-alert__icon"&gt;🚨&lt;/span&gt;
+    &lt;strong class="ndma-alert__title"&gt;緊急地震速報&lt;/strong&gt;
+  &lt;/div&gt;
+  &lt;div class="ndma-alert__content"&gt;
+    &lt;p&gt;強い地震が発生しました。すぐに安全な場所に避難してください。&lt;/p&gt;
+    &lt;p&gt;震源地：千葉県沖 / マグニチュード：7.2 / 最大震度：6強&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="ndma-alert__actions"&gt;
+    &lt;button class="ndma-btn ndma-btn--danger"&gt;詳細を確認&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Night Ops Theme Alerts -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="night-ops-alerts">Night Opsテーマのアラート</h2>
+          <p>Night Opsテーマでは、HUD風の特殊アラートが表示されます。</p>
+          
+          <div class="docs-callout docs-callout--warning">
+            <strong>注意：</strong>これらのアラートはNight Opsテーマでのみ正しく表示されます。
+          </div>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">Tactical Alerts</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-alert ndma-alert--info">
+                <strong>SYSTEM INFO：</strong>All systems operational
+              </div>
+              <div class="ndma-alert ndma-alert--warning" style="margin-top: 1rem;">
+                <strong>WARNING：</strong>Threat detected in sector 7
+              </div>
+              <div class="ndma-alert ndma-alert--danger" style="margin-top: 1rem;">
+                <strong>CRITICAL：</strong>Breach detected - Immediate response required
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;!-- Night Opsテーマ --&gt;
+&lt;div class="ndma-alert ndma-alert--info"&gt;
+  &lt;strong&gt;SYSTEM INFO：&lt;/strong&gt;All systems operational
+&lt;/div&gt;
+
+&lt;div class="ndma-alert ndma-alert--warning"&gt;
+  &lt;strong&gt;WARNING：&lt;/strong&gt;Threat detected in sector 7
+&lt;/div&gt;
+
+&lt;div class="ndma-alert ndma-alert--danger"&gt;
+  &lt;strong&gt;CRITICAL：&lt;/strong&gt;Breach detected - Immediate response required
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Warning Flash -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="warning-flash">警告フラッシュ</h2>
+          <p>Night Opsテーマの特別な警告アニメーションです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">Warning Flash Banner</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-banner warning">
+                <strong>⚠ WARNING ⚠</strong> Unauthorized access attempt detected
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;!-- Night Opsテーマ専用 --&gt;
+&lt;div class="ndma-banner warning"&gt;
+  &lt;strong&gt;⚠ WARNING ⚠&lt;/strong&gt; Unauthorized access attempt detected
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Usage Guidelines -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="usage-guidelines">使用ガイドライン</h2>
+          
+          <h3>適切なレベルの選択</h3>
+          <ul>
+            <li><strong>Info：</strong>一般的な情報、確認メッセージ</li>
+            <li><strong>Success：</strong>操作完了、成功メッセージ</li>
+            <li><strong>Warning：</strong>注意喚起、期限切れの予告</li>
+            <li><strong>Danger：</strong>エラー、失敗、危険な状態</li>
+            <li><strong>Emergency：</strong>災害、生命の危機、システム停止</li>
+          </ul>
+          
+          <h3>配置の原則</h3>
+          <p>アラートはページの上部や、関連する操作の近くに配置してください。重要度が高いほど目立つ位置に表示します。</p>
+          
+          <h3>簡潔なメッセージ</h3>
+          <p>メッセージは簡潔かつ明確に。ユーザーがすぐに状況を理解できるようにしてください。</p>
+          
+          <h3>アクセシビリティ</h3>
+          <p>アラートには<code>role="alert"</code>属性を追加して、スクリーンリーダーが適切に読み上げるようにしてください。</p>
+          
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;div class="ndma-alert ndma-alert--danger" role="alert"&gt;
+  &lt;strong&gt;エラー：&lt;/strong&gt;送信に失敗しました。
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Mobile Menu Button -->
+  <button class="docs-mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+
+  <!-- Documentation JS -->
+  <script src="../assets/docs.js"></script>
+</body>
+</html>

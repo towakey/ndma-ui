@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="ja" class="ndma-theme-default">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forms - ndma-ui</title>
+  <meta name="description" content="ndma-uiのフォームコンポーネントドキュメント">
+  <link rel="stylesheet" href="../assets/ndma.css">
+  <link rel="stylesheet" href="../assets/docs.css">
+</head>
+<body>
+  <!-- Documentation Header -->
+  <header class="docs-header">
+    <div class="docs-header__content">
+      <h1 class="docs-title">Forms</h1>
+      <p class="docs-lead">ユーザー入力を受け付けるためのフォームコンポーネント</p>
+    </div>
+  </header>
+
+  <!-- Theme Switcher -->
+  <div class="docs-theme-switcher">
+    <div class="ndma-theme-switcher">
+      <button class="ndma-theme-switcher__btn ndma-theme-switcher__btn--active" data-theme="default">Default</button>
+      <button class="ndma-theme-switcher__btn" data-theme="dark">Dark</button>
+      <button class="ndma-theme-switcher__btn" data-theme="ops">Night Ops</button>
+    </div>
+  </div>
+
+  <!-- Documentation Container -->
+  <div class="docs-container">
+    <!-- Sidebar Navigation -->
+    <aside class="docs-sidebar" id="docsSidebar">
+      <nav class="docs-nav">
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">はじめに</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../index.html" class="docs-nav__link">概要</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../getting-started.html" class="docs-nav__link">Getting Started</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">コンポーネント</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="button.html" class="docs-nav__link">Buttons</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="card.html" class="docs-nav__link">Cards</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="table.html" class="docs-nav__link">Tables</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="form.html" class="docs-nav__link docs-nav__link--active">Forms</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="alert.html" class="docs-nav__link">Alerts</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="navigation.html" class="docs-nav__link">Navigation</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="badge.html" class="docs-nav__link">Badges</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="modal.html" class="docs-nav__link">Modals</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="grid.html" class="docs-nav__link">Grid</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">テーマ</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../themes/default.html" class="docs-nav__link">Default（行政）</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../themes/dark.html" class="docs-nav__link">Dark（災害対策室）</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../themes/ops.html" class="docs-nav__link">Night Ops（SOPHEX）</a>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">サンプル</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item">
+              <a href="../examples/dashboard.html" class="docs-nav__link">状況室ダッシュボード</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../examples/login.html" class="docs-nav__link">ログイン画面</a>
+            </li>
+            <li class="docs-nav__item">
+              <a href="../examples/sophex.html" class="docs-nav__link">SOPHEX特務システム</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="docs-main">
+      <div class="docs-content">
+        <!-- Overview -->
+        <section class="docs-section">
+          <p>フォームコンポーネントは、ユーザーからの入力を受け付けるためのUI要素です。行政システムの要件に合わせた、アクセシブルで使いやすいフォーム部品を提供します。</p>
+        </section>
+
+        <!-- Form Controls -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="form-controls">フォームコントロール</h2>
+          <p>基本的なフォーム部品です。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">基本フォーム部品</span>
+            </div>
+            <div class="docs-demo__content">
+              <form>
+                <div class="ndma-form-group">
+                  <label for="text-input" class="ndma-form-label">テキスト入力</label>
+                  <input type="text" id="text-input" class="ndma-form-control" placeholder="テキストを入力してください">
+                </div>
+                
+                <div class="ndma-form-group">
+                  <label for="email-input" class="ndma-form-label">メールアドレス</label>
+                  <input type="email" id="email-input" class="ndma-form-control" placeholder="example@ndma.go.jp">
+                </div>
+                
+                <div class="ndma-form-group">
+                  <label for="password-input" class="ndma-form-label">パスワード</label>
+                  <input type="password" id="password-input" class="ndma-form-control" placeholder="パスワード">
+                </div>
+                
+                <div class="ndma-form-group">
+                  <label for="number-input" class="ndma-form-label">数値</label>
+                  <input type="number" id="number-input" class="ndma-form-control" placeholder="0">
+                </div>
+                
+                <div class="ndma-form-group">
+                  <label for="textarea-input" class="ndma-form-label">テキストエリア</label>
+                  <textarea id="textarea-input" class="ndma-form-control" rows="3" placeholder="詳細を入力してください"></textarea>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;div class="ndma-form-group"&gt;
+  &lt;label for="text-input" class="ndma-form-label"&gt;テキスト入力&lt;/label&gt;
+  &lt;input type="text" id="text-input" class="ndma-form-control" placeholder="テキストを入力してください"&gt;
+&lt;/div&gt;
+
+&lt;div class="ndma-form-group"&gt;
+  &lt;label for="email-input" class="ndma-form-label"&gt;メールアドレス&lt;/label&gt;
+  &lt;input type="email" id="email-input" class="ndma-form-control" placeholder="example@ndma.go.jp"&gt;
+&lt;/div&gt;
+
+&lt;div class="ndma-form-group"&gt;
+  &lt;label for="textarea-input" class="ndma-form-label"&gt;テキストエリア&lt;/label&gt;
+  &lt;textarea id="textarea-input" class="ndma-form-control" rows="3" placeholder="詳細を入力してください"&gt;&lt;/textarea&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Form States -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="form-states">フォームの状態</h2>
+          <p>入力フィールドの各種状態です。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">フォーム状態</span>
+            </div>
+            <div class="docs-demo__content">
+              <form>
+                <div class="ndma-form-group">
+                  <label for="normal-input" class="ndma-form-label">通常</label>
+                  <input type="text" id="normal-input" class="ndma-form-control" value="通常の入力">
+                </div>
+                
+                <div class="ndma-form-group">
+                  <label for="focus-input" class="ndma-form-label">フォーカス</label>
+                  <input type="text" id="focus-input" class="ndma-form-control" value="フォーカス状態">
+                </div>
+                
+                <div class="ndma-form-group">
+                  <label for="disabled-input" class="ndma-form-label">無効</label>
+                  <input type="text" id="disabled-input" class="ndma-form-control" value="無効な入力" disabled>
+                </div>
+                
+                <div class="ndma-form-group">
+                  <label for="readonly-input" class="ndma-form-label">読み取り専用</label>
+                  <input type="text" id="readonly-input" class="ndma-form-control" value="読み取り専用" readonly>
+                </div>
+                
+                <div class="ndma-form-group">
+                  <label for="success-input" class="ndma-form-label">成功</label>
+                  <input type="text" id="success-input" class="ndma-form-control ndma-form-control--success" value="有効な入力">
+                  <div class="ndma-form-text">入力内容が有効です</div>
+                </div>
+                
+                <div class="ndma-form-group">
+                  <label for="error-input" class="ndma-form-label">エラー</label>
+                  <input type="text" id="error-input" class="ndma-form-control ndma-form-control--error" value="無効な入力">
+                  <div class="ndma-form-text ndma-form-text--error">エラーメッセージが表示されます</div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;!-- 成功状態 --&gt;
+&lt;div class="ndma-form-group"&gt;
+  &lt;label for="success-input" class="ndma-form-label"&gt;成功&lt;/label&gt;
+  &lt;input type="text" id="success-input" class="ndma-form-control ndma-form-control--success" value="有効な入力"&gt;
+  &lt;div class="ndma-form-text"&gt;入力内容が有効です&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- エラー状態 --&gt;
+&lt;div class="ndma-form-group"&gt;
+  &lt;label for="error-input" class="ndma-form-label"&gt;エラー&lt;/label&gt;
+  &lt;input type="text" id="error-input" class="ndma-form-control ndma-form-control--error" value="無効な入力"&gt;
+  &lt;div class="ndma-form-text ndma-form-text--error"&gt;エラーメッセージが表示されます&lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Select and Checkboxes -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="select-checkboxes">セレクトとチェックボックス</h2>
+          <p>選択系のフォーム部品です。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">選択部品</span>
+            </div>
+            <div class="docs-demo__content">
+              <form>
+                <div class="ndma-form-group">
+                  <label for="select-input" class="ndma-form-label">セレクトボックス</label>
+                  <select id="select-input" class="ndma-form-control">
+                    <option>選択してください</option>
+                    <option>オプション 1</option>
+                    <option>オプション 2</option>
+                    <option>オプション 3</option>
+                  </select>
+                </div>
+                
+                <div class="ndma-form-group">
+                  <label for="multi-select" class="ndma-form-label">複数選択</label>
+                  <select id="multi-select" class="ndma-form-control" multiple>
+                    <option>オプション 1</option>
+                    <option>オプション 2</option>
+                    <option>オプション 3</option>
+                    <option>オプション 4</option>
+                  </select>
+                </div>
+                
+                <div class="ndma-form-group">
+                  <label class="ndma-form-label">チェックボックス</label>
+                  <div class="ndma-checkbox">
+                    <input type="checkbox" id="check1" checked>
+                    <label for="check1">選択肢 1</label>
+                  </div>
+                  <div class="ndma-checkbox">
+                    <input type="checkbox" id="check2">
+                    <label for="check2">選択肢 2</label>
+                  </div>
+                  <div class="ndma-checkbox">
+                    <input type="checkbox" id="check3" disabled>
+                    <label for="check3">無効な選択肢</label>
+                  </div>
+                </div>
+                
+                <div class="ndma-form-group">
+                  <label class="ndma-form-label">ラジオボタン</label>
+                  <div class="ndma-radio">
+                    <input type="radio" id="radio1" name="radio-group" checked>
+                    <label for="radio1">選択肢 A</label>
+                  </div>
+                  <div class="ndma-radio">
+                    <input type="radio" id="radio2" name="radio-group">
+                    <label for="radio2">選択肢 B</label>
+                  </div>
+                  <div class="ndma-radio">
+                    <input type="radio" id="radio3" name="radio-group" disabled>
+                    <label for="radio3">無効な選択肢</label>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;!-- セレクトボックス --&gt;
+&lt;div class="ndma-form-group"&gt;
+  &lt;label for="select-input" class="ndma-form-label"&gt;セレクトボックス&lt;/label&gt;
+  &lt;select id="select-input" class="ndma-form-control"&gt;
+    &lt;option&gt;選択してください&lt;/option&gt;
+    &lt;option&gt;オプション 1&lt;/option&gt;
+    &lt;option&gt;オプション 2&lt;/option&gt;
+    &lt;option&gt;オプション 3&lt;/option&gt;
+  &lt;/select&gt;
+&lt;/div&gt;
+
+&lt;!-- チェックボックス --&gt;
+&lt;div class="ndma-form-group"&gt;
+  &lt;label class="ndma-form-label"&gt;チェックボックス&lt;/label&gt;
+  &lt;div class="ndma-checkbox"&gt;
+    &lt;input type="checkbox" id="check1" checked&gt;
+    &lt;label for="check1"&gt;選択肢 1&lt;/label&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- ラジオボタン --&gt;
+&lt;div class="ndma-form-group"&gt;
+  &lt;label class="ndma-form-label"&gt;ラジオボタン&lt;/label&gt;
+  &lt;div class="ndma-radio"&gt;
+    &lt;input type="radio" id="radio1" name="radio-group" checked&gt;
+    &lt;label for="radio1"&gt;選択肢 A&lt;/label&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Input Groups -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="input-groups">入力グループ</h2>
+          <p>入力フィールドにボタンやテキストを追加します。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">入力グループ</span>
+            </div>
+            <div class="docs-demo__content">
+              <form>
+                <div class="ndma-form-group">
+                  <label for="input-with-button" class="ndma-form-label">ボタン付き</label>
+                  <div class="ndma-input-group">
+                    <input type="text" id="input-with-button" class="ndma-form-control" placeholder="検索キーワード">
+                    <button class="ndma-btn ndma-btn--primary">検索</button>
+                  </div>
+                </div>
+                
+                <div class="ndma-form-group">
+                  <label for="input-with-addon" class="ndma-form-label">アドオン付き</label>
+                  <div class="ndma-input-group">
+                    <span class="ndma-input-group__addon">@</span>
+                    <input type="text" id="input-with-addon" class="ndma-form-control" placeholder="ユーザー名">
+                  </div>
+                </div>
+                
+                <div class="ndma-form-group">
+                  <label for="input-with-icon" class="ndma-form-label">アイコン付き</label>
+                  <div class="ndma-input-group">
+                    <span class="ndma-input-group__icon">🔍</span>
+                    <input type="text" id="input-with-icon" class="ndma-form-control" placeholder="検索">
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;!-- ボタン付き --&gt;
+&lt;div class="ndma-input-group"&gt;
+  &lt;input type="text" class="ndma-form-control" placeholder="検索キーワード"&gt;
+  &lt;button class="ndma-btn ndma-btn--primary"&gt;検索&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;!-- アドオン付き --&gt;
+&lt;div class="ndma-input-group"&gt;
+  &lt;span class="ndma-input-group__addon"&gt;@&lt;/span&gt;
+  &lt;input type="text" class="ndma-form-control" placeholder="ユーザー名"&gt;
+&lt;/div&gt;
+
+&lt;!-- アイコン付き --&gt;
+&lt;div class="ndma-input-group"&gt;
+  &lt;span class="ndma-input-group__icon"&gt;🔍&lt;/span&gt;
+  &lt;input type="text" class="ndma-form-control" placeholder="検索"&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Form Layout -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="form-layout">フォームレイアウト</h2>
+          <p>異なるレイアウトのフォームです。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">水平フォーム</span>
+            </div>
+            <div class="docs-demo__content">
+              <form class="ndma-form--horizontal">
+                <div class="ndma-form-group">
+                  <label for="h-name" class="ndma-form-label">氏名</label>
+                  <input type="text" id="h-name" class="ndma-form-control">
+                </div>
+                <div class="ndma-form-group">
+                  <label for="h-email" class="ndma-form-label">メール</label>
+                  <input type="email" id="h-email" class="ndma-form-control">
+                </div>
+                <div class="ndma-form-group">
+                  <label for="h-dept" class="ndma-form-label">部署</label>
+                  <select id="h-dept" class="ndma-form-control">
+                    <option>選択してください</option>
+                    <option>総務部</option>
+                    <option>防災部</option>
+                    <option>情報部</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">インラインフォーム</span>
+            </div>
+            <div class="docs-demo__content">
+              <form class="ndma-form--inline">
+                <div class="ndma-form-group">
+                  <input type="text" class="ndma-form-control" placeholder="検索">
+                </div>
+                <div class="ndma-form-group">
+                  <select class="ndma-form-control">
+                    <option>すべて</option>
+                    <option>報告書</option>
+                    <option>通知</option>
+                  </select>
+                </div>
+                <button type="submit" class="ndma-btn ndma-btn--primary">検索</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;!-- 水平フォーム --&gt;
+&lt;form class="ndma-form--horizontal"&gt;
+  &lt;div class="ndma-form-group"&gt;
+    &lt;label for="h-name" class="ndma-form-label"&gt;氏名&lt;/label&gt;
+    &lt;input type="text" id="h-name" class="ndma-form-control"&gt;
+  &lt;/div&gt;
+&lt;/form&gt;
+
+&lt;!-- インラインフォーム --&gt;
+&lt;form class="ndma-form--inline"&gt;
+  &lt;div class="ndma-form-group"&gt;
+    &lt;input type="text" class="ndma-form-control" placeholder="検索"&gt;
+  &lt;/div&gt;
+  &lt;button type="submit" class="ndma-btn ndma-btn--primary"&gt;検索&lt;/button&gt;
+&lt;/form&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Night Ops Theme Forms -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="night-ops-forms">Night Opsテーマのフォーム</h2>
+          <p>Night Opsテーマでは、HUD風の特殊フォームが表示されます。</p>
+          
+          <div class="docs-callout docs-callout--warning">
+            <strong>注意：</strong>これらのフォームはNight Opsテーマでのみ正しく表示されます。
+          </div>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">Tactical Form</span>
+            </div>
+            <div class="docs-demo__content">
+              <div class="ndma-code-pad">
+                <div class="ndma-code-pad__display">_ _ _ _</div>
+                <div class="ndma-code-pad__grid">
+                  <button class="ndma-code-pad__btn">1</button>
+                  <button class="ndma-code-pad__btn">2</button>
+                  <button class="ndma-code-pad__btn">3</button>
+                  <button class="ndma-code-pad__btn">4</button>
+                  <button class="ndma-code-pad__btn">5</button>
+                  <button class="ndma-code-pad__btn">6</button>
+                  <button class="ndma-code-pad__btn">7</button>
+                  <button class="ndma-code-pad__btn">8</button>
+                  <button class="ndma-code-pad__btn">9</button>
+                  <button class="ndma-code-pad__btn">*</button>
+                  <button class="ndma-code-pad__btn">0</button>
+                  <button class="ndma-code-pad__btn">#</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;!-- Night Opsテーマ専用 --&gt;
+&lt;div class="ndma-code-pad"&gt;
+  &lt;div class="ndma-code-pad__display"&gt;_ _ _ _&lt;/div&gt;
+  &lt;div class="ndma-code-pad__grid"&gt;
+    &lt;button class="ndma-code-pad__btn"&gt;1&lt;/button&gt;
+    &lt;button class="ndma-code-pad__btn"&gt;2&lt;/button&gt;
+    &lt;button class="ndma-code-pad__btn"&gt;3&lt;/button&gt;
+    &lt;!-- ... --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Validation -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="form-validation">フォームバリデーション</h2>
+          <p>HTML5のバリデーション機能と連携します。</p>
+          
+          <div class="docs-demo">
+            <div class="docs-demo__header">
+              <span class="docs-demo__title">バリデーション例</span>
+            </div>
+            <div class="docs-demo__content">
+              <form>
+                <div class="ndma-form-group">
+                  <label for="required-input" class="ndma-form-label">必須項目 *</label>
+                  <input type="text" id="required-input" class="ndma-form-control" required>
+                  <div class="ndma-form-text">この項目は必須です</div>
+                </div>
+                
+                <div class="ndma-form-group">
+                  <label for="pattern-input" class="ndma-form-label">郵便番号</label>
+                  <input type="text" id="pattern-input" class="ndma-form-control" pattern="[0-9]{3}-[0-9]{4}" placeholder="000-0000">
+                  <div class="ndma-form-text">形式：000-0000</div>
+                </div>
+                
+                <div class="ndma-form-group">
+                  <label for="min-length" class="ndma-form-label">パスワード（8文字以上）</label>
+                  <input type="password" id="min-length" class="ndma-form-control" minlength="8" required>
+                </div>
+                
+                <button type="submit" class="ndma-btn ndma-btn--primary">送信</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;form&gt;
+  &lt;div class="ndma-form-group"&gt;
+    &lt;label for="required-input" class="ndma-form-label"&gt;必須項目 *&lt;/label&gt;
+    &lt;input type="text" id="required-input" class="ndma-form-control" required&gt;
+    &lt;div class="ndma-form-text"&gt;この項目は必須です&lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;div class="ndma-form-group"&gt;
+    &lt;label for="pattern-input" class="ndma-form-label"&gt;郵便番号&lt;/label&gt;
+    &lt;input type="text" id="pattern-input" class="ndma-form-control" 
+           pattern="[0-9]{3}-[0-9]{4}" placeholder="000-0000"&gt;
+    &lt;div class="ndma-form-text"&gt;形式：000-0000&lt;/div&gt;
+  &lt;/div&gt;
+  
+  &lt;button type="submit" class="ndma-btn ndma-btn--primary"&gt;送信&lt;/button&gt;
+&lt;/form&gt;</pre>
+          </div>
+        </section>
+
+        <!-- Usage Guidelines -->
+        <section class="docs-section">
+          <h2 class="docs-subtitle" id="usage-guidelines">使用ガイドライン</h2>
+          
+          <h3>ラベルは必須</h3>
+          <p>すべての入力フィールドには明確なラベルを付けてください。<code>placeholder</code>だけに頼らないでください。</p>
+          
+          <h3>適切な入力タイプ</h3>
+          <p>入力内容に応じて適切な<code>type</code>属性を使用してください（email、tel、dateなど）。</p>
+          
+          <h3>エラーメッセージ</h3>
+          <p>エラーは具体的で解決可能なメッセージを表示してください。</p>
+          
+          <h3>アクセシビリティ</h3>
+          <p>必須項目には<code>required</code>属性を、説明テキストには<code>aria-describedby</code>を使用してください。</p>
+          
+          <div class="docs-code-block docs-code-block--with-copy">
+            <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
+            <pre>&lt;div class="ndma-form-group"&gt;
+  &lt;label for="email" class="ndma-form-label"&gt;メールアドレス *&lt;/label&gt;
+  &lt;input type="email" id="email" class="ndma-form-control" 
+         required aria-describedby="email-help email-error"&gt;
+  &lt;div id="email-help" class="ndma-form-text"&gt;例：user@ndma.go.jp&lt;/div&gt;
+  &lt;div id="email-error" class="ndma-form-text ndma-form-text--error"&gt;
+    有効なメールアドレスを入力してください
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <!-- Mobile Menu Button -->
+  <button class="docs-mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+
+  <!-- Documentation JS -->
+  <script src="../assets/docs.js"></script>
+</body>
+</html>
