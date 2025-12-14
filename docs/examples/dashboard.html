@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html lang="ja" class="ndma-theme-dark">
+<html lang="ja" data-theme="nightvision">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>状況室ダッシュボード - ndma-ui</title>
   <meta name="description" content="災害対策室向けの状況監視ダッシュボード">
-  <link rel="stylesheet" href="../assets/ndma.css">
-  <link rel="stylesheet" href="../assets/docs.css">
+  <link rel="stylesheet" href="../assets/css/ndma.css">
+  <link rel="stylesheet" href="../assets/css/docs.css">
   <style>
     /* ダッシュボード専用のスタイル */
+    .docs-content .ndma-header {
+      top: 56px;
+    }
+
     .dashboard-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -141,35 +145,67 @@
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="ndma-header">
-    <div class="ndma-header__content">
-      <div class="ndma-header__left">
-        <a href="#" class="ndma-header__logo">
-          <div class="ndma-header__logo-icon">NDMA</div>
-          <span>災害管理システム</span>
-        </a>
-      </div>
-      <div class="ndma-header__center">
-        <h1 class="ndma-header__title">状況室ダッシュボード</h1>
-      </div>
-      <div class="ndma-header__right">
-        <div class="ndma-header__actions">
-          <button class="ndma-btn ndma-btn--secondary ndma-btn--sm">
-            <span class="ndma-icon">⚙</span>
-            設定
-          </button>
-          <button class="ndma-btn ndma-btn--primary ndma-btn--sm">
-            <span class="ndma-icon">↻</span>
-            更新
-          </button>
-        </div>
-      </div>
-    </div>
+  <header class="docs-header">
+    <a class="docs-header__brand" href="../index.html">ndma-ui</a>
+    <div class="docs-header__spacer"></div>
   </header>
 
-  <!-- Main Content -->
-  <div class="ndma-container" style="padding-top: 2rem;">
+  <div class="docs-theme-switcher">
+    <button id="themeToggle" class="docs-theme-toggle" type="button" aria-pressed="false">Nightvision</button>
+  </div>
+
+  <div class="docs-container">
+    <aside class="docs-sidebar" id="docsSidebar">
+      <nav class="docs-nav">
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">ドキュメント</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item"><a href="../index.html" class="docs-nav__link">概要</a></li>
+            <li class="docs-nav__item"><a href="../getting-started.html" class="docs-nav__link">Getting Started</a></li>
+            <li class="docs-nav__item"><a href="../components.html" class="docs-nav__link">Components</a></li>
+            <li class="docs-nav__item"><a href="../layout.html" class="docs-nav__link">Layout</a></li>
+            <li class="docs-nav__item"><a href="../themes.html" class="docs-nav__link">Themes</a></li>
+            <li class="docs-nav__item"><a href="../examples.html" class="docs-nav__link">Examples</a></li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="docs-content">
+      <h1 class="docs-title">状況室ダッシュボード</h1>
+      <p class="docs-lead">災害対策室向けの状況監視ダッシュボード</p>
+
+      <div class="docs-demo">
+        <div class="docs-demo__content">
+          <!-- Header -->
+          <header class="ndma-header">
+            <div class="ndma-header__content">
+              <div class="ndma-header__left">
+                <a href="#" class="ndma-header__logo">
+                  <div class="ndma-header__logo-icon">NDMA</div>
+                  <span>災害管理システム</span>
+                </a>
+              </div>
+              <div class="ndma-header__center">
+                <h1 class="ndma-header__title">状況室ダッシュボード</h1>
+              </div>
+              <div class="ndma-header__right">
+                <div class="ndma-header__actions">
+                  <button class="ndma-btn ndma-btn--secondary ndma-btn--sm">
+                    <span class="ndma-icon">⚙</span>
+                    設定
+                  </button>
+                  <button class="ndma-btn ndma-btn--primary ndma-btn--sm">
+                    <span class="ndma-icon">↻</span>
+                    更新
+                  </button>
+                </div>
+              </div>
+            </div>
+          </header>
+
+          <!-- Main Content -->
+          <div class="ndma-container" style="padding-top: 2rem;">
     <!-- 統計カード -->
     <div class="dashboard-grid">
       <div class="ndma-card">
@@ -421,10 +457,16 @@
         </div>
       </div>
     </div>
+          </div>
+        </div>
+      </div>
+    </main>
   </div>
 
+  <button class="docs-mobile-menu-btn" id="sidebarToggle" type="button" aria-label="メニュー">☰</button>
+
   <!-- Documentation JS -->
-  <script src="../assets/docs.js"></script>
+  <script src="../assets/js/docs.js"></script>
   <script>
     // ダッシュボードの自動更新シミュレーション
     setInterval(() => {

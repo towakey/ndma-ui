@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="default">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout - ndma-ui</title>
+  <meta name="description" content="ndma-ui レイアウトユーティリティ（Grid / Flex / Spacing）">
+  <link rel="stylesheet" href="assets/css/ndma.css">
+  <link rel="stylesheet" href="assets/css/docs.css">
+</head>
+<body>
+  <header class="docs-header">
+    <button id="sidebarToggle" class="docs-mobile-menu-btn" type="button" aria-label="メニュー">☰</button>
+    <a class="docs-header__brand" href="index.html">ndma-ui</a>
+    <div class="docs-header__spacer"></div>
+    <div class="docs-theme-switcher">
+      <button id="themeToggle" class="docs-theme-toggle" type="button" aria-pressed="false">Nightvision</button>
+    </div>
+  </header>
+
+  <div class="docs-container">
+    <aside class="docs-sidebar" id="docsSidebar">
+      <nav class="docs-nav">
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">ドキュメント</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item"><a class="docs-nav__link" href="index.html">概要</a></li>
+            <li class="docs-nav__item"><a class="docs-nav__link" href="getting-started.html">Getting Started</a></li>
+            <li class="docs-nav__item"><a class="docs-nav__link" href="components.html">Components</a></li>
+            <li class="docs-nav__item"><a class="docs-nav__link" href="layout.html">Layout</a></li>
+            <li class="docs-nav__item"><a class="docs-nav__link" href="themes.html">Themes</a></li>
+            <li class="docs-nav__item"><a class="docs-nav__link" href="examples.html">Examples</a></li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="docs-content">
+      <h1 class="docs-title">Layout</h1>
+      <p class="docs-lead">グリッド、フレックス、スペーシングのユーティリティ</p>
+
+      <section class="docs-section" id="grid">
+        <h2>グリッドシステム</h2>
+        <p><code>.ndma-grid</code> と <code>.ndma-grid-cols-*</code> を組み合わせて列数を割り当てます。</p>
+
+        <div class="docs-demo">
+          <div class="ndma-grid ndma-grid-cols-3">
+            <div class="ndma-card"><div class="ndma-card__body">cols-3 / item 1</div></div>
+            <div class="ndma-card"><div class="ndma-card__body">cols-3 / item 2</div></div>
+            <div class="ndma-card"><div class="ndma-card__body">cols-3 / item 3</div></div>
+          </div>
+        </div>
+
+        <pre><code>&lt;div class=&quot;ndma-grid ndma-grid-cols-3&quot;&gt;
+  &lt;div class=&quot;ndma-card&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;ndma-card&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;ndma-card&quot;&gt;...&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+      </section>
+
+      <section class="docs-section" id="flex">
+        <h2>フレックスユーティリティ</h2>
+        <p>横並び/縦並び、中央寄せ、両端揃えなどをユーティリティで組み立てます。</p>
+
+        <div class="docs-demo">
+          <div class="ndma-card">
+            <div class="ndma-card__body">
+              <div class="ndma-flex ndma-justify-between ndma-items-center" style="gap: var(--spacing-md);">
+                <strong>左</strong>
+                <div class="ndma-flex ndma-items-center" style="gap: var(--spacing-sm);">
+                  <button class="ndma-btn ndma-btn--secondary" type="button">Cancel</button>
+                  <button class="ndma-btn ndma-btn--primary" type="button">OK</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <pre><code>&lt;div class=&quot;ndma-flex ndma-justify-between ndma-items-center&quot;&gt;
+  ...
+&lt;/div&gt;</code></pre>
+      </section>
+
+      <section class="docs-section" id="spacing">
+        <h2>スペーシングユーティリティ</h2>
+        <p>padding / margin を <code>.ndma-p-*</code>, <code>.ndma-m-*</code> で指定できます。</p>
+
+        <div class="docs-demo">
+          <div class="ndma-card ndma-p-md">
+            <div class="ndma-card__body ndma-p-0">
+              <div class="ndma-card ndma-p-sm" style="border-style: dashed;">
+                <div class="ndma-card__body ndma-p-0">
+                  <div class="ndma-p-md" style="border: 1px solid var(--border-color);">
+                    <div class="ndma-text-muted">外側: <code>.ndma-card ndma-p-md</code></div>
+                    <div class="ndma-text-muted">内側: <code>.ndma-p-md</code></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <pre><code>&lt;div class=&quot;ndma-card ndma-p-md&quot;&gt;...&lt;/div&gt;
+&lt;div class=&quot;ndma-p-md&quot;&gt;...&lt;/div&gt;
+&lt;div class=&quot;ndma-m-md&quot;&gt;...&lt;/div&gt;</code></pre>
+      </section>
+    </main>
+  </div>
+
+  <script src="assets/js/docs.js"></script>
+</body>
+</html>

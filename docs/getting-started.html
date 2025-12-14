@@ -1,29 +1,23 @@
 <!DOCTYPE html>
-<html lang="ja" class="ndma-theme-default">
+<html lang="ja" data-theme="default">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Getting Started - ndma-ui</title>
   <meta name="description" content="ndma-uiの始め方 - インストール方法と基本設定">
-  <link rel="stylesheet" href="assets/ndma.css">
-  <link rel="stylesheet" href="assets/docs.css">
+  <link rel="stylesheet" href="assets/css/ndma.css">
+  <link rel="stylesheet" href="assets/css/docs.css">
 </head>
 <body>
   <!-- Documentation Header -->
   <header class="docs-header">
-    <div class="docs-header__content">
-      <h1 class="docs-title">Getting Started</h1>
-      <p class="docs-lead">ndma-uiをプロジェクトに導入する方法</p>
-    </div>
+    <a class="docs-header__brand" href="index.html">ndma-ui</a>
+    <div class="docs-header__spacer"></div>
   </header>
 
   <!-- Theme Switcher -->
   <div class="docs-theme-switcher">
-    <div class="ndma-theme-switcher">
-      <button class="ndma-theme-switcher__btn ndma-theme-switcher__btn--active" data-theme="default">Default</button>
-      <button class="ndma-theme-switcher__btn" data-theme="dark">Dark</button>
-      <button class="ndma-theme-switcher__btn" data-theme="ops">Night Ops</button>
-    </div>
+    <button id="themeToggle" class="docs-theme-toggle" type="button" aria-pressed="false">Nightvision</button>
   </div>
 
   <!-- Documentation Container -->
@@ -32,76 +26,25 @@
     <aside class="docs-sidebar" id="docsSidebar">
       <nav class="docs-nav">
         <div class="docs-nav__section">
-          <h3 class="docs-nav__title">はじめに</h3>
+          <h3 class="docs-nav__title">ドキュメント</h3>
           <ul class="docs-nav__list">
             <li class="docs-nav__item">
               <a href="index.html" class="docs-nav__link">概要</a>
             </li>
             <li class="docs-nav__item">
-              <a href="getting-started.html" class="docs-nav__link docs-nav__link--active">Getting Started</a>
-            </li>
-          </ul>
-        </div>
-        
-        <div class="docs-nav__section">
-          <h3 class="docs-nav__title">コンポーネント</h3>
-          <ul class="docs-nav__list">
-            <li class="docs-nav__item">
-              <a href="components/button.html" class="docs-nav__link">Buttons</a>
+              <a href="getting-started.html" class="docs-nav__link">Getting Started</a>
             </li>
             <li class="docs-nav__item">
-              <a href="components/card.html" class="docs-nav__link">Cards</a>
+              <a href="components.html" class="docs-nav__link">Components</a>
             </li>
             <li class="docs-nav__item">
-              <a href="components/table.html" class="docs-nav__link">Tables</a>
+              <a href="layout.html" class="docs-nav__link">Layout</a>
             </li>
             <li class="docs-nav__item">
-              <a href="components/form.html" class="docs-nav__link">Forms</a>
+              <a href="themes.html" class="docs-nav__link">Themes</a>
             </li>
             <li class="docs-nav__item">
-              <a href="components/alert.html" class="docs-nav__link">Alerts</a>
-            </li>
-            <li class="docs-nav__item">
-              <a href="components/navigation.html" class="docs-nav__link">Navigation</a>
-            </li>
-            <li class="docs-nav__item">
-              <a href="components/badge.html" class="docs-nav__link">Badges</a>
-            </li>
-            <li class="docs-nav__item">
-              <a href="components/modal.html" class="docs-nav__link">Modals</a>
-            </li>
-            <li class="docs-nav__item">
-              <a href="components/grid.html" class="docs-nav__link">Grid</a>
-            </li>
-          </ul>
-        </div>
-        
-        <div class="docs-nav__section">
-          <h3 class="docs-nav__title">テーマ</h3>
-          <ul class="docs-nav__list">
-            <li class="docs-nav__item">
-              <a href="themes/default.html" class="docs-nav__link">Default（行政）</a>
-            </li>
-            <li class="docs-nav__item">
-              <a href="themes/dark.html" class="docs-nav__link">Dark（災害対策室）</a>
-            </li>
-            <li class="docs-nav__item">
-              <a href="themes/ops.html" class="docs-nav__link">Night Ops（SOPHEX）</a>
-            </li>
-          </ul>
-        </div>
-        
-        <div class="docs-nav__section">
-          <h3 class="docs-nav__title">サンプル</h3>
-          <ul class="docs-nav__list">
-            <li class="docs-nav__item">
-              <a href="examples/dashboard.html" class="docs-nav__link">状況室ダッシュボード</a>
-            </li>
-            <li class="docs-nav__item">
-              <a href="examples/login.html" class="docs-nav__link">ログイン画面</a>
-            </li>
-            <li class="docs-nav__item">
-              <a href="examples/sophex.html" class="docs-nav__link">SOPHEX特務システム</a>
+              <a href="examples.html" class="docs-nav__link">Examples</a>
             </li>
           </ul>
         </div>
@@ -109,8 +52,9 @@
     </aside>
 
     <!-- Main Content -->
-    <main class="docs-main">
-      <div class="docs-content">
+    <main class="docs-content">
+      <h1 class="docs-title">Getting Started</h1>
+      <p class="docs-lead">ndma-uiをプロジェクトに導入する方法</p>
         <!-- Introduction -->
         <section class="docs-section">
           <p>ndma-uiは、日本の行政システムや災害対策システムに特化した軽量CSSフレームワークです。このページでは、ndma-uiをプロジェクトに導入する方法を説明します。</p>
@@ -124,7 +68,7 @@
           <div class="docs-code-block docs-code-block--with-copy">
             <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
             <pre>&lt;!DOCTYPE html&gt;
-&lt;html lang="ja" class="ndma-theme-default"&gt;
+&lt;html lang="ja" data-theme="default"&gt;
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
   &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
@@ -196,7 +140,7 @@ git clone https://github.com/ndma/ndma-ui.git
           <div class="docs-code-block docs-code-block--with-copy">
             <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
             <pre>&lt;!DOCTYPE html&gt;
-&lt;html lang="ja" class="ndma-theme-default"&gt;
+&lt;html lang="ja" data-theme="default"&gt;
 &lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
   &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
@@ -264,7 +208,7 @@ git clone https://github.com/ndma/ndma-ui.git
         <!-- Theme Configuration -->
         <section class="docs-section">
           <h2 class="docs-subtitle" id="theme-configuration">テーマの設定</h2>
-          <p>ndma-uiは3つのテーマを提供しています。テーマを切り替えるには、<code>&lt;html&gt;</code>要素のクラスを変更します。</p>
+          <p>ndma-uiは2つのテーマを提供しています。テーマを切り替えるには、<code>&lt;html&gt;</code>要素の<code>data-theme</code>属性を変更します。</p>
           
           <h3>利用可能なテーマ</h3>
           <div class="docs-component-grid">
@@ -272,23 +216,15 @@ git clone https://github.com/ndma/ndma-ui.git
               <h4 class="docs-component-card__title">Default（行政）</h4>
               <p>公的機関向けのクリーンなデザイン</p>
               <div class="docs-code-block">
-                <pre>&lt;html class="ndma-theme-default"&gt;</pre>
+                <pre>&lt;html data-theme="default"&gt;</pre>
               </div>
             </div>
             
             <div class="docs-component-card">
-              <h4 class="docs-component-card__title">Dark（災害対策室）</h4>
-              <p>濃紺ベースの視認性重視デザイン</p>
+              <h4 class="docs-component-card__title">Nightvision（夜間視認・NERV風）</h4>
+              <p>黒背景 + 蛍光オレンジ + 角丸なしの硬質デザイン</p>
               <div class="docs-code-block">
-                <pre>&lt;html class="ndma-theme-dark"&gt;</pre>
-              </div>
-            </div>
-            
-            <div class="docs-component-card">
-              <h4 class="docs-component-card__title">Night Ops（SOPHEX）</h4>
-              <p>HUD風の特殊作戦向けデザイン</p>
-              <div class="docs-code-block">
-                <pre>&lt;html class="ndma-theme-ops"&gt;</pre>
+                <pre>&lt;html data-theme="nightvision"&gt;</pre>
               </div>
             </div>
           </div>
@@ -298,28 +234,12 @@ git clone https://github.com/ndma/ndma-ui.git
           
           <div class="docs-code-block docs-code-block--with-copy">
             <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
-            <pre>// テーマ切り替え関数
-function switchTheme(themeName) {
-  const html = document.documentElement;
-  html.className = `ndma-theme-${themeName}`;
-  
-  // localStorageに保存
-  localStorage.setItem('ndma-ui-theme', themeName);
-}
-
-// ページ読み込み時に保存されたテーマを適用
-document.addEventListener('DOMContentLoaded', () => {
-  const savedTheme = localStorage.getItem('ndma-ui-theme') || 'default';
-  switchTheme(savedTheme);
-});
-
-// テーマ切り替えボタンの例
-const themeButtons = document.querySelectorAll('[data-theme]');
-themeButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    switchTheme(button.dataset.theme);
-  });
-});</pre>
+            <pre>document.querySelector('#themeToggle')
+  .addEventListener('click', () => {
+    const html = document.documentElement;
+    const newTheme = html.dataset.theme === 'default' ? 'nightvision' : 'default';
+    html.dataset.theme = newTheme;
+  });</pre>
           </div>
         </section>
 
@@ -426,30 +346,29 @@ themeButtons.forEach(button => {
             <div class="docs-component-card">
               <h4 class="docs-component-card__title">📦 コンポーネント</h4>
               <p>利用可能なすべてのコンポーネントの詳細を確認</p>
-              <a href="components/button.html" class="ndma-btn ndma-btn--primary">コンポーネントを見る</a>
+              <a href="components.html" class="ndma-btn ndma-btn--primary">コンポーネントを見る</a>
             </div>
             
             <div class="docs-component-card">
               <h4 class="docs-component-card__title">🎨 テーマ</h4>
               <p>各テーマの特徴と使用方法を詳しく見る</p>
-              <a href="themes/default.html" class="ndma-btn ndma-btn--primary">テーマを見る</a>
+              <a href="themes.html" class="ndma-btn ndma-btn--primary">テーマを見る</a>
             </div>
             
             <div class="docs-component-card">
               <h4 class="docs-component-card__title">📋 サンプル</h4>
               <p>実際の使用例を参考に実装を進める</p>
-              <a href="examples/dashboard.html" class="ndma-btn ndma-btn--primary">サンプルを見る</a>
+              <a href="examples.html" class="ndma-btn ndma-btn--primary">サンプルを見る</a>
             </div>
           </div>
         </section>
-      </div>
     </main>
   </div>
 
   <!-- Mobile Menu Button -->
-  <button class="docs-mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+  <button class="docs-mobile-menu-btn" id="sidebarToggle" type="button" aria-label="メニュー">☰</button>
 
   <!-- Documentation JS -->
-  <script src="assets/docs.js"></script>
+  <script src="assets/js/docs.js"></script>
 </body>
 </html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="default">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Themes - ndma-ui</title>
+  <meta name="description" content="ndma-ui テーマ切替（default / nightvision）">
+  <link rel="stylesheet" href="assets/css/ndma.css">
+  <link rel="stylesheet" href="assets/css/docs.css">
+</head>
+<body>
+  <header class="docs-header">
+    <button id="sidebarToggle" class="docs-mobile-menu-btn" type="button" aria-label="メニュー">☰</button>
+    <a class="docs-header__brand" href="index.html">ndma-ui</a>
+    <div class="docs-header__spacer"></div>
+    <div class="docs-theme-switcher">
+      <button id="themeToggle" class="docs-theme-toggle" type="button" aria-pressed="false">Nightvision</button>
+    </div>
+  </header>
+
+  <div class="docs-container">
+    <aside class="docs-sidebar" id="docsSidebar">
+      <nav class="docs-nav">
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">ドキュメント</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item"><a class="docs-nav__link" href="index.html">概要</a></li>
+            <li class="docs-nav__item"><a class="docs-nav__link" href="getting-started.html">Getting Started</a></li>
+            <li class="docs-nav__item"><a class="docs-nav__link" href="components.html">Components</a></li>
+            <li class="docs-nav__item"><a class="docs-nav__link" href="layout.html">Layout</a></li>
+            <li class="docs-nav__item"><a class="docs-nav__link" href="themes.html">Themes</a></li>
+            <li class="docs-nav__item"><a class="docs-nav__link" href="examples.html">Examples</a></li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="docs-content">
+      <h1 class="docs-title">Themes</h1>
+      <p class="docs-lead">default / nightvision を切り替えてUIを体験できます</p>
+
+      <section class="docs-section" id="how-to-switch">
+        <h2>テーマ切替の方法</h2>
+        <p>テーマは <code>&lt;html&gt;</code> の <code>data-theme</code> で切り替えます。</p>
+        <pre><code>&lt;html data-theme=&quot;default&quot;&gt;
+&lt;html data-theme=&quot;nightvision&quot;&gt;</code></pre>
+
+        <p>JavaScriptでのトグル例：</p>
+        <pre><code>document.querySelector('#themeToggle')
+  .addEventListener('click', () => {
+    const html = document.documentElement;
+    const newTheme = html.dataset.theme === 'default' ? 'nightvision' : 'default';
+    html.dataset.theme = newTheme;
+  });</code></pre>
+      </section>
+
+      <section class="docs-section" id="default">
+        <h2>Default</h2>
+        <p>通常の行政UI向けテーマです。</p>
+        <div class="docs-demo">
+          <div class="ndma-flex ndma-flex-wrap ndma-items-center" style="gap: var(--spacing-md);">
+            <button class="ndma-btn ndma-btn--primary" type="button">Primary</button>
+            <button class="ndma-btn ndma-btn--secondary" type="button">Secondary</button>
+            <button class="ndma-btn ndma-btn--outline" type="button">Outline</button>
+          </div>
+          <div style="height: var(--spacing-md);"></div>
+          <div class="ndma-card">
+            <div class="ndma-card__body">
+              <p class="ndma-card__text">カードの表示例です。</p>
+              <span class="ndma-status-tag ndma-status-tag--level-2">注意</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="docs-section" id="nightvision">
+        <h2>Nightvision（夜間視認・NERV風）</h2>
+        <p>背景は黒、テキストは蛍光オレンジ、枠線は細いオレンジライン、角丸なしの硬質デザインです。</p>
+        <div class="docs-demo">
+          <div class="ndma-alert ndma-alert--warning" role="alert">Nightvisionモード表示例</div>
+          <div style="height: var(--spacing-md);"></div>
+          <div class="ndma-flex ndma-flex-wrap ndma-items-center" style="gap: var(--spacing-md);">
+            <button class="ndma-btn ndma-btn--primary" type="button">Primary</button>
+            <button class="ndma-btn ndma-btn--secondary" type="button">Secondary</button>
+            <button class="ndma-btn ndma-btn--danger" type="button">Danger</button>
+          </div>
+          <div style="height: var(--spacing-md);"></div>
+          <div class="ndma-card">
+            <div class="ndma-card__body">
+              <p class="ndma-card__text">枠線・配色・角丸が変化します。</p>
+              <div class="ndma-form-group" style="margin-bottom: 0;">
+                <label class="ndma-form-label" for="nightvisionInput">入力例</label>
+                <input class="ndma-form-control" id="nightvisionInput" type="text" placeholder="夜間視認モード">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="assets/js/docs.js"></script>
+</body>
+</html>

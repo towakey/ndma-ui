@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ja" class="ndma-theme-ops">
+<html lang="ja" data-theme="nightvision">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SOPHEX特務システム - ndma-ui</title>
   <meta name="description" content="SOPHEX特務システムのコントロールパネル">
-  <link rel="stylesheet" href="../assets/ndma.css">
-  <link rel="stylesheet" href="../assets/docs.css">
+  <link rel="stylesheet" href="../assets/css/ndma.css">
+  <link rel="stylesheet" href="../assets/css/docs.css">
   <style>
     /* SOPHEX専用スタイル */
     @keyframes pulse {
@@ -368,7 +368,39 @@
   </style>
 </head>
 <body>
-  <div class="sophex-container">
+  <header class="docs-header">
+    <a class="docs-header__brand" href="../index.html">ndma-ui</a>
+    <div class="docs-header__spacer"></div>
+  </header>
+
+  <div class="docs-theme-switcher">
+    <button id="themeToggle" class="docs-theme-toggle" type="button" aria-pressed="false">Nightvision</button>
+  </div>
+
+  <div class="docs-container">
+    <aside class="docs-sidebar" id="docsSidebar">
+      <nav class="docs-nav">
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">ドキュメント</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item"><a href="../index.html" class="docs-nav__link">概要</a></li>
+            <li class="docs-nav__item"><a href="../getting-started.html" class="docs-nav__link">Getting Started</a></li>
+            <li class="docs-nav__item"><a href="../components.html" class="docs-nav__link">Components</a></li>
+            <li class="docs-nav__item"><a href="../layout.html" class="docs-nav__link">Layout</a></li>
+            <li class="docs-nav__item"><a href="../themes.html" class="docs-nav__link">Themes</a></li>
+            <li class="docs-nav__item"><a href="../examples.html" class="docs-nav__link">Examples</a></li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="docs-content">
+      <h1 class="docs-title">SOPHEX特務システム</h1>
+      <p class="docs-lead">SOPHEX特務システムのコントロールパネル</p>
+
+      <div class="docs-demo">
+        <div class="docs-demo__content">
+          <div class="sophex-container">
     <!-- ヘッダー -->
     <header class="sophex-header">
       <div class="sophex-header__content">
@@ -588,8 +620,15 @@
     </div>
   </div>
 
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <button class="docs-mobile-menu-btn" id="sidebarToggle" type="button" aria-label="メニュー">☰</button>
+
   <!-- Documentation JS -->
-  <script src="../assets/docs.js"></script>
+  <script src="../assets/js/docs.js"></script>
   <script>
     // ターミナルの自動更新
     const terminal = document.getElementById('terminal');

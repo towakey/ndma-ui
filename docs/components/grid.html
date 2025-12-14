@@ -1,29 +1,23 @@
 <!DOCTYPE html>
-<html lang="ja" class="ndma-theme-default">
+<html lang="ja" data-theme="default">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Grid - ndma-ui</title>
   <meta name="description" content="ndma-uiのグリッドシステムドキュメント">
-  <link rel="stylesheet" href="../assets/ndma.css">
-  <link rel="stylesheet" href="../assets/docs.css">
+  <link rel="stylesheet" href="../assets/css/ndma.css">
+  <link rel="stylesheet" href="../assets/css/docs.css">
 </head>
 <body>
   <!-- Documentation Header -->
   <header class="docs-header">
-    <div class="docs-header__content">
-      <h1 class="docs-title">Grid</h1>
-      <p class="docs-lead">レスポンシブなレイアウトを構築するためのグリッドシステム</p>
-    </div>
+    <a class="docs-header__brand" href="../index.html">ndma-ui</a>
+    <div class="docs-header__spacer"></div>
   </header>
 
   <!-- Theme Switcher -->
   <div class="docs-theme-switcher">
-    <div class="ndma-theme-switcher">
-      <button class="ndma-theme-switcher__btn ndma-theme-switcher__btn--active" data-theme="default">Default</button>
-      <button class="ndma-theme-switcher__btn" data-theme="dark">Dark</button>
-      <button class="ndma-theme-switcher__btn" data-theme="ops">Night Ops</button>
-    </div>
+    <button id="themeToggle" class="docs-theme-toggle" type="button" aria-pressed="false">Nightvision</button>
   </div>
 
   <!-- Documentation Container -->
@@ -32,7 +26,7 @@
     <aside class="docs-sidebar" id="docsSidebar">
       <nav class="docs-nav">
         <div class="docs-nav__section">
-          <h3 class="docs-nav__title">はじめに</h3>
+          <h3 class="docs-nav__title">ドキュメント</h3>
           <ul class="docs-nav__list">
             <li class="docs-nav__item">
               <a href="../index.html" class="docs-nav__link">概要</a>
@@ -40,68 +34,17 @@
             <li class="docs-nav__item">
               <a href="../getting-started.html" class="docs-nav__link">Getting Started</a>
             </li>
-          </ul>
-        </div>
-        
-        <div class="docs-nav__section">
-          <h3 class="docs-nav__title">コンポーネント</h3>
-          <ul class="docs-nav__list">
             <li class="docs-nav__item">
-              <a href="button.html" class="docs-nav__link">Buttons</a>
+              <a href="../components.html" class="docs-nav__link">Components</a>
             </li>
             <li class="docs-nav__item">
-              <a href="card.html" class="docs-nav__link">Cards</a>
+              <a href="../layout.html" class="docs-nav__link">Layout</a>
             </li>
             <li class="docs-nav__item">
-              <a href="table.html" class="docs-nav__link">Tables</a>
+              <a href="../themes.html" class="docs-nav__link">Themes</a>
             </li>
             <li class="docs-nav__item">
-              <a href="form.html" class="docs-nav__link">Forms</a>
-            </li>
-            <li class="docs-nav__item">
-              <a href="alert.html" class="docs-nav__link">Alerts</a>
-            </li>
-            <li class="docs-nav__item">
-              <a href="navigation.html" class="docs-nav__link">Navigation</a>
-            </li>
-            <li class="docs-nav__item">
-              <a href="badge.html" class="docs-nav__link">Badges</a>
-            </li>
-            <li class="docs-nav__item">
-              <a href="modal.html" class="docs-nav__link">Modals</a>
-            </li>
-            <li class="docs-nav__item">
-              <a href="grid.html" class="docs-nav__link docs-nav__link--active">Grid</a>
-            </li>
-          </ul>
-        </div>
-        
-        <div class="docs-nav__section">
-          <h3 class="docs-nav__title">テーマ</h3>
-          <ul class="docs-nav__list">
-            <li class="docs-nav__item">
-              <a href="../themes/default.html" class="docs-nav__link">Default（行政）</a>
-            </li>
-            <li class="docs-nav__item">
-              <a href="../themes/dark.html" class="docs-nav__link">Dark（災害対策室）</a>
-            </li>
-            <li class="docs-nav__item">
-              <a href="../themes/ops.html" class="docs-nav__link">Night Ops（SOPHEX）</a>
-            </li>
-          </ul>
-        </div>
-        
-        <div class="docs-nav__section">
-          <h3 class="docs-nav__title">サンプル</h3>
-          <ul class="docs-nav__list">
-            <li class="docs-nav__item">
-              <a href="../examples/dashboard.html" class="docs-nav__link">状況室ダッシュボード</a>
-            </li>
-            <li class="docs-nav__item">
-              <a href="../examples/login.html" class="docs-nav__link">ログイン画面</a>
-            </li>
-            <li class="docs-nav__item">
-              <a href="../examples/sophex.html" class="docs-nav__link">SOPHEX特務システム</a>
+              <a href="../examples.html" class="docs-nav__link">Examples</a>
             </li>
           </ul>
         </div>
@@ -109,8 +52,9 @@
     </aside>
 
     <!-- Main Content -->
-    <main class="docs-main">
-      <div class="docs-content">
+    <main class="docs-content">
+      <h1 class="docs-title">Grid</h1>
+      <p class="docs-lead">レスポンシブなレイアウトを構築するためのグリッドシステム</p>
         <!-- Overview -->
         <section class="docs-section">
           <p>ndma-uiのグリッドシステムは、12カラムのフレキシブルなレイアウトを提供します。レスポンシブデザインに対応し、様々なデバイスで最適な表示を実現します。</p>
@@ -501,13 +445,13 @@
           </div>
         </section>
 
-        <!-- Night Ops Theme Grid -->
+        <!-- Nightvision Theme Grid -->
         <section class="docs-section">
-          <h2 class="docs-subtitle" id="night-ops-grid">Night Opsテーマのグリッド</h2>
-          <p>Night Opsテーマでは、HUD風のグリッドレイアウトが利用できます。</p>
+          <h2 class="docs-subtitle" id="nightvision-grid">Nightvisionテーマのグリッド</h2>
+          <p>Nightvisionテーマでは、硬質な枠線・配色でグリッドレイアウトが表示されます。</p>
           
           <div class="docs-callout docs-callout--warning">
-            <strong>注意：</strong>これらのグリッドはNight Opsテーマでのみ正しく表示されます。
+            <strong>注意：</strong>これらのグリッドはNightvisionテーマでのみ正しく表示されます。
           </div>
           
           <div class="docs-demo">
@@ -562,7 +506,7 @@
 
           <div class="docs-code-block docs-code-block--with-copy">
             <button class="docs-copy-btn" onclick="copyCode(this)">コピー</button>
-            <pre>&lt;!-- Night Opsテーマ専用 --&gt;
+            <pre>&lt;!-- Nightvisionテーマ専用 --&gt;
 &lt;div class="ndma-tactical-grid"&gt;
   &lt;div class="ndma-tactical-grid__item"&gt;
     &lt;div class="ndma-card ndma-card--ops"&gt;
@@ -669,14 +613,13 @@
 &lt;/div&gt;</pre>
           </div>
         </section>
-      </div>
     </main>
   </div>
 
   <!-- Mobile Menu Button -->
-  <button class="docs-mobile-menu-btn" onclick="toggleSidebar()">☰</button>
+  <button class="docs-mobile-menu-btn" id="sidebarToggle" type="button" aria-label="メニュー">☰</button>
 
   <!-- Documentation JS -->
-  <script src="../assets/docs.js"></script>
+  <script src="../assets/js/docs.js"></script>
 </body>
 </html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="default">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Examples - ndma-ui</title>
+  <meta name="description" content="ndma-ui UIデモ（SOPHEX風 / 任務ボード / センサー一覧 / 緊急UI）">
+  <link rel="stylesheet" href="assets/css/ndma.css">
+  <link rel="stylesheet" href="assets/css/docs.css">
+</head>
+<body>
+  <header class="docs-header">
+    <button id="sidebarToggle" class="docs-mobile-menu-btn" type="button" aria-label="メニュー">☰</button>
+    <a class="docs-header__brand" href="index.html">ndma-ui</a>
+    <div class="docs-header__spacer"></div>
+    <div class="docs-theme-switcher">
+      <button id="themeToggle" class="docs-theme-toggle" type="button" aria-pressed="false">Nightvision</button>
+    </div>
+  </header>
+
+  <div class="docs-container">
+    <aside class="docs-sidebar" id="docsSidebar">
+      <nav class="docs-nav">
+        <div class="docs-nav__section">
+          <h3 class="docs-nav__title">ドキュメント</h3>
+          <ul class="docs-nav__list">
+            <li class="docs-nav__item"><a class="docs-nav__link" href="index.html">概要</a></li>
+            <li class="docs-nav__item"><a class="docs-nav__link" href="getting-started.html">Getting Started</a></li>
+            <li class="docs-nav__item"><a class="docs-nav__link" href="components.html">Components</a></li>
+            <li class="docs-nav__item"><a class="docs-nav__link" href="layout.html">Layout</a></li>
+            <li class="docs-nav__item"><a class="docs-nav__link" href="themes.html">Themes</a></li>
+            <li class="docs-nav__item"><a class="docs-nav__link" href="examples.html">Examples</a></li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="docs-content">
+      <h1 class="docs-title">Examples</h1>
+      <p class="docs-lead">ndma-ui の世界観を反映したUIモック（静的HTML）</p>
+
+      <section class="docs-section" id="sophex">
+        <h2>SOPHEX（CENTRIS）風 操作端末 UI</h2>
+        <div class="docs-demo">
+          <div class="ndma-card">
+            <div class="ndma-card__header">
+              <h3 class="ndma-card__title">CENTRIS TERMINAL</h3>
+              <p class="ndma-card__subtitle">OPS-CONSOLE / LINK: ACTIVE</p>
+            </div>
+            <div class="ndma-card__body">
+              <div class="ndma-flex ndma-flex-wrap ndma-items-center" style="gap: var(--spacing-sm);">
+                <span class="ndma-status-tag ndma-status-tag--level-1">SECURE</span>
+                <span class="ndma-status-tag ndma-status-tag--level-2">SYNC</span>
+                <span class="ndma-status-tag ndma-status-tag--level-3">ALERT</span>
+              </div>
+              <div style="height: var(--spacing-md);"></div>
+              <div class="ndma-form-group" style="margin-bottom: 0;">
+                <label class="ndma-form-label" for="sophexCmd">COMMAND</label>
+                <input class="ndma-form-control" id="sophexCmd" type="text" placeholder="> _">
+              </div>
+              <div style="height: var(--spacing-md);"></div>
+              <div class="ndma-flex ndma-items-center" style="gap: var(--spacing-sm);">
+                <button class="ndma-btn ndma-btn--primary" type="button">EXECUTE</button>
+                <button class="ndma-btn ndma-btn--secondary" type="button">CLEAR</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="docs-section" id="missions">
+        <h2>特務隊 任務ボード</h2>
+        <div class="docs-demo">
+          <div class="ndma-grid ndma-grid-cols-2">
+            <div class="ndma-card">
+              <div class="ndma-card__header">
+                <h3 class="ndma-card__title">MISSION: SECTOR-12</h3>
+                <p class="ndma-card__subtitle">優先度: HIGH</p>
+              </div>
+              <div class="ndma-card__body">
+                <p class="ndma-card__text">広域避難誘導を開始。支援隊到着まで交通規制を維持。</p>
+                <div class="ndma-flex ndma-flex-wrap ndma-items-center" style="gap: var(--spacing-sm);">
+                  <span class="ndma-status-tag ndma-status-tag--level-4">警戒</span>
+                  <span class="ndma-status-tag ndma-status-tag--level-2">進行中</span>
+                </div>
+                <div style="height: var(--spacing-md);"></div>
+                <button class="ndma-btn ndma-btn--mission" type="button">ASSIGN</button>
+              </div>
+            </div>
+
+            <div class="ndma-card">
+              <div class="ndma-card__header">
+                <h3 class="ndma-card__title">MISSION: SUPPLY-ROUTE</h3>
+                <p class="ndma-card__subtitle">優先度: MEDIUM</p>
+              </div>
+              <div class="ndma-card__body">
+                <p class="ndma-card__text">物資輸送ルートの再確保。迂回路を提示し通行止め情報を更新。</p>
+                <div class="ndma-flex ndma-flex-wrap ndma-items-center" style="gap: var(--spacing-sm);">
+                  <span class="ndma-status-tag ndma-status-tag--level-2">注意</span>
+                  <span class="ndma-status-tag ndma-status-tag--level-1">待機</span>
+                </div>
+                <div style="height: var(--spacing-md);"></div>
+                <button class="ndma-btn ndma-btn--primary" type="button">DISPATCH</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="docs-section" id="sensors">
+        <h2>センサー情報一覧</h2>
+        <div class="docs-demo">
+          <div class="ndma-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>種別</th>
+                  <th>値</th>
+                  <th>ステータス</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>S-102</td>
+                  <td>Seismic</td>
+                  <td>3.2 gal</td>
+                  <td><span class="ndma-status-tag ndma-status-tag--level-1">OK</span></td>
+                </tr>
+                <tr>
+                  <td>T-044</td>
+                  <td>Thermal</td>
+                  <td>54.1℃</td>
+                  <td><span class="ndma-status-tag ndma-status-tag--level-2">WARN</span></td>
+                </tr>
+                <tr>
+                  <td>P-008</td>
+                  <td>Pressure</td>
+                  <td>0.82</td>
+                  <td><span class="ndma-status-tag ndma-status-tag--level-3">ALERT</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="docs-section" id="emergency">
+        <h2>災害発生時の緊急 UI（赤テーマ）</h2>
+        <div class="docs-demo">
+          <div class="ndma-alert ndma-alert-banner ndma-alert--danger" role="alert">
+            緊急：大規模災害発生。管内に緊急対策本部を設置。
+          </div>
+          <div style="height: var(--spacing-md);"></div>
+          <div class="ndma-card">
+            <div class="ndma-card__body">
+              <div class="ndma-flex ndma-flex-wrap ndma-items-center" style="gap: var(--spacing-sm);">
+                <button class="ndma-btn ndma-btn--emergency" type="button">EMERGENCY ACTION</button>
+                <button class="ndma-btn ndma-btn--danger" type="button">SIREN</button>
+                <button class="ndma-btn ndma-btn--secondary" type="button">ACK</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="assets/js/docs.js"></script>
+</body>
+</html>
