@@ -18,7 +18,7 @@
   --border-color: #dee2e6;
   
   /* Component specific colors */
-  --card-bg: #ffffff;
+  --card-bg: rgba(230, 122, 0, 0.5);
   --card-border: var(--border-color);
   --button-primary-bg: var(--ndma-blue);
   --button-primary-text: #ffffff;

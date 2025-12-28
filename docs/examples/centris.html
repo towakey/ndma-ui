@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SOPHEX特務システム - ndma-ui</title>
-  <meta name="description" content="SOPHEX特務システムのコントロールパネル">
+  <title>CENTRIS夜間最適化テーマ - ndma-ui</title>
+  <meta name="description" content="CLT（危機管理連絡調整隊）の夜間最適化テーマ・コントロールパネル">
   <link rel="stylesheet" href="../assets/css/ndma.css">
   <link rel="stylesheet" href="../assets/css/docs.css">
   <style>
-    /* SOPHEX専用スタイル */
+    /* CENTRIS専用スタイル */
     @keyframes pulse {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.5; }
@@ -27,7 +27,7 @@
       80% { transform: translate(2px, -2px); }
     }
     
-    .sophex-container {
+    .centris-container {
       min-height: 100vh;
       background: #0a0e1a;
       font-family: 'Courier New', monospace;
@@ -35,7 +35,7 @@
       overflow-x: hidden;
     }
     
-    .sophex-container::before {
+    .centris-container::before {
       content: '';
       position: fixed;
       top: 0;
@@ -54,7 +54,7 @@
       z-index: 1;
     }
     
-    .sophex-header {
+    .centris-header {
       background: linear-gradient(135deg, #141929 0%, #1e2438 100%);
       border-bottom: 2px solid #00ff88;
       padding: 1rem;
@@ -62,7 +62,7 @@
       z-index: 10;
     }
     
-    .sophex-header__content {
+    .centris-header__content {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -70,13 +70,13 @@
       margin: 0 auto;
     }
     
-    .sophex-logo {
+    .centris-logo {
       display: flex;
       align-items: center;
       gap: 1rem;
     }
     
-    .sophex-logo__icon {
+    .centris-logo__icon {
       width: 50px;
       height: 50px;
       background: linear-gradient(135deg, #00ff88 0%, #00ccff 100%);
@@ -90,20 +90,20 @@
       animation: pulse 2s infinite;
     }
     
-    .sophex-logo__text {
+    .centris-logo__text {
       color: #00ff88;
       font-size: 1.5rem;
       font-weight: bold;
       text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
     }
     
-    .sophex-status {
+    .centris-status {
       display: flex;
       align-items: center;
       gap: 2rem;
     }
     
-    .sophex-status__item {
+    .centris-status__item {
       display: flex;
       align-items: center;
       gap: 0.5rem;
@@ -111,7 +111,7 @@
       font-size: 0.875rem;
     }
     
-    .sophex-status__indicator {
+    .centris-status__indicator {
       width: 8px;
       height: 8px;
       border-radius: 50%;
@@ -120,7 +120,7 @@
       animation: pulse 2s infinite;
     }
     
-    .sophex-main {
+    .centris-main {
       display: grid;
       grid-template-columns: 250px 1fr 350px;
       gap: 1rem;
@@ -131,7 +131,7 @@
       z-index: 10;
     }
     
-    .sophex-sidebar {
+    .centris-sidebar {
       background: rgba(20, 25, 41, 0.8);
       border: 1px solid #1e2438;
       border-radius: 8px;
@@ -140,17 +140,17 @@
       overflow-y: auto;
     }
     
-    .sophex-nav {
+    .centris-nav {
       list-style: none;
       padding: 0;
       margin: 0;
     }
     
-    .sophex-nav__item {
+    .centris-nav__item {
       margin-bottom: 0.5rem;
     }
     
-    .sophex-nav__link {
+    .centris-nav__link {
       display: flex;
       align-items: center;
       gap: 0.75rem;
@@ -162,29 +162,29 @@
       font-size: 0.875rem;
     }
     
-    .sophex-nav__link:hover {
+    .centris-nav__link:hover {
       background: rgba(0, 255, 136, 0.1);
       color: #00ff88;
     }
     
-    .sophex-nav__link--active {
+    .centris-nav__link--active {
       background: rgba(0, 255, 136, 0.2);
       color: #00ff88;
       border-left: 3px solid #00ff88;
     }
     
-    .sophex-nav__code {
+    .centris-nav__code {
       color: #00ccff;
       font-weight: bold;
     }
     
-    .sophex-content {
+    .centris-content {
       display: flex;
       flex-direction: column;
       gap: 1rem;
     }
     
-    .sophex-panel {
+    .centris-panel {
       background: rgba(20, 25, 41, 0.8);
       border: 1px solid #1e2438;
       border-radius: 8px;
@@ -193,7 +193,7 @@
       overflow: hidden;
     }
     
-    .sophex-panel::before {
+    .centris-panel::before {
       content: '';
       position: absolute;
       top: 0;
@@ -204,7 +204,7 @@
       animation: scan 3s linear infinite;
     }
     
-    .sophex-panel__header {
+    .centris-panel__header {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -213,7 +213,7 @@
       border-bottom: 1px solid #1e2438;
     }
     
-    .sophex-panel__title {
+    .centris-panel__title {
       color: #00ff88;
       font-size: 1.125rem;
       font-weight: bold;
@@ -222,13 +222,13 @@
       gap: 0.5rem;
     }
     
-    .sophex-grid {
+    .centris-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
     }
     
-    .sophex-metric {
+    .centris-metric {
       background: rgba(30, 36, 56, 0.5);
       border: 1px solid #1e2438;
       border-radius: 4px;
@@ -236,27 +236,27 @@
       text-align: center;
     }
     
-    .sophex-metric__value {
+    .centris-metric__value {
       font-size: 2rem;
       font-weight: bold;
       color: #00ccff;
       margin-bottom: 0.25rem;
     }
     
-    .sophex-metric__label {
+    .centris-metric__label {
       font-size: 0.75rem;
       color: #667799;
       text-transform: uppercase;
     }
     
-    .sophex-tactical-grid {
+    .centris-tactical-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
       margin-top: 1rem;
     }
     
-    .sophex-tactical-item {
+    .centris-tactical-item {
       background: rgba(30, 36, 56, 0.5);
       border: 1px solid #1e2438;
       border-radius: 4px;
@@ -265,7 +265,7 @@
       overflow: hidden;
     }
     
-    .sophex-tactical-item::after {
+    .centris-tactical-item::after {
       content: '';
       position: absolute;
       top: 0;
@@ -275,21 +275,21 @@
       background: #00ff88;
     }
     
-    .sophex-tactical-item--danger::after {
+    .centris-tactical-item--danger::after {
       background: #ff0066;
     }
     
-    .sophex-tactical-item--warning::after {
+    .centris-tactical-item--warning::after {
       background: #ffaa00;
     }
     
-    .sophex-right {
+    .centris-right {
       display: flex;
       flex-direction: column;
       gap: 1rem;
     }
     
-    .sophex-terminal {
+    .centris-terminal {
       background: #0a0e1a;
       border: 1px solid #1e2438;
       border-radius: 8px;
@@ -300,30 +300,30 @@
       overflow-y: auto;
     }
     
-    .sophex-terminal__line {
+    .centris-terminal__line {
       margin-bottom: 0.5rem;
       color: #00ff88;
     }
     
-    .sophex-terminal__line--error {
+    .centris-terminal__line--error {
       color: #ff0066;
     }
     
-    .sophex-terminal__line--warning {
+    .centris-terminal__line--warning {
       color: #ffaa00;
     }
     
-    .sophex-terminal__prompt {
+    .centris-terminal__prompt {
       color: #00ccff;
     }
     
-    .sophex-controls {
+    .centris-controls {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 0.75rem;
     }
     
-    .sophex-btn {
+    .centris-btn {
       padding: 0.75rem;
       background: rgba(30, 36, 56, 0.5);
       border: 1px solid #1e2438;
@@ -335,33 +335,33 @@
       transition: all 0.3s;
     }
     
-    .sophex-btn:hover {
+    .centris-btn:hover {
       background: rgba(0, 255, 136, 0.1);
       border-color: #00ff88;
       transform: translateY(-2px);
     }
     
-    .sophex-btn--danger {
+    .centris-btn--danger {
       color: #ff0066;
     }
     
-    .sophex-btn--danger:hover {
+    .centris-btn--danger:hover {
       background: rgba(255, 0, 102, 0.1);
       border-color: #ff0066;
     }
     
     @media (max-width: 1200px) {
-      .sophex-main {
+      .centris-main {
         grid-template-columns: 200px 1fr 300px;
       }
     }
     
     @media (max-width: 768px) {
-      .sophex-main {
+      .centris-main {
         grid-template-columns: 1fr;
       }
       
-      .sophex-sidebar {
+      .centris-sidebar {
         height: auto;
       }
     }
@@ -395,29 +395,29 @@
     </aside>
 
     <main class="docs-content">
-      <h1 class="docs-title">SOPHEX特務システム</h1>
-      <p class="docs-lead">SOPHEX特務システムのコントロールパネル</p>
+      <h1 class="docs-title">CENTRIS夜間最適化テーマ</h1>
+      <p class="docs-lead">CLT（危機管理連絡調整隊）の夜間最適化テーマ・コントロールパネル</p>
 
       <div class="docs-demo">
         <div class="docs-demo__content">
-          <div class="sophex-container">
+          <div class="centris-container">
     <!-- ヘッダー -->
-    <header class="sophex-header">
-      <div class="sophex-header__content">
-        <div class="sophex-logo">
-          <div class="sophex-logo__icon">SOPHEX</div>
-          <div class="sophex-logo__text">[SYSTEM] ONLINE</div>
+    <header class="centris-header">
+      <div class="centris-header__content">
+        <div class="centris-logo">
+          <div class="centris-logo__icon">CENTRIS</div>
+          <div class="centris-logo__text">[SYSTEM] ONLINE</div>
         </div>
-        <div class="sophex-status">
-          <div class="sophex-status__item">
-            <span class="sophex-status__indicator"></span>
+        <div class="centris-status">
+          <div class="centris-status__item">
+            <span class="centris-status__indicator"></span>
             <span>MISSION ACTIVE</span>
           </div>
-          <div class="sophex-status__item">
-            <span class="sophex-status__indicator" style="background: #00ccff;"></span>
+          <div class="centris-status__item">
+            <span class="centris-status__indicator" style="background: #00ccff;"></span>
             <span>12 UNITS DEPLOYED</span>
           </div>
-          <div class="sophex-status__item">
+          <div class="centris-status__item">
             <span style="color: #8892a6;">14:32:15 JST</span>
           </div>
         </div>
@@ -425,50 +425,50 @@
     </header>
 
     <!-- メインコンテンツ -->
-    <div class="sophex-main">
+    <div class="centris-main">
       <!-- サイドバー -->
-      <aside class="sophex-sidebar">
+      <aside class="centris-sidebar">
         <nav>
-          <ul class="sophex-nav">
-            <li class="sophex-nav__item">
-              <a href="#" class="sophex-nav__link sophex-nav__link--active">
-                <span class="sophex-nav__code">[SYS]</span>
+          <ul class="centris-nav">
+            <li class="centris-nav__item">
+              <a href="#" class="centris-nav__link centris-nav__link--active">
+                <span class="centris-nav__code">[SYS]</span>
                 SYSTEM CONTROL
               </a>
             </li>
-            <li class="sophex-nav__item">
-              <a href="#" class="sophex-nav__link">
-                <span class="sophex-nav__code">[OPS]</span>
+            <li class="centris-nav__item">
+              <a href="#" class="centris-nav__link">
+                <span class="centris-nav__code">[OPS]</span>
                 OPERATIONS
               </a>
             </li>
-            <li class="sophex-nav__item">
-              <a href="#" class="sophex-nav__link">
-                <span class="sophex-nav__code">[COM]</span>
+            <li class="centris-nav__item">
+              <a href="#" class="centris-nav__link">
+                <span class="centris-nav__code">[COM]</span>
                 COMMUNICATIONS
               </a>
             </li>
-            <li class="sophex-nav__item">
-              <a href="#" class="sophex-nav__link">
-                <span class="sophex-nav__code">[MAP]</span>
+            <li class="centris-nav__item">
+              <a href="#" class="centris-nav__link">
+                <span class="centris-nav__code">[MAP]</span>
                 TACTICAL MAP
               </a>
             </li>
-            <li class="sophex-nav__item">
-              <a href="#" class="sophex-nav__link">
-                <span class="sophex-nav__code">[INT]</span>
+            <li class="centris-nav__item">
+              <a href="#" class="centris-nav__link">
+                <span class="centris-nav__code">[INT]</span>
                 INTELLIGENCE
               </a>
             </li>
-            <li class="sophex-nav__item">
-              <a href="#" class="sophex-nav__link">
-                <span class="sophex-nav__code">[RES]</span>
+            <li class="centris-nav__item">
+              <a href="#" class="centris-nav__link">
+                <span class="centris-nav__code">[RES]</span>
                 RESOURCES
               </a>
             </li>
-            <li class="sophex-nav__item">
-              <a href="#" class="sophex-nav__link">
-                <span class="sophex-nav__code">[LOG]</span>
+            <li class="centris-nav__item">
+              <a href="#" class="centris-nav__link">
+                <span class="centris-nav__code">[LOG]</span>
                 MISSION LOG
               </a>
             </li>
@@ -477,11 +477,11 @@
       </aside>
 
       <!-- 中央コンテンツ -->
-      <main class="sophex-content">
+      <main class="centris-content">
         <!-- メトリクス -->
-        <div class="sophex-panel">
-          <div class="sophex-panel__header">
-            <h2 class="sophex-panel__title">
+        <div class="centris-panel">
+          <div class="centris-panel__header">
+            <h2 class="centris-panel__title">
               <span>[METRICS]</span>
               SYSTEM STATUS
             </h2>
@@ -489,61 +489,61 @@
               <span class="ndma-status-indicator__dot"></span>
             </span>
           </div>
-          <div class="sophex-grid">
-            <div class="sophex-metric">
-              <div class="sophex-metric__value">98.7%</div>
-              <div class="sophex-metric__label">System Integrity</div>
+          <div class="centris-grid">
+            <div class="centris-metric">
+              <div class="centris-metric__value">98.7%</div>
+              <div class="centris-metric__label">System Integrity</div>
             </div>
-            <div class="sophex-metric">
-              <div class="sophex-metric__value">12</div>
-              <div class="sophex-metric__label">Active Units</div>
+            <div class="centris-metric">
+              <div class="centris-metric__value">12</div>
+              <div class="centris-metric__label">Active Units</div>
             </div>
-            <div class="sophex-metric">
-              <div class="sophex-metric__value">3</div>
-              <div class="sophex-metric__label">Critical Alerts</div>
+            <div class="centris-metric">
+              <div class="centris-metric__value">3</div>
+              <div class="centris-metric__label">Critical Alerts</div>
             </div>
-            <div class="sophex-metric">
-              <div class="sophex-metric__value">00:42:15</div>
-              <div class="sophex-metric__label">Mission Time</div>
+            <div class="centris-metric">
+              <div class="centris-metric__value">00:42:15</div>
+              <div class="centris-metric__label">Mission Time</div>
             </div>
           </div>
         </div>
 
         <!-- タクティカルディスプレイ -->
-        <div class="sophex-panel">
-          <div class="sophex-panel__header">
-            <h2 class="sophex-panel__title">
+        <div class="centris-panel">
+          <div class="centris-panel__header">
+            <h2 class="centris-panel__title">
               <span>[TACTICAL]</span>
               UNIT DEPLOYMENT
             </h2>
           </div>
-          <div class="sophex-tactical-grid">
-            <div class="sophex-tactical-item">
+          <div class="centris-tactical-grid">
+            <div class="centris-tactical-item">
               <div style="color: #00ff88; font-weight: bold; margin-bottom: 0.5rem;">ALPHA-01</div>
               <div style="font-size: 0.875rem; color: #8892a6;">Status: ACTIVE</div>
               <div style="font-size: 0.875rem; color: #8892a6;">Location: Sector 7</div>
             </div>
-            <div class="sophex-tactical-item">
+            <div class="centris-tactical-item">
               <div style="color: #00ff88; font-weight: bold; margin-bottom: 0.5rem;">BRAVO-02</div>
               <div style="font-size: 0.875rem; color: #8892a6;">Status: ACTIVE</div>
               <div style="font-size: 0.875rem; color: #8892a6;">Location: Sector 3</div>
             </div>
-            <div class="sophex-tactical-item sophex-tactical-item--warning">
+            <div class="centris-tactical-item centris-tactical-item--warning">
               <div style="color: #ffaa00; font-weight: bold; margin-bottom: 0.5rem;">CHARLIE-03</div>
               <div style="font-size: 0.875rem; color: #8892a6;">Status: STANDBY</div>
               <div style="font-size: 0.875rem; color: #8892a6;">Location: Base</div>
             </div>
-            <div class="sophex-tactical-item">
+            <div class="centris-tactical-item">
               <div style="color: #00ff88; font-weight: bold; margin-bottom: 0.5rem;">DELTA-04</div>
               <div style="font-size: 0.875rem; color: #8892a6;">Status: ACTIVE</div>
               <div style="font-size: 0.875rem; color: #8892a6;">Location: Sector 9</div>
             </div>
-            <div class="sophex-tactical-item sophex-tactical-item--danger">
+            <div class="centris-tactical-item centris-tactical-item--danger">
               <div style="color: #ff0066; font-weight: bold; margin-bottom: 0.5rem;">ECHO-05</div>
               <div style="font-size: 0.875rem; color: #8892a6;">Status: OFFLINE</div>
               <div style="font-size: 0.875rem; color: #8892a6;">Location: Unknown</div>
             </div>
-            <div class="sophex-tactical-item">
+            <div class="centris-tactical-item">
               <div style="color: #00ff88; font-weight: bold; margin-bottom: 0.5rem;">FOXTROT-06</div>
               <div style="font-size: 0.875rem; color: #8892a6;">Status: ACTIVE</div>
               <div style="font-size: 0.875rem; color: #8892a6;">Location: Sector 2</div>
@@ -552,53 +552,53 @@
         </div>
 
         <!-- ミッションコントロール -->
-        <div class="sophex-panel">
-          <div class="sophex-panel__header">
-            <h2 class="sophex-panel__title">
+        <div class="centris-panel">
+          <div class="centris-panel__header">
+            <h2 class="centris-panel__title">
               <span>[CONTROL]</span>
               MISSION COMMANDS
             </h2>
           </div>
-          <div class="sophex-controls">
-            <button class="sophex-btn">[DEPLOY] UNIT</button>
-            <button class="sophex-btn">[RECALL] TEAM</button>
-            <button class="sophex-btn">[SCAN] AREA</button>
-            <button class="sophex-btn">[ANALYZE] DATA</button>
-            <button class="sophex-btn">[LOCKDOWN] ZONE</button>
-            <button class="sophex-btn sophex-btn--danger">[ABORT] MISSION</button>
+          <div class="centris-controls">
+            <button class="centris-btn">[DEPLOY] UNIT</button>
+            <button class="centris-btn">[RECALL] TEAM</button>
+            <button class="centris-btn">[SCAN] AREA</button>
+            <button class="centris-btn">[ANALYZE] DATA</button>
+            <button class="centris-btn">[LOCKDOWN] ZONE</button>
+            <button class="centris-btn centris-btn--danger">[ABORT] MISSION</button>
           </div>
         </div>
       </main>
 
       <!-- 右側コンテンツ -->
-      <aside class="sophex-right">
+      <aside class="centris-right">
         <!-- ターミナル -->
-        <div class="sophex-panel">
-          <div class="sophex-panel__header">
-            <h2 class="sophex-panel__title">
+        <div class="centris-panel">
+          <div class="centris-panel__header">
+            <h2 class="centris-panel__title">
               <span>[TERM]</span>
               SYSTEM TERMINAL
             </h2>
           </div>
-          <div class="sophex-terminal" id="terminal">
-            <div class="sophex-terminal__line">&gt; Initializing SOPHEX v2.4.1...</div>
-            <div class="sophex-terminal__line">&gt; Loading tactical systems...</div>
-            <div class="sophex-terminal__line">&gt; Establishing secure connections...</div>
-            <div class="sophex-terminal__line sophex-terminal__success">&gt; All systems operational</div>
-            <div class="sophex-terminal__line">&gt; Receiving real-time data...</div>
-            <div class="sophex-terminal__line sophex-terminal__warning">&gt; Warning: Unit ECHO-05 offline</div>
-            <div class="sophex-terminal__line">&gt; Deploying recovery protocol...</div>
-            <div class="sophex-terminal__line">
-              <span class="sophex-terminal__prompt">&gt;_</span>
+          <div class="centris-terminal" id="terminal">
+            <div class="centris-terminal__line">&gt; Initializing CENTRIS v2.4.1...</div>
+            <div class="centris-terminal__line">&gt; Loading tactical systems...</div>
+            <div class="centris-terminal__line">&gt; Establishing secure connections...</div>
+            <div class="centris-terminal__line centris-terminal__success">&gt; All systems operational</div>
+            <div class="centris-terminal__line">&gt; Receiving real-time data...</div>
+            <div class="centris-terminal__line centris-terminal__warning">&gt; Warning: Unit ECHO-05 offline</div>
+            <div class="centris-terminal__line">&gt; Deploying recovery protocol...</div>
+            <div class="centris-terminal__line">
+              <span class="centris-terminal__prompt">&gt;_</span>
               <span style="animation: pulse 1s infinite;">▊</span>
             </div>
           </div>
         </div>
 
         <!-- 緊急アラート -->
-        <div class="sophex-panel">
-          <div class="sophex-panel__header">
-            <h2 class="sophex-panel__title">
+        <div class="centris-panel">
+          <div class="centris-panel__header">
+            <h2 class="centris-panel__title">
               <span>[ALERT]</span>
               CRITICAL MESSAGES
             </h2>
@@ -647,7 +647,7 @@
     
     let messageIndex = 0;
     setInterval(() => {
-      const lines = terminal.querySelectorAll('.sophex-terminal__line');
+      const lines = terminal.querySelectorAll('.centris-terminal__line');
       const lastLine = lines[lines.length - 1];
       
       if (lastLine) {
@@ -656,8 +656,8 @@
         
         // 新しいプロンプト行を追加
         const newLine = document.createElement('div');
-        newLine.className = 'sophex-terminal__line';
-        newLine.innerHTML = '<span class="sophex-terminal__prompt">&gt;_</span><span style="animation: pulse 1s infinite;">▊</span>';
+        newLine.className = 'centris-terminal__line';
+        newLine.innerHTML = '<span class="centris-terminal__prompt">&gt;_</span><span style="animation: pulse 1s infinite;">▊</span>';
         terminal.appendChild(newLine);
         
         // 最大10行まで保持
@@ -671,21 +671,21 @@
     }, 3000);
     
     // ナビゲーションクリック処理
-    document.querySelectorAll('.sophex-nav__link').forEach(link => {
+    document.querySelectorAll('.centris-nav__link').forEach(link => {
       link.addEventListener('click', function(e) {
         e.preventDefault();
-        document.querySelectorAll('.sophex-nav__link').forEach(l => l.classList.remove('sophex-nav__link--active'));
-        this.classList.add('sophex-nav__link--active');
+        document.querySelectorAll('.centris-nav__link').forEach(l => l.classList.remove('centris-nav__link--active'));
+        this.classList.add('centris-nav__link--active');
       });
     });
     
     // コントロールボタン処理
-    document.querySelectorAll('.sophex-btn').forEach(btn => {
+    document.querySelectorAll('.centris-btn').forEach(btn => {
       btn.addEventListener('click', function() {
         const command = this.textContent;
         const line = document.createElement('div');
-        line.className = 'sophex-terminal__line';
-        line.innerHTML = `<span class="sophex-terminal__prompt">&gt;</span> Executing: ${command}`;
+        line.className = 'centris-terminal__line';
+        line.innerHTML = `<span class="centris-terminal__prompt">&gt;</span> Executing: ${command}`;
         terminal.appendChild(line);
         terminal.scrollTop = terminal.scrollHeight;
         

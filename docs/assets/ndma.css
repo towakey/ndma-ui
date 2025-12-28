@@ -704,7 +704,7 @@ hr {
 .ndma-theme-dark .ndma-form-control::placeholder {
   color: var(--text-muted);
 }
-/* ndma-ui Night Ops Theme (SOPHEX UI) */
+/* ndma-ui Night Ops Theme (CENTRIS UI) */
 /* Night vision optimized theme with tactical HUD elements */
 
 .ndma-theme-ops {
@@ -714,7 +714,7 @@ hr {
   --ndma-gray: #4a5568;
   --ndma-light: #1a202c;
   
-  /* SOPHEX specific colors */
+  /* CENTRIS specific colors */
   --ops-bg: #0A0A0A;
   --ops-orange: #FF8A1C;
   --ops-border: #E66000;

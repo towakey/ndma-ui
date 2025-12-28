@@ -62,7 +62,7 @@
             <div class="ndma-header__content">
                 <a href="#" class="ndma-header__logo">
                     <div class="ndma-header__logo-icon">NDMA</div>
-                    <span>国家防災管理機構</span>
+                    <span>国家災害管理機構</span>
                 </a>
                 <nav class="ndma-header__nav">
                     <a href="#" class="ndma-header__nav-link">ダッシュボード</a>
@@ -248,7 +248,7 @@
                     </form>
                 </div>
                 <div class="demo-item">
-                    <div class="demo-item-title">SOPHEX認証パッド（Night Ops）</div>
+                    <div class="demo-item-title">CENTRIS認証パッド（Night Ops）</div>
                     <div class="ndma-code-pad">
                         <div class="ndma-code-pad__display">_ _ _ _</div>
                         <div class="ndma-code-pad__grid">
@@ -396,9 +396,9 @@
             </div>
         </section>
 
-        <!-- SOPHEX UI Demo (Night Ops Theme Only) -->
-        <section class="demo-section" id="sophex-demo" style="display: none;">
-            <h2 class="demo-title">SOPHEX UI デモ</h2>
+        <!-- CENTRIS UI Demo (Night Ops Theme Only) -->
+        <section class="demo-section" id="centris-demo" style="display: none;">
+            <h2 class="demo-title">CENTRIS UI デモ</h2>
             <div class="demo-grid">
                 <div class="demo-item">
                     <div class="demo-item-title">HUDパネル</div>
@@ -444,12 +444,12 @@
             });
             event.target.classList.add('ndma-theme-switcher__btn--active');
             
-            // Show/hide SOPHEX demo
-            const sophexDemo = document.getElementById('sophex-demo');
+            // Show/hide CENTRIS demo
+            const centrisDemo = document.getElementById('centris-demo');
             if (theme === 'ops') {
-                sophexDemo.style.display = 'block';
+                centrisDemo.style.display = 'block';
             } else {
-                sophexDemo.style.display = 'none';
+                centrisDemo.style.display = 'none';
             }
         }
 
